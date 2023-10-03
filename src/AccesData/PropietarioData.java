@@ -78,5 +78,22 @@ public class PropietarioData {
     public void EliminarLogico(Propietario propietario){
         
     }
+    public void DeletearPropietario(int dni){
+        String sql="DELETE FROM propietarios WHERE idpropietario=?";
+        
+         try {
+             PreparedStatement ps= con.prepareStatement(sql);
+             ps.setInt(1, dni);
+             int exito=ps.executeUpdate();
+             if (exito==1) {
+                 JOptionPane.showMessageDialog(null, "Propietario eliminado");
+             }
+             
+         } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, "Error al acceder a la Tabla Propietarios.");
+                    
+         }
+        
+    }
     
 }
