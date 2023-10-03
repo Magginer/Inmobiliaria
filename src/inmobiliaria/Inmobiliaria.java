@@ -5,6 +5,9 @@
  */
 package inmobiliaria;
 
+import AccesData.PropietarioData;
+import Entidades.Propietario;
+
 /**
  *
  * @author marti
@@ -16,8 +19,14 @@ public class Inmobiliaria {
      */
     public static void main(String[] args) {
         
-        
+     Propietario margo = new Propietario(123456,"Margo", "Garcia","Chacras 568", 456788654,1); 
+     PropietarioData prop=new PropietarioData();
+     //prop.GuardarPropietario(margo);
+     //prop.ModificarPropietario(margo);
+     //prop.DeletearPropietario(123456);
+     
+     
         
     }
-    //lala
+   
 }
