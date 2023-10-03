@@ -16,6 +16,7 @@ public class Propietario {
     private String apellido;
     private String domicilio;
     private int telefono;
+    private int idpropietario;
 
     public Propietario() {
     }
@@ -26,6 +27,16 @@ public class Propietario {
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
+       
+    }
+
+    public Propietario(int dni, String nombre, String apellido, String domicilio, int telefono, int idpropietario) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.domicilio = domicilio;
+        this.telefono = telefono;
+        this.idpropietario = idpropietario;
     }
 
     public int getDni() {
@@ -68,12 +79,20 @@ public class Propietario {
         this.telefono = telefono;
     }
 
+    public int getIdpropietario() {
+        return idpropietario;
+    }
+
+    public void setIdpropietario(int idpropietario) {
+        this.idpropietario = idpropietario;
+    }
+
     @Override
     public String toString() {
-        return "Propietario{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", domicilio=" + domicilio + ", telefono=" + telefono + '}';
+        return "Propietario{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idpropietario=" + idpropietario + '}';
     }
     
     
     
     
-}
+}  
