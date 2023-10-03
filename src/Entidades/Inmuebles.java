@@ -57,11 +57,11 @@ public class Inmuebles {
         this.altura = altura;
     }
 
-    public string getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(string tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
