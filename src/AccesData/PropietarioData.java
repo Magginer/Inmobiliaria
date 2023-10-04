@@ -53,7 +53,7 @@ public class PropietarioData {
          }
     }
     public void ModificarPropietario(Propietario propietario){
-        String sql="UPDATE `propietarios` SET dni=?, nombre=?, apellido=?, domicilio=, telefono=? WHERE idpropietario=?";
+        String sql="UPDATE `propietarios` SET dni=?, nombre=?, apellido=?, domicilio=?, telefono=? WHERE idpropietario=?";
         //UPDATE `propietarios` SET dni=?,nombre=?,apellido=?,domicilio=,telefono=? WHERE idpropietario=?
         
          try {
@@ -63,6 +63,7 @@ public class PropietarioData {
              ps.setString(3, propietario.getApellido());
              ps.setString(4, propietario.getDomicilio());
              ps.setInt(5, propietario.getTelefono());
+             ps.setInt(6, propietario.getIdpropietario());
              
              int exito=ps.executeUpdate();
              System.out.println("Propietario Modificado.");
@@ -79,7 +80,7 @@ public class PropietarioData {
         
     }
     public void DeletearPropietario(int dni){
-        String sql="DELETE FROM propietarios WHERE idpropietario=?";
+        String sql="DELETE FROM propietarios WHERE dni=?";
         
          try {
              PreparedStatement ps= con.prepareStatement(sql);
