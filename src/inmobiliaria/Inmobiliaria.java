@@ -19,12 +19,13 @@ public class Inmobiliaria {
      */
     public static void main(String[] args) {
         
-     Propietario margo = new Propietario(123456,"Margo", "Garcia","Chacras 568", 456788654,1); 
+
+    Propietario elsa = new Propietario(158742,"elsa", "balero","Chacras 568", 456788654,true);
+     //Propietario juan = new Propietario(87951396,"Juan", "Chamorro","calle falsa 123", 7895645,true);
      PropietarioData prop=new PropietarioData();
-     //prop.GuardarPropietario(margo);
-     //prop.ModificarPropietario(margo);
-     //prop.DeletearPropietario(123456);
-     
+     //prop.GuardarPropietario(juan);
+     prop.GuardarPropietario(elsa);
+
      
         
     }

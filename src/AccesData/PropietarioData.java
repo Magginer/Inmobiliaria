@@ -32,7 +32,7 @@ public class PropietarioData {
     
     public void GuardarPropietario (Propietario propietario){
         
-        String sql= "INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono) VALUES (?,?,?,?,?)";
+        String sql= "INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono, estado) VALUES (?,?,?,?,?,?)";
         // INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono) VALUES (?,?,?,?,?)
          try {
              PreparedStatement ps=con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -41,6 +41,7 @@ public class PropietarioData {
              ps.setString(3, propietario.getApellido());
              ps.setString(4, propietario.getDomicilio());
              ps.setInt(5, propietario.getTelefono());
+             ps.setBoolean(6, propietario.isEstado());
              ps.executeQuery();
              
              ResultSet rs= ps.getGeneratedKeys();
@@ -76,7 +77,23 @@ public class PropietarioData {
          }
         
     }
-    public void EliminarLogico(Propietario propietario){
+    public void EliminarLogico(int idpropietario){
+        String sql = "UPDATE propietarios SET estado = 0 WHERE idpropietario=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,idpropietario);
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Propietario borrado");
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Propietario");
+
+        }
+        
         
     }
     public void DeletearPropietario(int dni){
