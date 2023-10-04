@@ -17,26 +17,28 @@ public class Propietario {
     private String domicilio;
     private int telefono;
     private int idpropietario;
-
+    private boolean estado;
+   
     public Propietario() {
     }
 
-    public Propietario(int dni, String nombre, String apellido, String domicilio, int telefono) {
+    public Propietario(int dni, String nombre, String apellido, String domicilio, int telefono, boolean estado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
-       
+        this.estado = estado;
     }
 
-    public Propietario(int dni, String nombre, String apellido, String domicilio, int telefono, int idpropietario) {
+    public Propietario(int dni, String nombre, String apellido, String domicilio, int telefono, int idpropietario, boolean estado) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.idpropietario = idpropietario;
+        this.estado = estado;
     }
 
     public int getDni() {
@@ -87,12 +89,18 @@ public class Propietario {
         this.idpropietario = idpropietario;
     }
 
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
     @Override
     public String toString() {
-        return "Propietario{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idpropietario=" + idpropietario + '}';
+        return "Propietario{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idpropietario=" + idpropietario + ", estado=" + estado + '}';
     }
-    
-    
-    
-    
+
+   
 }  
