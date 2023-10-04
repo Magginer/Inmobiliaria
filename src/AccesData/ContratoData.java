@@ -4,10 +4,15 @@
  */
 package AccesData;
 
+import java.sql.Connection;
+
 /**
  *
  * @author ignac
  */
 public class ContratoData {
+    
+    private Connection con = null;
+    
     
 }
