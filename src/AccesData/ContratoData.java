@@ -14,5 +14,28 @@ public class ContratoData {
     
     private Connection con = null;
     
+    private final InmueblesData id= new InmueblesData();
+    private final PropietarioData pd= new PropietarioData();
     
+    
+    
+    public ContratoData(){
+        this.con = Conexion.getConexion();
+    }
+    
+    public void buscarContrato(){
+        
+    }
+    
+    public void cancelacion(){
+        
+    }
+    
+    public void Crear_Contrato(ContratoVenta){
+        
+    }
+    
+    public void Renovacion(){
+        
+    }
 }
