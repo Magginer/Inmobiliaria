@@ -7,6 +7,8 @@ package inmobiliaria;
 
 import AccesData.InquilinoData;
 import AccesData.PropietarioData;
+import Entidades.Contrato;
+import Entidades.Inmuebles;
 import Entidades.Inquilino;
 import Entidades.Propietario;
 
@@ -28,13 +30,17 @@ public class Inmobiliaria {
      //prop.GuardarPropietario(juan);
      //prop.GuardarPropietario(elsa);
 
-     Inquilino pepe = new Inquilino (3, 48984,"Moni","Argento","Las Heras 546","Dardo Fuseneco", 4874984,true);
-     InquilinoData inq = new InquilinoData();
+     //Inquilino pepe = new Inquilino (3, 48984,"Moni","Argento","Las Heras 546","Dardo Fuseneco", 4874984,true);
+     //InquilinoData inq = new InquilinoData();
      //inq.GuardarInquilino(pepe);
      //inq.ModificarInquilino(pepe);
      //inq.EliminarLogico(3);
      //inq.DeletearInquilino(48984);
         
+    
+   
+     
+     
     }
    
 }
