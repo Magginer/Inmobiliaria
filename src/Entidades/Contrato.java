@@ -40,10 +40,65 @@ public class Contrato {
         this.inmueble = inmueble;
     }
 
+    public int getIdcontrato() {
+        return idcontrato;
+    }
+
+    public void setIdcontrato(int idcontrato) {
+        this.idcontrato = idcontrato;
+    }
+
+    public int getFechadeinicio() {
+        return fechadeinicio;
+    }
+
+    public void setFechadeinicio(int fechadeinicio) {
+        this.fechadeinicio = fechadeinicio;
+    }
+
+    public int getFechadefin() {
+        return fechadefin;
+    }
+
+    public void setFechadefin(int fechadefin) {
+        this.fechadefin = fechadefin;
+    }
+
+    public int getAlquiler() {
+        return alquiler;
+    }
+
+    public void setAlquiler(int alquiler) {
+        this.alquiler = alquiler;
+    }
+
+    public int getVigente() {
+        return vigente;
+    }
+
+    public void setVigente(int vigente) {
+        this.vigente = vigente;
+    }
+
+    public Inquilino getInquilino() {
+        return inquilino;
+    }
+
+    public void setInquilino(Inquilino inquilino) {
+        this.inquilino = inquilino;
+    }
+
+    public Inmuebles getInmueble() {
+        return inmueble;
+    }
+
+    public void setInmueble(Inmuebles inmueble) {
+        this.inmueble = inmueble;
+    }
+
     @Override
     public String toString() {
         return "Contrato{" + "idcontrato=" + idcontrato + ", fechadeinicio=" + fechadeinicio + ", fechadefin=" + fechadefin + ", alquiler=" + alquiler + ", vigente=" + vigente + ", inquilino=" + inquilino + ", inmueble=" + inmueble + '}';
     }
-    
-    
+
 }
