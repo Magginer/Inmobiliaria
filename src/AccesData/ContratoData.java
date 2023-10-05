@@ -13,6 +13,5 @@ import java.sql.Connection;
 public class ContratoData {
     
     private Connection con = null;
-    
-    
+        
 }
