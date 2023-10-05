@@ -4,6 +4,7 @@
  */
 package Entidades;
 
+import java.time.LocalDate;
 /**
  *
  * @author ignac
@@ -11,17 +12,17 @@ package Entidades;
 public class Contrato {
     
     private int idcontrato;
-    private int fechadeinicio;
-    private int fechadefin;
+    private LocalDate fechadeinicio;
+    private LocalDate fechadefin;
     private int alquiler;
-    private int vigente;
+    private boolean vigente;
     private Inquilino inquilino;
     private Inmuebles inmueble;
 
     public Contrato() {
     }
 
-    public Contrato(int fechadeinicio, int fechadefin, int alquiler, int vigente, Inquilino inquilino, Inmuebles inmueble) {
+    public Contrato(LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
         this.fechadeinicio = fechadeinicio;
         this.fechadefin = fechadefin;
         this.alquiler = alquiler;
@@ -30,7 +31,7 @@ public class Contrato {
         this.inmueble = inmueble;
     }
 
-    public Contrato(int idcontrato, int fechadeinicio, int fechadefin, int alquiler, int vigente, Inquilino inquilino, Inmuebles inmueble) {
+    public Contrato(int idcontrato, LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
         this.idcontrato = idcontrato;
         this.fechadeinicio = fechadeinicio;
         this.fechadefin = fechadefin;
@@ -48,19 +49,19 @@ public class Contrato {
         this.idcontrato = idcontrato;
     }
 
-    public int getFechadeinicio() {
+    public LocalDate getFechadeinicio() {
         return fechadeinicio;
     }
 
-    public void setFechadeinicio(int fechadeinicio) {
+    public void setFechadeinicio(LocalDate fechadeinicio) {
         this.fechadeinicio = fechadeinicio;
     }
 
-    public int getFechadefin() {
+    public LocalDate getFechadefin() {
         return fechadefin;
     }
 
-    public void setFechadefin(int fechadefin) {
+    public void setFechadefin(LocalDate fechadefin) {
         this.fechadefin = fechadefin;
     }
 
@@ -72,11 +73,11 @@ public class Contrato {
         this.alquiler = alquiler;
     }
 
-    public int getVigente() {
+    public boolean getVigente() {
         return vigente;
     }
 
-    public void setVigente(int vigente) {
+    public void setVigente(boolean vigente) {
         this.vigente = vigente;
     }
 
