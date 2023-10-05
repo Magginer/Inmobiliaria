@@ -5,6 +5,7 @@
  */
 package inmobiliaria;
 
+import AccesData.InmueblesData;
 import AccesData.InquilinoData;
 import AccesData.PropietarioData;
 import Entidades.Contrato;
@@ -24,22 +25,28 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         
 
-     //Propietario elsa = new Propietario(158742,"elsa", "balero","Chacras 568", 456788654,true);
+     //Propietario elsa = new Propietario(158742,"elsa", "balero","Chacras 568", 456788654,9,true);
      //Propietario juan = new Propietario(87951396,"Juan", "Chamorro","calle falsa 123", 7895645,true);
      //PropietarioData prop=new PropietarioData();
      //prop.GuardarPropietario(juan);
      //prop.GuardarPropietario(elsa);
-
+     
      //Inquilino pepe = new Inquilino (3, 48984,"Moni","Argento","Las Heras 546","Dardo Fuseneco", 4874984,true);
      //InquilinoData inq = new InquilinoData();
      //inq.GuardarInquilino(pepe);
      //inq.ModificarInquilino(pepe);
      //inq.EliminarLogico(3);
      //inq.DeletearInquilino(48984);
-        
-    
+     
+    //Inmuebles inm = new Inmuebles ("calle falsa", 123, "departamento", 80, 120000, "Recoleta", true, elsa);
+    //InmueblesData inms=new InmueblesData();
+    //inms.GuardarInmueble(inm);
    
      
+ 
+          
+    
+        
      
     }
    

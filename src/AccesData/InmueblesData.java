@@ -22,16 +22,17 @@ import javax.swing.JOptionPane;
  */
 public class InmueblesData {
     private Connection con = null;
-    private Propietario propietario=new Propietario();
+    
     
     public InmueblesData(){
         con = Conexion.getConexion();
+        
     }
     
     
     
     public void GuardarInmueble(Inmuebles inmuebles){
-        String sql="INSERT INTO inmuebles(direccion, altura, tipo, superficie, precio, zona, estado, idpropietario) VALUES (?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO inmuebles(direccion, altura, tipo, superficie, precio, zona, estado,idpropietario) VALUES (?,?,?,?,?,?,?,?)";
         //INSERT INTO inmuebles(idinmuebl, direccion, altura, tipo, superficie, precio, zona, estado, idpropietario) VALUES ()
         try {
             PreparedStatement ps= con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -42,7 +43,7 @@ public class InmueblesData {
             ps.setInt(5, inmuebles.getPrecio());
             ps.setString(6, inmuebles.getZona());
             ps.setBoolean(7, inmuebles.isEstado());
-            ps.setInt(8, propietario.getIdpropietario());
+            ps.setInt(8, inmuebles.getPropietario().getIdpropietario());
             ps.executeQuery();
             
             ResultSet rs= ps.getGeneratedKeys(); 
