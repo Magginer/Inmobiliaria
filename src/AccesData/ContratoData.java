@@ -5,6 +5,9 @@
 package AccesData;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +16,5 @@ import java.sql.Connection;
 public class ContratoData {
     
     private Connection con = null;
-    
-    
+        
 }
