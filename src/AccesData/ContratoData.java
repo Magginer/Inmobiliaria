@@ -16,6 +16,5 @@ import javax.swing.JOptionPane;
 public class ContratoData {
     
     private Connection con = null;
-    
-    
+        
 }
