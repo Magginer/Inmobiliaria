@@ -13,9 +13,5 @@ import java.sql.Connection;
 public class ContratoData {
     
     private Connection con = null;
-    
-    private final PropietarioData pd = new PropietarioData();
-    private final InmueblesData id = new InmueblesData();
-    private final InquilinoData ind = new InquilinoData();
-    
+        
 }
