@@ -56,4 +56,5 @@ public class ContratoData {
             JOptionPane.showMessageDialog(null, "Error al entrar a la tabla de Contrato");
         }
     }
+    
 }
