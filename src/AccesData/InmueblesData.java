@@ -22,32 +22,33 @@ import javax.swing.JOptionPane;
  */
 public class InmueblesData {
     private Connection con = null;
-    private Propietario propietario=new Propietario();
+    
     
     public InmueblesData(){
         con = Conexion.getConexion();
+        
     }
     
     
     
-    public void GuardarInmueble(Inmuebles inmuebles){
+    public void GuardarInmueble(Inmuebles inm){
         String sql="INSERT INTO inmuebles(direccion, altura, tipo, superficie, precio, zona, estado, idpropietario) VALUES (?,?,?,?,?,?,?,?)";
         //INSERT INTO inmuebles(idinmuebl, direccion, altura, tipo, superficie, precio, zona, estado, idpropietario) VALUES ()
         try {
             PreparedStatement ps= con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, inmuebles.getDireccion());
-            ps.setInt(2, inmuebles.getAltura());
-            ps.setString(3, inmuebles.getTipo());
-            ps.setInt(4, inmuebles.getSuperficie());
-            ps.setInt(5, inmuebles.getPrecio());
-            ps.setString(6, inmuebles.getZona());
-            ps.setBoolean(7, inmuebles.isEstado());
-            ps.setInt(8, propietario.getIdpropietario());
+            ps.setString(1, inm.getDireccion());
+            ps.setInt(2, inm.getAltura());
+            ps.setString(3, inm.getTipo());
+            ps.setInt(4, inm.getSuperficie());
+            ps.setInt(5, inm.getPrecio());
+            ps.setString(6, inm.getZona());
+            ps.setBoolean(7, inm.isEstado());
+            ps.setInt(8, inm.getPropietario().getIdpropietario());
             ps.executeQuery();
             
             ResultSet rs= ps.getGeneratedKeys(); 
              if (rs.next()) {
-                 inmuebles.setIdinmueble(rs.getInt(1));
+                 inm.setIdinmueble(rs.getInt(1));
                  JOptionPane.showMessageDialog(null, "Inmueble Guardado Exitosamente.");
              }
             
@@ -55,18 +56,18 @@ public class InmueblesData {
             JOptionPane.showMessageDialog(null, "Error al acceder a la Tabla Inmuebles");
         }
     }
-    public void ModifacacionInmueble(Inmuebles inmuebles){
+    public void ModifacacionInmueble(Inmuebles inm){
         String sql="UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?";
         try {
             //UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?
             PreparedStatement ps= con.prepareStatement(sql);
-            ps.setString(1, inmuebles.getDireccion());
-            ps.setInt(2, inmuebles.getAltura());
-            ps.setString(3, inmuebles.getTipo());
-            ps.setInt(4, inmuebles.getSuperficie());
-            ps.setInt(5, inmuebles.getPrecio());
-            ps.setString(6, inmuebles.getZona());
-            ps.setBoolean(7, inmuebles.isEstado());
+            ps.setString(1, inm.getDireccion());
+            ps.setInt(2, inm.getAltura());
+            ps.setString(3, inm.getTipo());
+            ps.setInt(4, inm.getSuperficie());
+            ps.setInt(5, inm.getPrecio());
+            ps.setString(6, inm.getZona());
+            ps.setBoolean(7, inm.isEstado());
             
             int exito=ps.executeUpdate();
              System.out.println("Inmueble Modificado.");

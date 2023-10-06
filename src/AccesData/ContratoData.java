@@ -31,9 +31,8 @@ public class ContratoData {
     
     public void guardarContrato(Contrato cont) {
 
-        String sql = "INSERT INTO contrato (fechadeinicio, fechadefinalizacion, alquiler, vigente, idinquilino, idinmueble)"
-                + "VALUES (?,?,?,?,?,?)";
-
+        String sql = "INSERT INTO contrato (fechadeinicio, fechadefinalizacion, alquiler, vigente, idinquilino, idinmueble) VALUES (?,?,?,?,?,?)";
+                 
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -57,4 +56,5 @@ public class ContratoData {
             JOptionPane.showMessageDialog(null, "Error al entrar a la tabla de Contrato");
         }
     }
+    
 }
