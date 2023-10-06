@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
@@ -57,4 +58,24 @@ public class ContratoData {
         }
     }
     
+    public void deletearMateria(int idinquilino, int idinmueble) {
+
+        String sql = "DELETE FROM contrato WHERE idinquilino=? and idinmueble=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idinquilino);
+            ps.setInt(2, idinmueble);
+
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+
+                JOptionPane.showMessageDialog(null, "Contrato Borrado");
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contratos");
+        }
+    }
 }
