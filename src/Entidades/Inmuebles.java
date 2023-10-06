@@ -18,11 +18,25 @@ public class Inmuebles {
     private int precio;
     private String zona;
     private boolean estado;
-
+    private Propietario propietario;
+    
+    
+    
     public Inmuebles() {
     }
 
-    public Inmuebles(int idinmueble, String direccion, int altura, String tipo, int superficie, int precio, String zona, boolean estado) {
+    public Inmuebles(String direccion, int altura, String tipo, int superficie, int precio, String zona, boolean estado, Propietario propietario) {
+        this.direccion = direccion;
+        this.altura = altura;
+        this.tipo = tipo;
+        this.superficie = superficie;
+        this.precio = precio;
+        this.zona = zona;
+        this.estado = estado;
+        this.propietario = propietario;
+    }
+
+    public Inmuebles(int idinmueble, String direccion, int altura, String tipo, int superficie, int precio, String zona, boolean estado, Propietario propietario) {
         this.idinmueble = idinmueble;
         this.direccion = direccion;
         this.altura = altura;
@@ -31,6 +45,7 @@ public class Inmuebles {
         this.precio = precio;
         this.zona = zona;
         this.estado = estado;
+        this.propietario = propietario;
     }
 
     public int getIdinmueble() {
@@ -97,11 +112,23 @@ public class Inmuebles {
         this.estado = estado;
     }
 
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
     @Override
     public String toString() {
-        return "Inmuebles{" + "idinmueble=" + idinmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", zona=" + zona + ", estado=" + estado + '}';
+        return "Inmuebles{" + "idinmueble=" + idinmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", zona=" + zona + ", estado=" + estado + ", propietario=" + propietario + '}';
+    }
+
+    
+    
+    
     }
     
     
-    
-}
+   
