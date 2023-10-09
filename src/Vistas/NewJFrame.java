@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import java.awt.AlphaComposite;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /**
  *
@@ -22,10 +25,11 @@ private float opacity2 = 0.0f;
 private Timer animationTimer;
 private JPanel panel;
 private int xPos;
+private float opacity3 = 1.0f;
 
     public NewJFrame() {
         initComponents();
-        fadeout();
+        desaparecerpanel();
         
     }
 
@@ -121,17 +125,17 @@ private int xPos;
     }
    private void fadeout() {
 
-        fadeTimer = new Timer(500, new ActionListener() { // Cambia la velocidad ajustando el valor (en milisegundos)
+        fadeTimer = new Timer(100, new ActionListener() { // Cambia la velocidad ajustando el valor (en milisegundos)
             @Override
             public void actionPerformed(ActionEvent e) {
                 opacity -= 0.05f; // Disminuye gradualmente la opacidad
-                mipanel.setOpaque(true);
-                mipanel.setForeground(new java.awt.Color(0, 0, 0, (int) (255 * opacity)));
-                mipanel.repaint();
+                cartel.setOpaque(true);
+                cartel.setForeground(new java.awt.Color(0, 0, 0, (int) (255 * opacity)));
+                cartel.repaint();
 
                 if (opacity <= 0.0f) {
                     fadeTimer.stop();
-                    mipanel.setVisible(false); // Hacer que el JLabel sea invisible una vez que esté completamente desvanecido
+                    cartel.setVisible(false); // Hacer que el JLabel sea invisible una vez que esté completamente desvanecido
                 }
             }
         });
@@ -176,6 +180,30 @@ private int xPos;
     });  
    animationTimer.start();
 }
+    
+    
+     private void desaparecerpanel(){
+         
+        fadeTimer = new Timer(200, new ActionListener() { // Cambia la velocidad ajustando el valor (en milisegundos)
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            opacity -= 0.05f; // Disminuye gradualmente la opacidad
+            mipanel.setOpaque(true);
+            mipanel.setBackground(new java.awt.Color(0, 0, 0, (int) (255 * opacity)));
+            mipanel.repaint();
+
+            if (opacity <= 0.0f) {
+                fadeTimer.stop();
+                mipanel.setVisible(false); // Hacer que el JPanel sea invisible una vez que esté completamente desvanecido
+            }
+        }
+        
+    });
+        fadeTimer.start();
+         
+         
+     }
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cartel;
