@@ -14,10 +14,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
-/**
- *
- * @author ignac
- */
+
 public class ContratoData {
     
     private Connection con = null;
