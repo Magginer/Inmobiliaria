@@ -55,7 +55,7 @@ public class ContratoData {
         }
     }
     
-    public void deletearMateria(int idinquilino, int idinmueble) {
+    public void deletearContrato(int idinquilino, int idinmueble) {
 
         String sql = "DELETE FROM contrato WHERE idinquilino=? and idinmueble=?";
 
@@ -75,4 +75,32 @@ public class ContratoData {
             JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contratos");
         }
     }
+    
+    public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, int idinquilino, int idinmueble) {
+
+        String sql = "UPDATE contrato SET fechadeinicio=?, fechadefin=?, alquiler=?, vigente=? WHERE idalumno=? and idmateria=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setDate(1, Date.valueOf(fechadeinicio));
+            ps.setDate(2, Date.valueOf(fechadefin));
+            ps.setInt(3, alquiler);
+            ps.setBoolean(4, vigente);
+            ps.setInt(5, idinquilino);
+            ps.setInt(6, idinmueble);
+
+            int filas = ps.executeUpdate();
+            if (filas > 0) {
+
+                JOptionPane.showMessageDialog(null,   "se ha Renovado el Contrato");
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contrato");
+        }
+    }
+    
+    
 }
