@@ -76,19 +76,18 @@ public class ContratoData {
         }
     }
     
-    public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, int idinquilino, int idinmueble) {
+    public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
 
-        String sql = "UPDATE contrato SET fechadeinicio=?, fechadefin=?, alquiler=?, vigente=? WHERE idalumno=? and idmateria=?";
+        String sql = "UPDATE contrato SET fechadeinicio=?, fechadefinalizacion=?, alquiler=?, vigente=? WHERE idcontrato=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setDate(1, Date.valueOf(fechadeinicio));
-            ps.setDate(2, Date.valueOf(fechadefin));
+            ps.setDate(2, Date.valueOf(fechadefinalizacion));
             ps.setInt(3, alquiler);
             ps.setBoolean(4, vigente);
-            ps.setInt(5, idinquilino);
-            ps.setInt(6, idinmueble);
+            ps.setInt(5, idcontrato);
 
             int filas = ps.executeUpdate();
             if (filas > 0) {
