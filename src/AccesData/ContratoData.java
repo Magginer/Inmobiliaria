@@ -76,7 +76,9 @@ public class ContratoData {
         }
     }
     
+
     public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
+
 
         String sql = "UPDATE contrato SET fechadeinicio=?, fechadefinalizacion=?, alquiler=?, vigente=? WHERE idcontrato=?";
 
@@ -92,7 +94,7 @@ public class ContratoData {
             int filas = ps.executeUpdate();
             if (filas > 0) {
 
-                JOptionPane.showMessageDialog(null,   "se ha Renovado el Contrato");
+                JOptionPane.showMessageDialog(null,"se ha Renovado el Contrato");
             }
             ps.close();
 
