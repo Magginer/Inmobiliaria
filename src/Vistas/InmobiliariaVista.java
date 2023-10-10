@@ -6,8 +6,12 @@
 package Vistas;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,9 +19,7 @@ import javax.swing.ImageIcon;
  */
 public class InmobiliariaVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InmobiliariaVista
-     */
+    
     public InmobiliariaVista() {
         initComponents();
         setSize(672,575);
@@ -50,7 +52,7 @@ public class InmobiliariaVista extends javax.swing.JFrame {
     private void initComponents() {
 
         JLogo = new javax.swing.JLabel();
-        jbnuevo1 = new javax.swing.JButton();
+        jbienvenido = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         JLWallpaper = new javax.swing.JLabel();
 
@@ -58,16 +60,16 @@ public class InmobiliariaVista extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(JLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 50));
 
-        jbnuevo1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jbnuevo1.setForeground(new java.awt.Color(0, 153, 102));
-        jbnuevo1.setText("Bienvenido ");
-        jbnuevo1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jbnuevo1.addActionListener(new java.awt.event.ActionListener() {
+        jbienvenido.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jbienvenido.setForeground(new java.awt.Color(0, 153, 102));
+        jbienvenido.setText("Bienvenido ");
+        jbienvenido.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jbienvenido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbnuevo1ActionPerformed(evt);
+                jbienvenidoActionPerformed(evt);
             }
         });
-        getContentPane().add(jbnuevo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 120, 40));
+        getContentPane().add(jbienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 120, 40));
 
         jTextField1.setBackground(new java.awt.Color(201, 237, 169));
         jTextField1.setFont(new java.awt.Font("Yu Mincho", 1, 24)); // NOI18N
@@ -82,14 +84,16 @@ public class InmobiliariaVista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbnuevo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnuevo1ActionPerformed
+    private void jbienvenidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbienvenidoActionPerformed
         MenuPrincipal mp= new MenuPrincipal(); // crear nueva variable tipo jframe
         InmobiliariaVista im= this; // crear variable de esta ventana
         mp.setVisible(true); // lanzar la nueva ventana
         im.dispose(); // cerrar la ventana anterior
         
-    }//GEN-LAST:event_jbnuevo1ActionPerformed
-
+    }//GEN-LAST:event_jbienvenidoActionPerformed
+    
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -129,7 +133,7 @@ public class InmobiliariaVista extends javax.swing.JFrame {
     private javax.swing.JLabel JLWallpaper;
     private javax.swing.JLabel JLogo;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton jbnuevo1;
+    private javax.swing.JButton jbienvenido;
     // End of variables declaration//GEN-END:variables
 
 
