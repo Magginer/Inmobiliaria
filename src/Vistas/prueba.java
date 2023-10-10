@@ -16,6 +16,14 @@ public class prueba extends javax.swing.JFrame {
      */
     public prueba() {
         initComponents();
+        
+        
+        ImageIcon wallpaper =new ImageIcon("src/imagenes/LOGOTIPO800x533.png");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), Image.SCALE_SMOOTH));
+        jLabel5.setIcon(icono);
+        this.repaint();
+        
+        
     }
 
     /**
@@ -27,28 +35,11 @@ public class prueba extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dasdas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dasdas.setText("jLabel1");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dasdas, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(dasdas, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
