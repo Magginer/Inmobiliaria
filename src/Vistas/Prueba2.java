@@ -12,10 +12,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
-/**
- *
- * @author javie
- */
+//lola
 public class Prueba2 extends javax.swing.JFrame {
     
     private Timer animationTimer;
