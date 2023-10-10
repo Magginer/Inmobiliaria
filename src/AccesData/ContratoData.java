@@ -35,9 +35,9 @@ public class ContratoData {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             ps.setDate(1, Date.valueOf(cont.getFechadeinicio()));
-            ps.setDate(2, Date.valueOf(cont.getFechadefin()));
+            ps.setDate(2, Date.valueOf(cont.getFechadefinalizacion()));
             ps.setInt(3, cont.getAlquiler());
-            ps.setBoolean(4, cont.getVigente());
+            ps.setBoolean(4, cont.isVigente());
             ps.setInt(5, cont.getInquilino().getIdinquilino());
             ps.setInt(6, cont.getInmueble().getIdinmueble());
 
