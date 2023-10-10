@@ -72,7 +72,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 90, -1));
-        getContentPane().add(jlmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 672, 575));
+        getContentPane().add(jlmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
