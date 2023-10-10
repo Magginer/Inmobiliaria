@@ -13,7 +13,7 @@ public class Contrato {
     
     private int idcontrato;
     private LocalDate fechadeinicio;
-    private LocalDate fechadefin;
+    private LocalDate fechadefinalizacion;
     private int alquiler;
     private boolean vigente;
     private Inquilino inquilino;
@@ -22,19 +22,19 @@ public class Contrato {
     public Contrato() {
     }
 
-    public Contrato(LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
+    public Contrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
         this.fechadeinicio = fechadeinicio;
-        this.fechadefin = fechadefin;
+        this.fechadefinalizacion = fechadefinalizacion;
         this.alquiler = alquiler;
         this.vigente = vigente;
         this.inquilino = inquilino;
         this.inmueble = inmueble;
     }
 
-    public Contrato(int idcontrato, LocalDate fechadeinicio, LocalDate fechadefin, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
+    public Contrato(int idcontrato, LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, Inquilino inquilino, Inmuebles inmueble) {
         this.idcontrato = idcontrato;
         this.fechadeinicio = fechadeinicio;
-        this.fechadefin = fechadefin;
+        this.fechadefinalizacion = fechadefinalizacion;
         this.alquiler = alquiler;
         this.vigente = vigente;
         this.inquilino = inquilino;
@@ -57,12 +57,12 @@ public class Contrato {
         this.fechadeinicio = fechadeinicio;
     }
 
-    public LocalDate getFechadefin() {
-        return fechadefin;
+    public LocalDate getFechadefinalizacion() {
+        return fechadefinalizacion;
     }
 
-    public void setFechadefin(LocalDate fechadefin) {
-        this.fechadefin = fechadefin;
+    public void setFechadefinalizacion(LocalDate fechadefinalizacion) {
+        this.fechadefinalizacion = fechadefinalizacion;
     }
 
     public int getAlquiler() {
@@ -73,7 +73,7 @@ public class Contrato {
         this.alquiler = alquiler;
     }
 
-    public boolean getVigente() {
+    public boolean isVigente() {
         return vigente;
     }
 
@@ -99,7 +99,7 @@ public class Contrato {
 
     @Override
     public String toString() {
-        return "Contrato{" + "idcontrato=" + idcontrato + ", fechadeinicio=" + fechadeinicio + ", fechadefin=" + fechadefin + ", alquiler=" + alquiler + ", vigente=" + vigente + ", inquilino=" + inquilino + ", inmueble=" + inmueble + '}';
+        return "Contrato{" + "idcontrato=" + idcontrato + ", fechadeinicio=" + fechadeinicio + ", fechadefinalizacion=" + fechadefinalizacion + ", alquiler=" + alquiler + ", vigente=" + vigente + ", inquilino=" + inquilino + ", inmueble=" + inmueble + '}';
     }
 
 }
