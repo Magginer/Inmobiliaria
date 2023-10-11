@@ -32,9 +32,9 @@ public class Prueba2 extends javax.swing.JFrame {
         jltitulo.setIcon(icon);
         this.repaint();
         
-        ImageIcon wallpap =new ImageIcon("src/imagenes/menuuu.png");
-        Icon ico = new ImageIcon(wallpap.getImage().getScaledInstance(jlmenuentrada.getWidth(), jlmenuentrada.getHeight(), Image.SCALE_SMOOTH));
-        jlmenuentrada.setIcon(ico);
+        ImageIcon wallpap =new ImageIcon("src/imagenes/inmu.jpg");
+        Icon ico = new ImageIcon(wallpap.getImage().getScaledInstance(jlnuevaentrada.getWidth(), jlnuevaentrada.getHeight(), Image.SCALE_SMOOTH));
+        jlnuevaentrada.setIcon(ico);
         this.repaint();
         
     }
@@ -53,6 +53,10 @@ public class Prueba2 extends javax.swing.JFrame {
         menu1entrada = new javax.swing.JPanel();
         jlmenuentrada = new javax.swing.JLabel();
         nuevaentrada = new javax.swing.JPanel();
+        jbinmue = new javax.swing.JButton();
+        jbinqui = new javax.swing.JButton();
+        jbpropie = new javax.swing.JButton();
+        jbcont = new javax.swing.JButton();
         jlnuevaentrada = new javax.swing.JLabel();
         jpbotones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -63,7 +67,6 @@ public class Prueba2 extends javax.swing.JFrame {
         jltitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(672, 575));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -76,16 +79,40 @@ public class Prueba2 extends javax.swing.JFrame {
 
         jpadre.add(menu1entrada, "card2");
 
-        javax.swing.GroupLayout nuevaentradaLayout = new javax.swing.GroupLayout(nuevaentrada);
-        nuevaentrada.setLayout(nuevaentradaLayout);
-        nuevaentradaLayout.setHorizontalGroup(
-            nuevaentradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlnuevaentrada, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
-        );
-        nuevaentradaLayout.setVerticalGroup(
-            nuevaentradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlnuevaentrada, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-        );
+        nuevaentrada.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbinmue.setText("Inmuebles");
+        jbinmue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbinmueActionPerformed(evt);
+            }
+        });
+        nuevaentrada.add(jbinmue, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+
+        jbinqui.setText("Inquilinos");
+        jbinqui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbinquiActionPerformed(evt);
+            }
+        });
+        nuevaentrada.add(jbinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
+
+        jbpropie.setText("Propietarios");
+        jbpropie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbpropieActionPerformed(evt);
+            }
+        });
+        nuevaentrada.add(jbpropie, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
+
+        jbcont.setText("Contratos");
+        jbcont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbcontActionPerformed(evt);
+            }
+        });
+        nuevaentrada.add(jbcont, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, -1, -1));
+        nuevaentrada.add(jlnuevaentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 450));
 
         jpadre.add(nuevaentrada, "card4");
 
@@ -157,12 +184,12 @@ public class Prueba2 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
        jpadre.removeAll();
-       jpadre.add(menu1entrada); 
+       jpadre.add(nuevaentrada); 
        jpadre.repaint();
        jpadre.revalidate();
         
         animationTimer = new Timer(3, new ActionListener() {
-        private int xPos = -menu1entrada.getWidth();
+        private int xPos = -nuevaentrada.getWidth();
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -173,14 +200,43 @@ public class Prueba2 extends javax.swing.JFrame {
                 ((Timer) e.getSource()).stop(); // Detiene el temporizador
             }
 
-            menu1entrada.setLocation(xPos, menu1entrada.getY());
-            menu1entrada.repaint();
+            nuevaentrada.setLocation(xPos, nuevaentrada.getY());
+            nuevaentrada.repaint();
         }
 
     });
 
     animationTimer.start();
+    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbinmueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmueActionPerformed
+      //inmuebles
+      InmueblesVista ivv= new InmueblesVista();
+      ivv.setVisible(true);
+      
+    }//GEN-LAST:event_jbinmueActionPerformed
+
+    private void jbinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinquiActionPerformed
+     //inquilinos
+     InquilinosVista iv= new InquilinosVista();
+       iv.setVisible(true);
+       
+    }//GEN-LAST:event_jbinquiActionPerformed
+
+    private void jbpropieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbpropieActionPerformed
+     //propietarios
+     PropietarioVista pv= new PropietarioVista();
+     pv.setVisible(true);
+    }//GEN-LAST:event_jbpropieActionPerformed
+
+    private void jbcontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcontActionPerformed
+     //contratos
+     ContratosVistas cv= new ContratosVistas();
+     cv.setVisible(true);
+     
+    }//GEN-LAST:event_jbcontActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +278,10 @@ public class Prueba2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jbcont;
+    private javax.swing.JButton jbinmue;
+    private javax.swing.JButton jbinqui;
+    private javax.swing.JButton jbpropie;
     private javax.swing.JLabel jlmenuentrada;
     private javax.swing.JLabel jlnuevaentrada;
     private javax.swing.JLabel jlpadre;
