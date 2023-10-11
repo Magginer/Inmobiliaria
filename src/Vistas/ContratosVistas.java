@@ -41,17 +41,8 @@ public class ContratosVistas extends javax.swing.JFrame {
         jlcontra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlcontra, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlcontra, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
-        );
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 672, 575));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
