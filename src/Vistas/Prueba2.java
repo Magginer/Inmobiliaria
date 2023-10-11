@@ -37,6 +37,16 @@ public class Prueba2 extends javax.swing.JFrame {
         jlnuevaentrada.setIcon(ico);
         this.repaint();
         
+        ImageIcon wallpa =new ImageIcon("src/imagenes/TERRA_Busqueda_1024x683.jpg");
+        Icon ic = new ImageIcon(wallpa.getImage().getScaledInstance(jlbusqueda.getWidth(), jlbusqueda.getHeight(), Image.SCALE_SMOOTH));
+        jlbusqueda.setIcon(ic);
+        this.repaint();
+        
+        ImageIcon wallpaperochi =new ImageIcon("src/imagenes/icono.png");
+        Icon iconochi = new ImageIcon(wallpaperochi.getImage().getScaledInstance(jllogochi.getWidth(), jllogochi.getHeight(), Image.SCALE_SMOOTH));
+        jllogochi.setIcon(iconochi);
+        this.repaint();
+        
     }
 
     /**
@@ -58,11 +68,14 @@ public class Prueba2 extends javax.swing.JFrame {
         jbpropie = new javax.swing.JButton();
         jbcont = new javax.swing.JButton();
         jlnuevaentrada = new javax.swing.JLabel();
+        busquedas = new javax.swing.JPanel();
+        jbbusqinmu = new javax.swing.JButton();
+        jbbusqcont = new javax.swing.JButton();
+        jlbusqueda = new javax.swing.JLabel();
         jpbotones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jllogochi = new javax.swing.JLabel();
         jptitulo = new javax.swing.JPanel();
         jltitulo = new javax.swing.JLabel();
 
@@ -116,9 +129,31 @@ public class Prueba2 extends javax.swing.JFrame {
 
         jpadre.add(nuevaentrada, "card4");
 
+        busquedas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbbusqinmu.setText("Inmuebles");
+        jbbusqinmu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbbusqinmuActionPerformed(evt);
+            }
+        });
+        busquedas.add(jbbusqinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+
+        jbbusqcont.setText("Contratos");
+        jbbusqcont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbbusqcontActionPerformed(evt);
+            }
+        });
+        busquedas.add(jbbusqcont, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        busquedas.add(jlbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 444));
+
+        jpadre.add(busquedas, "card5");
+
         getContentPane().add(jpadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 520, 450));
 
         jpbotones.setBackground(new java.awt.Color(69, 125, 88));
+        jpbotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Nueva Entrada");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -126,40 +161,16 @@ public class Prueba2 extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Modificación");
-
-        jButton3.setText("Eliminar");
+        jpbotones.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 211, -1, -1));
 
         jButton4.setText("Busqueda");
-
-        javax.swing.GroupLayout jpbotonesLayout = new javax.swing.GroupLayout(jpbotones);
-        jpbotones.setLayout(jpbotonesLayout);
-        jpbotonesLayout.setHorizontalGroup(
-            jpbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpbotonesLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jpbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jpbotonesLayout.setVerticalGroup(
-            jpbotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpbotonesLayout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jButton1)
-                .addGap(33, 33, 33)
-                .addComponent(jButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jButton3)
-                .addGap(30, 30, 30)
-                .addComponent(jButton4)
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jpbotones.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 286, 110, -1));
+        jpbotones.add(jllogochi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 99));
 
         getContentPane().add(jpbotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 550));
 
@@ -238,6 +249,44 @@ public class Prueba2 extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jbcontActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    
+         jpadre.removeAll();
+       jpadre.add(busquedas); 
+       jpadre.repaint();
+       jpadre.revalidate();
+        
+        animationTimer = new Timer(3, new ActionListener() {
+        private int xPos = -busquedas.getWidth();
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            xPos += 10; // Incrementa gradualmente la posición X
+
+            if (xPos >= 0) {
+                xPos = 0; // Asegura que no se desplace más allá de la posición final
+                ((Timer) e.getSource()).stop(); // Detiene el temporizador
+            }
+
+            busquedas.setLocation(xPos, busquedas.getY());
+            busquedas.repaint();
+        }
+
+    });
+
+    animationTimer.start();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jbbusqcontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbusqcontActionPerformed
+     BusquedaContratos bc = new BusquedaContratos();
+     bc.setVisible(true);
+    }//GEN-LAST:event_jbbusqcontActionPerformed
+
+    private void jbbusqinmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbbusqinmuActionPerformed
+      BusquedaInmuebles bi= new BusquedaInmuebles();
+      bi.setVisible(true);
+    }//GEN-LAST:event_jbbusqinmuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -274,14 +323,17 @@ public class Prueba2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel busquedas;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jbbusqcont;
+    private javax.swing.JButton jbbusqinmu;
     private javax.swing.JButton jbcont;
     private javax.swing.JButton jbinmue;
     private javax.swing.JButton jbinqui;
     private javax.swing.JButton jbpropie;
+    private javax.swing.JLabel jlbusqueda;
+    private javax.swing.JLabel jllogochi;
     private javax.swing.JLabel jlmenuentrada;
     private javax.swing.JLabel jlnuevaentrada;
     private javax.swing.JLabel jlpadre;
