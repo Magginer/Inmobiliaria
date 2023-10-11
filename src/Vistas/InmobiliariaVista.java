@@ -85,9 +85,9 @@ public class InmobiliariaVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbienvenidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbienvenidoActionPerformed
-        MenuPrincipal mp= new MenuPrincipal(); // crear nueva variable tipo jframe
+        Prueba2 p2= new Prueba2(); // crear nueva variable tipo jframe
         InmobiliariaVista im= this; // crear variable de esta ventana
-        mp.setVisible(true); // lanzar la nueva ventana
+        p2.setVisible(true); // lanzar la nueva ventana
         im.dispose(); // cerrar la ventana anterior
         
     }//GEN-LAST:event_jbienvenidoActionPerformed
