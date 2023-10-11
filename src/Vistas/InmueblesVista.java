@@ -20,7 +20,7 @@ public class InmueblesVista extends javax.swing.JFrame {
      */
     public InmueblesVista() {
         initComponents();
-        setSize(458, 522);
+        setSize(458, 485);
         setLocationRelativeTo(null);
         
         ImageIcon wallpaper =new ImageIcon("src/imagenes/TERRA_Inmuebles.jpg");
@@ -44,7 +44,6 @@ public class InmueblesVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -55,10 +54,8 @@ public class InmueblesVista extends javax.swing.JFrame {
         jtinmuzona = new javax.swing.JTextField();
         jtinmupropietario = new javax.swing.JTextField();
         jtinmudirec = new javax.swing.JTextField();
-        jrbestado = new javax.swing.JRadioButton();
         jbinmuguardar = new javax.swing.JButton();
-        jbinmumodi = new javax.swing.JButton();
-        jbinmueliminar = new javax.swing.JButton();
+        jbinmucerrar = new javax.swing.JButton();
         jlinmuvista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,15 +89,10 @@ public class InmueblesVista extends javax.swing.JFrame {
         jLabel5.setText("Zona");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 70, 30));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Estado");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 70, 30));
-
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Propietario");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 80, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 80, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,26 +108,19 @@ public class InmueblesVista extends javax.swing.JFrame {
         getContentPane().add(jtinmusuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 180, -1));
         getContentPane().add(jtinmuprec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 120, -1));
         getContentPane().add(jtinmuzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 120, -1));
-        getContentPane().add(jtinmupropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 120, -1));
+        getContentPane().add(jtinmupropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 120, -1));
         getContentPane().add(jtinmudirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 180, -1));
-
-        jrbestado.setText("jRadioButton1");
-        getContentPane().add(jrbestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 20, -1));
 
         jbinmuguardar.setForeground(new java.awt.Color(0, 0, 0));
         jbinmuguardar.setText("Guardar ");
-        getContentPane().add(jbinmuguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
+        getContentPane().add(jbinmuguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
-        jbinmumodi.setForeground(new java.awt.Color(0, 0, 0));
-        jbinmumodi.setText("Modificar");
-        getContentPane().add(jbinmumodi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, -1, -1));
-
-        jbinmueliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jbinmueliminar.setText("Eliminar");
-        getContentPane().add(jbinmueliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
+        jbinmucerrar.setForeground(new java.awt.Color(0, 0, 0));
+        jbinmucerrar.setText("Cerrar");
+        getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
         jlinmuvista.setBackground(new java.awt.Color(255, 51, 153));
-        getContentPane().add(jlinmuvista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 530));
+        getContentPane().add(jlinmuvista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,16 +166,13 @@ public class InmueblesVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton jbinmueliminar;
+    private javax.swing.JButton jbinmucerrar;
     private javax.swing.JButton jbinmuguardar;
-    private javax.swing.JButton jbinmumodi;
     private javax.swing.JLabel jlinmuvista;
-    private javax.swing.JRadioButton jrbestado;
     private javax.swing.JTextField jtinmualtu;
     private javax.swing.JTextField jtinmudirec;
     private javax.swing.JTextField jtinmuprec;
