@@ -5,6 +5,10 @@
  */
 package Vistas;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author javie
@@ -16,6 +20,12 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
      */
     public BusquedaInmuebles() {
         initComponents();
+        
+        ImageIcon wallpaper =new ImageIcon("src/imagenes/manoca.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
+        jlbusinmu.setIcon(icono);
+        this.repaint();
+        
     }
 
     /**
@@ -27,18 +37,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jlbusinmu = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jlbusinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 945, 564));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +82,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jlbusinmu;
     // End of variables declaration//GEN-END:variables
 }
