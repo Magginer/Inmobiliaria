@@ -13,19 +13,19 @@ import javax.swing.ImageIcon;
  *
  * @author javie
  */
-public class PropietarioVista extends javax.swing.JFrame {
+public class InquilinosBuscar extends javax.swing.JFrame {
 
     /**
-     * Creates new form PropietarioVista
+     * Creates new form InquilinosVista
      */
-    public PropietarioVista() {
+    public InquilinosBuscar() {
         initComponents();
-        setSize(388, 455);
+        setSize(383,463);
         setLocationRelativeTo(null);
         
-        ImageIcon wallpaper =new ImageIcon("src/imagenes/TERRA_Propietarios.jpg");
-        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlprovista.getWidth(), jlprovista.getHeight(), Image.SCALE_SMOOTH));
-        jlprovista.setIcon(icono);
+        ImageIcon wallpaper =new ImageIcon("src/imagenes/TERRA_Inquilinos.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlinqui.getWidth(), jlinqui.getHeight(), Image.SCALE_SMOOTH));
+        jlinqui.setIcon(icono);
         this.repaint();
     }
 
@@ -43,17 +43,19 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        PorpiID = new javax.swing.JTextField();
-        PropiDNI = new javax.swing.JTextField();
-        PropiNombre = new javax.swing.JTextField();
-        PropiApe = new javax.swing.JTextField();
-        PropiDom = new javax.swing.JTextField();
-        PropiTel = new javax.swing.JTextField();
-        GuardarPropi = new javax.swing.JButton();
-        CerrarPropi = new javax.swing.JButton();
-        jlprovista = new javax.swing.JLabel();
+        InquiID = new javax.swing.JTextField();
+        InquiCuit = new javax.swing.JTextField();
+        InquiDniG = new javax.swing.JTextField();
+        InquiNombre = new javax.swing.JTextField();
+        InquiApe = new javax.swing.JTextField();
+        InquiLugar = new javax.swing.JTextField();
+        InquiNombreG = new javax.swing.JTextField();
+        buscarinqui = new javax.swing.JButton();
+        CerrarInqui = new javax.swing.JButton();
+        jlinqui = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,8 +63,8 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nuevo Propietario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 170, 50));
+        jLabel1.setText("Buscar inquilino");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 150, 50));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -75,7 +77,7 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("DNI");
+        jLabel3.setText("Cuit");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -89,14 +91,21 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Domicilio");
+        jLabel5.setText("Lugar de trabajo");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("DNI de garante");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Telefono");
+        jLabel7.setText("Nombre de garante");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
@@ -105,31 +114,44 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-        getContentPane().add(PorpiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
-        getContentPane().add(PropiDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
-        getContentPane().add(PropiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
-        getContentPane().add(PropiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
-        getContentPane().add(PropiDom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 140, -1));
-        getContentPane().add(PropiTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 140, -1));
+        getContentPane().add(InquiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
 
-        GuardarPropi.setText("Guardar");
-        GuardarPropi.addActionListener(new java.awt.event.ActionListener() {
+        InquiCuit.setEditable(false);
+        getContentPane().add(InquiCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
+
+        InquiDniG.setEditable(false);
+        getContentPane().add(InquiDniG, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, -1));
+
+        InquiNombre.setEditable(false);
+        getContentPane().add(InquiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
+
+        InquiApe.setEditable(false);
+        getContentPane().add(InquiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
+
+        InquiLugar.setEditable(false);
+        getContentPane().add(InquiLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 256, 140, -1));
+
+        InquiNombreG.setEditable(false);
+        getContentPane().add(InquiNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 140, -1));
+
+        buscarinqui.setText("Buscar");
+        buscarinqui.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarPropiActionPerformed(evt);
+                buscarinquiActionPerformed(evt);
             }
         });
-        getContentPane().add(GuardarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
+        getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 100, 30));
 
-        CerrarPropi.setText("Cerrar");
-        getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
-        getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
+        CerrarInqui.setText("Cerrar");
+        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
+        getContentPane().add(jlinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 463));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GuardarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPropiActionPerformed
+    private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarPropiActionPerformed
+    }//GEN-LAST:event_buscarinquiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,40 +170,43 @@ public class PropietarioVista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InquilinosBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InquilinosBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InquilinosBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InquilinosBuscar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropietarioVista().setVisible(true);
+                new InquilinosBuscar().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CerrarPropi;
-    private javax.swing.JButton GuardarPropi;
-    private javax.swing.JTextField PorpiID;
-    private javax.swing.JTextField PropiApe;
-    private javax.swing.JTextField PropiDNI;
-    private javax.swing.JTextField PropiDom;
-    private javax.swing.JTextField PropiNombre;
-    private javax.swing.JTextField PropiTel;
+    private javax.swing.JButton CerrarInqui;
+    private javax.swing.JTextField InquiApe;
+    private javax.swing.JTextField InquiCuit;
+    private javax.swing.JTextField InquiDniG;
+    private javax.swing.JTextField InquiID;
+    private javax.swing.JTextField InquiLugar;
+    private javax.swing.JTextField InquiNombre;
+    private javax.swing.JTextField InquiNombreG;
+    private javax.swing.JButton buscarinqui;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jlprovista;
+    private javax.swing.JLabel jlinqui;
     // End of variables declaration//GEN-END:variables
 }
