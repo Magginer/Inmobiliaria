@@ -71,6 +71,8 @@ public class Prueba2 extends javax.swing.JFrame {
         busquedas = new javax.swing.JPanel();
         jbbusqinmu = new javax.swing.JButton();
         jbbusqcont = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jlbusqueda = new javax.swing.JLabel();
         jpbotones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -146,6 +148,22 @@ public class Prueba2 extends javax.swing.JFrame {
             }
         });
         busquedas.add(jbbusqcont, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        jButton2.setText("Inquilinos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        busquedas.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
+
+        jButton3.setText("Propietarios");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        busquedas.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
         busquedas.add(jlbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 444));
 
         jpadre.add(busquedas, "card5");
@@ -287,6 +305,16 @@ public class Prueba2 extends javax.swing.JFrame {
       bi.setVisible(true);
     }//GEN-LAST:event_jbbusqinmuActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        PropietarioBusqueda pb = new PropietarioBusqueda();
+        pb.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        InquilinosBuscar ib= new InquilinosBuscar();
+        ib.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +353,8 @@ public class Prueba2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel busquedas;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jbbusqcont;
     private javax.swing.JButton jbbusqinmu;

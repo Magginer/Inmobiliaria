@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author javie
  */
-public class PropietarioVista extends javax.swing.JFrame {
+public class PropietarioBusqueda extends javax.swing.JFrame {
 
     /**
      * Creates new form PropietarioVista
      */
-    public PropietarioVista() {
+    public PropietarioBusqueda() {
         initComponents();
         setSize(388, 455);
         setLocationRelativeTo(null);
@@ -51,7 +51,7 @@ public class PropietarioVista extends javax.swing.JFrame {
         PropiApe = new javax.swing.JTextField();
         PropiDom = new javax.swing.JTextField();
         PropiTel = new javax.swing.JTextField();
-        GuardarPropi = new javax.swing.JButton();
+        buscarpropi = new javax.swing.JButton();
         CerrarPropi = new javax.swing.JButton();
         jlprovista = new javax.swing.JLabel();
 
@@ -61,7 +61,7 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nuevo Propietario");
+        jLabel1.setText("Buscar Propietario");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 170, 50));
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
@@ -106,19 +106,29 @@ public class PropietarioVista extends javax.swing.JFrame {
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
         getContentPane().add(PorpiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
+
+        PropiDNI.setEditable(false);
         getContentPane().add(PropiDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
+
+        PropiNombre.setEditable(false);
         getContentPane().add(PropiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
+
+        PropiApe.setEditable(false);
         getContentPane().add(PropiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
+
+        PropiDom.setEditable(false);
         getContentPane().add(PropiDom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 140, -1));
+
+        PropiTel.setEditable(false);
         getContentPane().add(PropiTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 140, -1));
 
-        GuardarPropi.setText("Guardar");
-        GuardarPropi.addActionListener(new java.awt.event.ActionListener() {
+        buscarpropi.setText("Buscar");
+        buscarpropi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarPropiActionPerformed(evt);
+                buscarpropiActionPerformed(evt);
             }
         });
-        getContentPane().add(GuardarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
+        getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
 
         CerrarPropi.setText("Cerrar");
         getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
@@ -127,9 +137,9 @@ public class PropietarioVista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GuardarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPropiActionPerformed
+    private void buscarpropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarpropiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarPropiActionPerformed
+    }//GEN-LAST:event_buscarpropiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,33 +158,34 @@ public class PropietarioVista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PropietarioBusqueda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PropietarioBusqueda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PropietarioBusqueda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PropietarioVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PropietarioBusqueda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropietarioVista().setVisible(true);
+                new PropietarioBusqueda().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CerrarPropi;
-    private javax.swing.JButton GuardarPropi;
     private javax.swing.JTextField PorpiID;
     private javax.swing.JTextField PropiApe;
     private javax.swing.JTextField PropiDNI;
     private javax.swing.JTextField PropiDom;
     private javax.swing.JTextField PropiNombre;
     private javax.swing.JTextField PropiTel;
+    private javax.swing.JButton buscarpropi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
