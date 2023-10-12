@@ -47,9 +47,8 @@ public class ContratosVistas extends javax.swing.JFrame {
         IdInqui = new javax.swing.JTextField();
         GuardarCont = new javax.swing.JButton();
         CerrarCont = new javax.swing.JButton();
-        FechaInicio = new com.toedter.calendar.JDateChooser();
-        FechaFin = new com.toedter.calendar.JDateChooser();
         jlcontra = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,9 +100,8 @@ public class ContratosVistas extends javax.swing.JFrame {
 
         CerrarCont.setText("Cerrar");
         getContentPane().add(CerrarCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 100, -1));
-        getContentPane().add(FechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 170, -1));
-        getContentPane().add(FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 180, -1));
         getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,10 +148,9 @@ public class ContratosVistas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AlquilerTexto;
     private javax.swing.JButton CerrarCont;
-    private com.toedter.calendar.JDateChooser FechaFin;
-    private com.toedter.calendar.JDateChooser FechaInicio;
     private javax.swing.JButton GuardarCont;
     private javax.swing.JTextField IdInqui;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
