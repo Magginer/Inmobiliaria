@@ -39,6 +39,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -148,6 +149,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JTextField AlquilerTexto;
     private javax.swing.JButton CerrarCont;
     private javax.swing.JButton GuardarCont;
@@ -159,6 +161,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
+
     private javax.swing.JLabel jlcontra;
     // End of variables declaration//GEN-END:variables
 }
