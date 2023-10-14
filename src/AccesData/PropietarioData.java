@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -32,16 +34,17 @@ public class PropietarioData {
     
     public void GuardarPropietario (Propietario propietario){
         
-        String sql= "INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono, estado) VALUES (?,?,?,?,?,?)";
+        String sql= "INSERT INTO propietarios( idpropietario, dni, nombre, apellido, domicilio, telefono, estado) VALUES (?,?,?,?,?,?,?)";
         // INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono) VALUES (?,?,?,?,?)
          try {
              PreparedStatement ps=con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-             ps.setInt(1, propietario.getDni());
-             ps.setString(2, propietario.getNombre());
-             ps.setString(3, propietario.getApellido());
-             ps.setString(4, propietario.getDomicilio());
-             ps.setInt(5, propietario.getTelefono());
-             ps.setBoolean(6, propietario.isEstado());
+             ps.setInt(1, propietario.getIdpropietario());
+             ps.setInt(2, propietario.getDni());
+             ps.setString(3, propietario.getNombre());
+             ps.setString(4, propietario.getApellido());
+             ps.setString(5, propietario.getDomicilio());
+             ps.setInt(6, propietario.getTelefono());
+             ps.setBoolean(7, propietario.isEstado());
              ps.executeQuery();
              
              ResultSet rs= ps.getGeneratedKeys();
@@ -113,5 +116,31 @@ public class PropietarioData {
          }
         
     }
-    
+    public List<Propietario> ListarPropietarios() {
+
+        String sql = "SELECT  idpropietario ,dni, nombre, apellido, domicilio, telefono FROM propietarios WHERE estado=1 ";
+        ArrayList<Propietario> propietarios = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+
+                Propietario propietario = new Propietario();
+                propietario.setIdpropietario(rs.getInt("idpropietario"));
+                propietario.setDni(rs.getInt("dni"));
+                propietario.setNombre(rs.getString("nombre"));
+                propietario.setApellido(rs.getString("apellido"));
+                propietario.setTelefono(rs.getInt("telefono"));
+                propietario.setEstado(true);
+                
+                propietarios.add(propietario);
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+        return propietarios;
+    }
 }
