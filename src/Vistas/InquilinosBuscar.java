@@ -6,10 +6,13 @@
 package Vistas;
 
 import AccesData.Conexion;
+import AccesData.InquilinoData;
+import Entidades.Inquilino;
 import java.awt.Image;
 import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -150,9 +153,36 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     private boolean esNumero(String texto){
+        try {
+            Integer.parseInt((texto));
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+    
     private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
-     
+     String idtext=InquiID.getText();
+        if(!esNumero(idtext)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
+        int id = Integer.parseInt(InquiID.getText());
+        InquilinoData ind= new InquilinoData();
+        Inquilino inqui =ind.BuscarInqui(id);
         
+        if(inqui != null){
+            InquiCuit.setText(String.valueOf(inqui.getCuit()));
+            InquiNombre.setText(String.valueOf(inqui.getNombre()));
+            InquiApe.setText(String.valueOf(inqui.getApellido()));
+            InquiLugar.setText(String.valueOf(inqui.getLtrabajo()));
+            InquiNombreG.setText(String.valueOf(inqui.getNgarante()));
+            InquiDniG.setText(String.valueOf(inqui.getDni()));
+        }else{
+            JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Inquilino");
+        }
     }//GEN-LAST:event_buscarinquiActionPerformed
 
     /**

@@ -145,27 +145,35 @@ public class InquilinoData {
         }
         return inquilinos;
     }
-//    public Inquilino BuscarInqui (int idinquilino){
-//        String sql= "SELECT cuit, nombre, apellido, ltrabajo, ngarante, gdni FROM inquilino WHERE idinquilino = ?";
-//        // SELECT `idinquilino`, `cuit`, `nombre`, `apellido`, `ltrabajo`, `ngarante`, `gdni`, `estado` FROM `inquilino` WHERE 1
-//        
-//        try {
-//             PreparedStatement ps = con.prepareStatement(sql);
-//             ps.setInt(1, idinquilino);
-//             ResultSet rs = ps.executeQuery();
-//             
-//             if(rs.next()){
-//             
-//                
-//             }else{
-//                 JOptionPane.showMessageDialog(null, "No existe Inquilino con ese ID.");
-//             }
-//             ps.close();
-//         } catch (SQLException ex) {
-//            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla de Inquilinos.");
-//         }
-//        
-//    }
+    public Inquilino BuscarInqui (int idinquilino){
+        String sql= "SELECT cuit, nombre, apellido, ltrabajo, ngarante, gdni FROM inquilino WHERE idinquilino = ?";
+        // SELECT `idinquilino`, `cuit`, `nombre`, `apellido`, `ltrabajo`, `ngarante`, `gdni`, `estado` FROM `inquilino` WHERE 1
+        
+        Inquilino inquilino = null;
+        try {
+             PreparedStatement ps = con.prepareStatement(sql);
+             ps.setInt(1, idinquilino);
+             ResultSet rs = ps.executeQuery();
+             
+             if(rs.next()){
+                 inquilino = new Inquilino();
+                 inquilino.setIdinquilino(idinquilino);
+                 inquilino.setDni(rs.getInt("dni"));
+                 inquilino.setNombre(rs.getString("nombre"));
+                 inquilino.setApellido(rs.getString("apellido"));
+                 inquilino.setLtrabajo(rs.getString("ltrabajo"));
+                 inquilino.setNgarante(rs.getString("ngarante"));
+                 inquilino.setDni(rs.getInt("gdni"));
+                
+             }else{
+                 JOptionPane.showMessageDialog(null, "No existe Inquilino con ese ID.");
+             }
+             ps.close();
+         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla de Inquilinos.");
+         }
+        return inquilino;
+    }
             
 
 }
