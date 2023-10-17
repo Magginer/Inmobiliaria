@@ -6,14 +6,19 @@
 package Vistas;
 
 import AccesData.Conexion;
+import AccesData.ContratoData;
 import AccesData.InmueblesData;
 import AccesData.InquilinoData;
 import AccesData.PropietarioData;
+import Entidades.Contrato;
 import Entidades.Inmuebles;
 import Entidades.Inquilino;
 import Entidades.Propietario;
 import java.awt.Image;
 import java.sql.Connection;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Icon;
@@ -174,7 +179,25 @@ public class ContratosVistas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarContActionPerformed
-        // TODO add your handling code here:
+        LocalDate fechaincio= fechainicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Date fechai = Date.valueOf(fechaincio);
+        LocalDate fechafina= fechafin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        Date fechaf = Date.valueOf(fechafina);
+        Inmuebles inm = (Inmuebles) combocontra1.getSelectedItem();
+        Inquilino inq = (Inquilino) combocontra2.getSelectedItem();
+        int alquiler = Integer.parseInt(AlquilerTexto1.getText());
+        
+        Contrato contrato = new Contrato();
+        
+        contrato.setFechadeinicio(fechaincio);
+        contrato.setFechadefinalizacion(fechafina);
+        contrato.setInmueble(inm);
+        contrato.setInquilino(inq);
+        contrato.setAlquiler(alquiler);
+        
+        ContratoData con = new ContratoData ();
+        con.guardarContrato(contrato);
+        
     }//GEN-LAST:event_GuardarContActionPerformed
 
     private void combocontra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combocontra1ActionPerformed
