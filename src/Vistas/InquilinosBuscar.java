@@ -5,7 +5,9 @@
  */
 package Vistas;
 
+import AccesData.Conexion;
 import java.awt.Image;
+import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -15,9 +17,8 @@ import javax.swing.ImageIcon;
  */
 public class InquilinosBuscar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InquilinosVista
-     */
+    Connection con= Conexion.getConexion();
+    
     public InquilinosBuscar() {
         initComponents();
         setSize(383,463);
@@ -150,7 +151,8 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
-        // TODO add your handling code here:
+     
+        
     }//GEN-LAST:event_buscarinquiActionPerformed
 
     /**
