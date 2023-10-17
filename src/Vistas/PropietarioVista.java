@@ -113,12 +113,18 @@ public class PropietarioVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiIDKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiIDKeyTyped(evt);
+            }
         });
         getContentPane().add(PropiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
 
         PropiDNI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiDNIKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiDNIKeyTyped(evt);
             }
         });
         getContentPane().add(PropiDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
@@ -127,12 +133,18 @@ public class PropietarioVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiNombreKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiNombreKeyTyped(evt);
+            }
         });
         getContentPane().add(PropiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
 
         PropiApe.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiApeKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiApeKeyTyped(evt);
             }
         });
         getContentPane().add(PropiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
@@ -141,12 +153,18 @@ public class PropietarioVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiDomKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiDomKeyTyped(evt);
+            }
         });
         getContentPane().add(PropiDom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 140, -1));
 
         PropiTel.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PropiTelKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiTelKeyTyped(evt);
             }
         });
         getContentPane().add(PropiTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 140, -1));
@@ -205,7 +223,31 @@ public class PropietarioVista extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarPropiActionPerformed
 
     private void PropiIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiIDKeyPressed
-        char c = evt.getKeyChar();
+        
+    }//GEN-LAST:event_PropiIDKeyPressed
+
+    private void PropiDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDNIKeyPressed
+      
+    }//GEN-LAST:event_PropiDNIKeyPressed
+
+    private void PropiTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiTelKeyPressed
+       
+    }//GEN-LAST:event_PropiTelKeyPressed
+
+    private void PropiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiNombreKeyPressed
+      
+    }//GEN-LAST:event_PropiNombreKeyPressed
+
+    private void PropiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiApeKeyPressed
+    
+    }//GEN-LAST:event_PropiApeKeyPressed
+
+    private void PropiDomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyPressed
+       
+    }//GEN-LAST:event_PropiDomKeyPressed
+
+    private void PropiIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiIDKeyTyped
+     char c = evt.getKeyChar();
         
         if(Character.isDigit(c)|| Character.isISOControl(c)){ 
             PropiID.setEditable(true);
@@ -216,10 +258,10 @@ public class PropietarioVista extends javax.swing.JFrame {
             return;
             
         }
-    }//GEN-LAST:event_PropiIDKeyPressed
+    }//GEN-LAST:event_PropiIDKeyTyped
 
-    private void PropiDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDNIKeyPressed
-         char c = evt.getKeyChar();
+    private void PropiDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDNIKeyTyped
+     char c = evt.getKeyChar();
         
         if(Character.isDigit(c)|| Character.isISOControl(c)){ 
             PropiDNI.setEditable(true);
@@ -230,23 +272,9 @@ public class PropietarioVista extends javax.swing.JFrame {
             return;
             
         }
-    }//GEN-LAST:event_PropiDNIKeyPressed
+    }//GEN-LAST:event_PropiDNIKeyTyped
 
-    private void PropiTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiTelKeyPressed
-       char c = evt.getKeyChar();
-        
-        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
-            PropiTel.setEditable(true);
-            
-        }else{
-            PropiTel.setEditable(false);
-            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Telefono");
-            return;
-            
-        }
-    }//GEN-LAST:event_PropiTelKeyPressed
-
-    private void PropiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiNombreKeyPressed
+    private void PropiNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiNombreKeyTyped
        char c = evt.getKeyChar();
         
         if(Character.isLetter(c)|Character.isWhitespace(c) || Character.isISOControl(c)){ 
@@ -258,9 +286,9 @@ public class PropietarioVista extends javax.swing.JFrame {
             return;
             
         }
-    }//GEN-LAST:event_PropiNombreKeyPressed
+    }//GEN-LAST:event_PropiNombreKeyTyped
 
-    private void PropiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiApeKeyPressed
+    private void PropiApeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiApeKeyTyped
         char c = evt.getKeyChar();
        
         if(Character.isLetter(c)||Character.isWhitespace(c) || Character.isISOControl(c)){ 
@@ -272,10 +300,10 @@ public class PropietarioVista extends javax.swing.JFrame {
             return;
             
         }
-    }//GEN-LAST:event_PropiApeKeyPressed
+    }//GEN-LAST:event_PropiApeKeyTyped
 
-    private void PropiDomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyPressed
-         char c = evt.getKeyChar();
+    private void PropiDomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyTyped
+        char c = evt.getKeyChar();
         
         if(Character.isAlphabetic(c)||Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)){ 
             PropiApe.setEditable(true);
@@ -286,7 +314,21 @@ public class PropietarioVista extends javax.swing.JFrame {
             return;
             
         }
-    }//GEN-LAST:event_PropiDomKeyPressed
+    }//GEN-LAST:event_PropiDomKeyTyped
+
+    private void PropiTelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiTelKeyTyped
+      char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
+            PropiTel.setEditable(true);
+            
+        }else{
+            PropiTel.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Telefono");
+            return;
+            
+        }
+    }//GEN-LAST:event_PropiTelKeyTyped
 
     /**
      * @param args the command line arguments
