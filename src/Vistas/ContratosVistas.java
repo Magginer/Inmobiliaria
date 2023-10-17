@@ -39,18 +39,19 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        AlquilerTexto = new javax.swing.JTextField();
-        IdInqui = new javax.swing.JTextField();
         GuardarCont = new javax.swing.JButton();
         CerrarCont = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        AlquilerTexto1 = new javax.swing.JTextField();
+        combocontra1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jlcontra = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,17 +81,15 @@ public class ContratosVistas extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Alquiler");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+        jLabel8.setText("Inmueble");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ID inquilino");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
-        getContentPane().add(AlquilerTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 140, -1));
-        getContentPane().add(IdInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 70, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
         GuardarCont.setText("Guardar");
         GuardarCont.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +101,26 @@ public class ContratosVistas extends javax.swing.JFrame {
 
         CerrarCont.setText("Cerrar");
         getContentPane().add(CerrarCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 100, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 150, -1));
+        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, -1));
+        getContentPane().add(AlquilerTexto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 140, -1));
+
+        combocontra1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combocontra1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combocontra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 140, -1));
+
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 140, -1));
         getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
+
+        jLabel9.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Alquiler");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -112,6 +128,10 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void GuardarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarContActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GuardarContActionPerformed
+
+    private void combocontra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combocontra1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combocontra1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,11 +169,11 @@ public class ContratosVistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
-    private javax.swing.JTextField AlquilerTexto;
+    private javax.swing.JTextField AlquilerTexto1;
     private javax.swing.JButton CerrarCont;
     private javax.swing.JButton GuardarCont;
-    private javax.swing.JTextField IdInqui;
+    private javax.swing.JComboBox<String> combocontra1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -161,7 +181,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jlcontra;
     // End of variables declaration//GEN-END:variables
 }

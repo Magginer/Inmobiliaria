@@ -123,6 +123,11 @@ public class PropietarioVista extends javax.swing.JFrame {
         getContentPane().add(GuardarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
 
         CerrarPropi.setText("Cerrar");
+        CerrarPropi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarPropiActionPerformed(evt);
+            }
+        });
         getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
         getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
 
@@ -152,6 +157,10 @@ public class PropietarioVista extends javax.swing.JFrame {
         PropietarioData pr = new PropietarioData();
          pr.GuardarPropietario(pro);
     }//GEN-LAST:event_GuardarPropiActionPerformed
+
+    private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
+        dispose();
+    }//GEN-LAST:event_CerrarPropiActionPerformed
 
     /**
      * @param args the command line arguments
