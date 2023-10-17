@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import AccesData.InquilinoData;
+import Entidades.Inquilino;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -138,7 +140,29 @@ public class InquilinosVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarInquiActionPerformed
-        // TODO add your handling code here:
+        
+        int id = Integer.parseInt(InquiID.getText());
+        int cuit = Integer.parseInt(InquiCuit.getText());
+        String nombre= InquiNombre.getText();
+        String apellido= InquiApe.getText();
+        String lugar= InquiLugar.getText();
+        String nombreg= InquiNombreG.getText();
+        int dnig= Integer.parseInt(InquiDniG.getText());
+        
+        
+        Inquilino inqui = new Inquilino();
+        
+        inqui.setIdinquilino(id);
+        inqui.setCuit(cuit);
+        inqui.setNombre(nombre);
+        inqui.setApellido(apellido);
+        inqui.setLtrabajo(lugar); 
+        inqui.setNgarante(nombreg);
+        inqui.setDni(dnig);
+        inqui.setEstado(true);
+        
+        InquilinoData in= new InquilinoData();
+        in.GuardarInquilino(inqui);
     }//GEN-LAST:event_GuardarInquiActionPerformed
 
     /**

@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import AccesData.PropietarioData;
+import Entidades.Propietario;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -128,7 +130,27 @@ public class PropietarioVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPropiActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(PorpiID.getText());
+        int dni = Integer.parseInt(PropiDNI.getText());
+        String nombre= PropiNombre.getText();
+        String apellido= PropiApe.getText();
+        String domicilio= PropiDom.getText();
+        int telefono = Integer.parseInt(PropiTel.getText());
+        
+        
+        
+        Propietario pro = new Propietario();
+        
+        pro.setIdpropietario(id);
+        pro.setDni(dni);
+        pro.setNombre(nombre);
+        pro.setApellido(apellido);
+        pro.setDomicilio(domicilio);
+        pro.setTelefono(telefono);
+        pro.setEstado(true);
+        
+        PropietarioData pr = new PropietarioData();
+         pr.GuardarPropietario(pro);
     }//GEN-LAST:event_GuardarPropiActionPerformed
 
     /**
