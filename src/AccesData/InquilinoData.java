@@ -30,17 +30,18 @@ public class InquilinoData {
     
     public void GuardarInquilino (Inquilino inquilino){
         
-        String sql= "INSERT INTO inquilino( cuit, nombre, apellido, ltrabajo, ngarante, gdni, estado) VALUES (?,?,?,?,?,?,?)";
+        String sql= "INSERT INTO inquilino( idinquilino , cuit, nombre, apellido, ltrabajo, ngarante, gdni, estado) VALUES (?,?,?,?,?,?,?,?)";
         // INSERT INTO propietarios( dni, nombre, apellido, domicilio, telefono) VALUES (?,?,?,?,?)
          try {
              PreparedStatement ps=con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-             ps.setInt(1, inquilino.getCuit());
-             ps.setString(2, inquilino.getNombre());
-             ps.setString(3, inquilino.getApellido());
-             ps.setString(4, inquilino.getLtrabajo());
-             ps.setString(5, inquilino.getNgarante());
-             ps.setInt(6, inquilino.getDni());
-             ps.setBoolean(7, inquilino.isEstado());
+             ps.setInt(1, inquilino.getIdinquilino());
+             ps.setInt(2, inquilino.getCuit());
+             ps.setString(3, inquilino.getNombre());
+             ps.setString(4, inquilino.getApellido());
+             ps.setString(5, inquilino.getLtrabajo());
+             ps.setString(6, inquilino.getNgarante());
+             ps.setInt(7, inquilino.getDni());
+             ps.setBoolean(8, inquilino.isEstado());
              ps.executeQuery();
              
              ResultSet rs= ps.getGeneratedKeys();

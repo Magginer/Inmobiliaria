@@ -5,7 +5,13 @@
  */
 package Vistas;
 
+import AccesData.Conexion;
+import AccesData.PropietarioData;
+import Entidades.Propietario;
 import java.awt.Image;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -15,11 +21,19 @@ import javax.swing.ImageIcon;
  */
 public class InmueblesVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InmueblesVista
-     */
-    public InmueblesVista() {
+    Connection con = Conexion.getConexion();
+    ArrayList Plista;
+   PropietarioData propietario = new PropietarioData();
+    
+    
+    public InmueblesVista(){
         initComponents();
+        con = Conexion.getConexion();
+        Plista = new ArrayList();
+        
+        
+        
+        
         setSize(458, 485);
         setLocationRelativeTo(null);
         
@@ -52,10 +66,10 @@ public class InmueblesVista extends javax.swing.JFrame {
         jtinmusuper = new javax.swing.JTextField();
         jtinmuprec = new javax.swing.JTextField();
         jtinmuzona = new javax.swing.JTextField();
-        jtinmupropietario = new javax.swing.JTextField();
         jtinmudirec = new javax.swing.JTextField();
         jbinmuguardar = new javax.swing.JButton();
         jbinmucerrar = new javax.swing.JButton();
+        jtinmuprop = new javax.swing.JTextField();
         jlinmuvista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -108,16 +122,27 @@ public class InmueblesVista extends javax.swing.JFrame {
         getContentPane().add(jtinmusuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 180, -1));
         getContentPane().add(jtinmuprec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 120, -1));
         getContentPane().add(jtinmuzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 120, -1));
-        getContentPane().add(jtinmupropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 120, -1));
         getContentPane().add(jtinmudirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 180, -1));
 
         jbinmuguardar.setForeground(new java.awt.Color(0, 0, 0));
         jbinmuguardar.setText("Guardar ");
+        jbinmuguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbinmuguardarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbinmuguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         jbinmucerrar.setForeground(new java.awt.Color(0, 0, 0));
         jbinmucerrar.setText("Cerrar");
         getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+
+        jtinmuprop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtinmupropActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtinmuprop, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 80, -1));
 
         jlinmuvista.setBackground(new java.awt.Color(255, 51, 153));
         getContentPane().add(jlinmuvista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 490));
@@ -125,6 +150,27 @@ public class InmueblesVista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbinmuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmuguardarActionPerformed
+       String direccion = jtinmudirec.getText();
+       int altura = Integer.parseInt(jtinmualtu.getText());
+       String tipo = jtinmutipo.getText();
+       int superficie = Integer.parseInt(jtinmusuper.getText());
+       int precio = Integer.parseInt(jtinmuprec.getText());
+       String zona = jtinmuzona.getText();
+       int idprop = Integer.parseInt(jtinmuprop.getText());
+       
+       
+       
+       
+       
+       
+    }//GEN-LAST:event_jbinmuguardarActionPerformed
+
+    private void jtinmupropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtinmupropActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtinmupropActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -176,7 +222,7 @@ public class InmueblesVista extends javax.swing.JFrame {
     private javax.swing.JTextField jtinmualtu;
     private javax.swing.JTextField jtinmudirec;
     private javax.swing.JTextField jtinmuprec;
-    private javax.swing.JTextField jtinmupropietario;
+    private javax.swing.JTextField jtinmuprop;
     private javax.swing.JTextField jtinmusuper;
     private javax.swing.JTextField jtinmutipo;
     private javax.swing.JTextField jtinmuzona;
