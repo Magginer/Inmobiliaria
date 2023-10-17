@@ -143,4 +143,33 @@ public class PropietarioData {
         }
         return propietarios;
     }
+    public Propietario BuscarPropietario (int idpropietario){
+        String sql = "SELECT dni, nombre, apellido, domicilio, telefono  FROM propietarios WHERE idpropietario= ?";
+        //SELECT dni, nombre, apellido, domicilio, telefono  FROM propietarios WHERE idpropietario= ? 
+        
+        Propietario propietario =null;
+        
+         try {
+             PreparedStatement ps = con.prepareStatement(sql);
+             ps.setInt(1, idpropietario);
+             ResultSet rs = ps.executeQuery();
+             
+             if(rs.next()){
+                 propietario = new Propietario();
+                 propietario.setIdpropietario(idpropietario);
+                 propietario.setDni(rs.getInt("dni"));
+                 propietario.setNombre(rs.getString("nombre"));
+                 propietario.setApellido(rs.getString("apellido"));
+                 propietario.setDomicilio(rs.getString("domicilio"));
+                 propietario.setTelefono(rs.getInt("telefono"));
+             }else{
+                 JOptionPane.showMessageDialog(null, "No existe Propietario con ese ID.");
+             }
+             ps.close();
+         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla de Propietarios.");
+         }
+       return propietario;
+    
+    }
 }
