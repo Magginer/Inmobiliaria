@@ -183,11 +183,7 @@ public class PropietarioVista extends javax.swing.JFrame {
         String apellido= PropiApe.getText();
         String domicilio= PropiDom.getText();
         int telefono = Integer.parseInt(PropiTel.getText());
-        
-        
-         
-        
-        
+       
         Propietario pro = new Propietario();
         
         pro.setIdpropietario(Integer.valueOf(id));
@@ -202,10 +198,6 @@ public class PropietarioVista extends javax.swing.JFrame {
          pr.GuardarPropietario(pro);   
         }
             
-        
-         
-        
-         
     }//GEN-LAST:event_GuardarPropiActionPerformed
 
     private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
