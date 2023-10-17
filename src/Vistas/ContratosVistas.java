@@ -194,6 +194,7 @@ public class ContratosVistas extends javax.swing.JFrame {
         contrato.setInmueble(inm);
         contrato.setInquilino(inq);
         contrato.setAlquiler(alquiler);
+        contrato.setVigente(true);
         
         ContratoData con = new ContratoData ();
         con.guardarContrato(contrato);
