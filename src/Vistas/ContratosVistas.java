@@ -39,17 +39,16 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        AlquilerTexto = new javax.swing.JTextField();
+        Alquilercontrato = new javax.swing.JTextField();
         IdInqui = new javax.swing.JTextField();
         GuardarCont = new javax.swing.JButton();
         CerrarCont = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        fechainicialcontrato = new com.toedter.calendar.JDateChooser();
+        fechafinalcontrato = new com.toedter.calendar.JDateChooser();
         jlcontra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,39 +56,34 @@ public class ContratosVistas extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nuevo Contrato");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 170, 50));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Fecha de finalizacion");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Fecha de inicio");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Alquiler");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("ID inquilino");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
-        getContentPane().add(AlquilerTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 140, -1));
+        getContentPane().add(Alquilercontrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 140, -1));
         getContentPane().add(IdInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 70, 30));
 
         GuardarCont.setText("Guardar");
@@ -102,8 +96,8 @@ public class ContratosVistas extends javax.swing.JFrame {
 
         CerrarCont.setText("Cerrar");
         getContentPane().add(CerrarCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 100, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
+        getContentPane().add(fechainicialcontrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        getContentPane().add(fechafinalcontrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, -1, -1));
         getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
 
         pack();
@@ -149,19 +143,17 @@ public class ContratosVistas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
-    private javax.swing.JTextField AlquilerTexto;
+    private javax.swing.JTextField Alquilercontrato;
     private javax.swing.JButton CerrarCont;
     private javax.swing.JButton GuardarCont;
     private javax.swing.JTextField IdInqui;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser fechafinalcontrato;
+    private com.toedter.calendar.JDateChooser fechainicialcontrato;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-
     private javax.swing.JLabel jlcontra;
     // End of variables declaration//GEN-END:variables
 }
