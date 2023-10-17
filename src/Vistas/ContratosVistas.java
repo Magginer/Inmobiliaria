@@ -46,7 +46,7 @@ public class ContratosVistas extends javax.swing.JFrame {
         con = Conexion.getConexion();
         Ilista = new ArrayList();
         INlista = new ArrayList();
-        llenarcombo();
+        
         
         
         
@@ -70,7 +70,9 @@ public class ContratosVistas extends javax.swing.JFrame {
            Inmuebles inm = (Inmuebles) iterador.next();
            combocontra1.addItem(inm);   
        }
+     }
     
+    private void llenarcombo2 () {
        combocontra2.removeAllItems();
        INlista = (ArrayList) inquilino.ListarInquilino();
        Iterator iterador2 = INlista.iterator();
@@ -172,6 +174,11 @@ public class ContratosVistas extends javax.swing.JFrame {
         });
         getContentPane().add(AlquilerTexto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 140, -1));
 
+        combocontra1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combocontra1MouseClicked(evt);
+            }
+        });
         combocontra1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combocontra1ActionPerformed(evt);
@@ -179,6 +186,11 @@ public class ContratosVistas extends javax.swing.JFrame {
         });
         getContentPane().add(combocontra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 250, -1));
 
+        combocontra2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combocontra2MouseClicked(evt);
+            }
+        });
         getContentPane().add(combocontra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 250, -1));
 
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
@@ -193,7 +205,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarContActionPerformed
-        if(fechainicio.getDate() == null || fechafin.getDate() == null|| AlquilerTexto1.getText().length()<=0){ 
+        if(fechainicio.getDate() == null || fechafin.getDate() == null|| AlquilerTexto1.getText().length()<=0 ||combocontra1.getSelectedItem()==null || combocontra2.getSelectedItem()==null ){ 
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
         }else{
         
@@ -245,6 +257,14 @@ public class ContratosVistas extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_AlquilerTexto1KeyTyped
+
+    private void combocontra1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combocontra1MouseClicked
+        llenarcombo();
+    }//GEN-LAST:event_combocontra1MouseClicked
+
+    private void combocontra2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combocontra2MouseClicked
+        llenarcombo2();
+    }//GEN-LAST:event_combocontra2MouseClicked
 
     /**
      * @param args the command line arguments
