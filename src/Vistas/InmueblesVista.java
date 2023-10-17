@@ -31,7 +31,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         con = Conexion.getConexion();
         Plista = new ArrayList();
         
-        llenarcombo();
+        
         
         
         setSize(458, 485);
@@ -69,7 +69,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         jtinmudirec = new javax.swing.JTextField();
         jbinmuguardar = new javax.swing.JButton();
         jbinmucerrar = new javax.swing.JButton();
-        jinmucombo = new javax.swing.JComboBox<>();
+        jtinmuprop = new javax.swing.JTextField();
         jlinmuvista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -137,7 +137,12 @@ public class InmueblesVista extends javax.swing.JFrame {
         jbinmucerrar.setText("Cerrar");
         getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
-        getContentPane().add(jinmucombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 180, -1));
+        jtinmuprop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtinmupropActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtinmuprop, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 80, -1));
 
         jlinmuvista.setBackground(new java.awt.Color(255, 51, 153));
         getContentPane().add(jlinmuvista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 490));
@@ -152,29 +157,18 @@ public class InmueblesVista extends javax.swing.JFrame {
        int superficie = Integer.parseInt(jtinmusuper.getText());
        int precio = Integer.parseInt(jtinmuprec.getText());
        String zona = jtinmuzona.getText();
+       int idprop = Integer.parseInt(jtinmuprop.getText());
+       
+       
+       
        
        
        
     }//GEN-LAST:event_jbinmuguardarActionPerformed
 
-
-      private void llenarcombo () {
-            
-       jinmucombo.removeAllItems();
-      
-       ArrayList Plista = (ArrayList) propietario.ListarPropietarios();
-       Plista = (ArrayList) propietario.ListarPropietarios();
-       
-       for (int i = 0; i <Plista.size();i++){
-          
-          jinmucombo.addItem((String) Plista.get(i));
-      }
-       
-       
-        
-    }
-        
-        
+    private void jtinmupropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtinmupropActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtinmupropActionPerformed
 
     
     /**
@@ -224,11 +218,11 @@ public class InmueblesVista extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbinmucerrar;
     private javax.swing.JButton jbinmuguardar;
-    private javax.swing.JComboBox<String> jinmucombo;
     private javax.swing.JLabel jlinmuvista;
     private javax.swing.JTextField jtinmualtu;
     private javax.swing.JTextField jtinmudirec;
     private javax.swing.JTextField jtinmuprec;
+    private javax.swing.JTextField jtinmuprop;
     private javax.swing.JTextField jtinmusuper;
     private javax.swing.JTextField jtinmutipo;
     private javax.swing.JTextField jtinmuzona;
