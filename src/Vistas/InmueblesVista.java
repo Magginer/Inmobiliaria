@@ -36,7 +36,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         initComponents();
         con = Conexion.getConexion();
         Plista = new ArrayList();
-        llenarcombo();
+        
         
         
         
@@ -184,6 +184,11 @@ public class InmueblesVista extends javax.swing.JFrame {
         });
         getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
 
+        combopropi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combopropiMouseClicked(evt);
+            }
+        });
         combopropi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combopropiActionPerformed(evt);
@@ -333,6 +338,10 @@ public class InmueblesVista extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jtinmuzonaKeyTyped
+
+    private void combopropiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combopropiMouseClicked
+        llenarcombo();
+    }//GEN-LAST:event_combopropiMouseClicked
 
     
     
