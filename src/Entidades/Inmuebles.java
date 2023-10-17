@@ -122,7 +122,7 @@ public class Inmuebles {
 
     @Override
     public String toString() {
-        return "Inmuebles{" + "idinmueble=" + idinmueble + ", direccion=" + direccion + ", altura=" + altura + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", zona=" + zona + ", estado=" + estado + ", propietario=" + propietario + '}';
+        return idinmueble+"- " + direccion+"- " +altura+"- " + tipo + "- "+ zona ;
     }
 
     
