@@ -203,7 +203,7 @@ public class InmueblesVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbinmuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmuguardarActionPerformed
-       if(jtinmudirec.getText().length()<=0 || jtinmualtu.getText().length()<=0 || jtinmutipo.getText().length()<=0 || jtinmusuper.getText().length()<=0 || jtinmuprec.getText().length()<=0 || jtinmuzona.getText().length()<=0){ 
+       if(jtinmudirec.getText().length()<=0 || jtinmualtu.getText().length()<=0 || jtinmutipo.getText().length()<=0 || jtinmusuper.getText().length()<=0 || jtinmuprec.getText().length()<=0 || jtinmuzona.getText().length()<=0 || combopropi.getSelectedItem()==null){ 
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
         }else{
        String direccion = jtinmudirec.getText();
