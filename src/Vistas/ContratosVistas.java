@@ -17,12 +17,14 @@ import Entidades.Propietario;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -98,8 +100,8 @@ public class ContratosVistas extends javax.swing.JFrame {
         AlquilerTexto1 = new javax.swing.JTextField();
         combocontra1 = new javax.swing.JComboBox<>();
         combocontra2 = new javax.swing.JComboBox<>();
-        jlcontra = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jlcontra = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,8 +156,20 @@ public class ContratosVistas extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CerrarCont, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 100, -1));
+
+        fechainicio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fechainicioKeyTyped(evt);
+            }
+        });
         getContentPane().add(fechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 150, -1));
         getContentPane().add(fechafin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 160, -1));
+
+        AlquilerTexto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AlquilerTexto1KeyTyped(evt);
+            }
+        });
         getContentPane().add(AlquilerTexto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 140, -1));
 
         combocontra1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +180,6 @@ public class ContratosVistas extends javax.swing.JFrame {
         getContentPane().add(combocontra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 250, -1));
 
         getContentPane().add(combocontra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 250, -1));
-        getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
 
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -174,11 +187,16 @@ public class ContratosVistas extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Alquiler");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        getContentPane().add(jlcontra, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarContActionPerformed
+        if(fechainicio.getDate() == null || fechafin.getDate() == null|| AlquilerTexto1.getText().length()<=0){ 
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
+        }else{
+        
         LocalDate fechaincio= fechainicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Date fechai = Date.valueOf(fechaincio);
         LocalDate fechafina= fechafin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -198,7 +216,8 @@ public class ContratosVistas extends javax.swing.JFrame {
         
         ContratoData con = new ContratoData ();
         con.guardarContrato(contrato);
-        
+       
+     }       
     }//GEN-LAST:event_GuardarContActionPerformed
 
     private void combocontra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combocontra1ActionPerformed
@@ -208,6 +227,24 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void CerrarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarContActionPerformed
         dispose();
     }//GEN-LAST:event_CerrarContActionPerformed
+
+    private void fechainicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fechainicioKeyTyped
+   
+    }//GEN-LAST:event_fechainicioKeyTyped
+
+    private void AlquilerTexto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlquilerTexto1KeyTyped
+        char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
+            AlquilerTexto1.setEditable(true);
+            
+        }else{
+            AlquilerTexto1.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Alquiler");
+            return;
+            
+        }
+    }//GEN-LAST:event_AlquilerTexto1KeyTyped
 
     /**
      * @param args the command line arguments

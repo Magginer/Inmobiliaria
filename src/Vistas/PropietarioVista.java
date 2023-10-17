@@ -277,7 +277,7 @@ public class PropietarioVista extends javax.swing.JFrame {
     private void PropiNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiNombreKeyTyped
        char c = evt.getKeyChar();
         
-        if(Character.isLetter(c)|Character.isWhitespace(c) || Character.isISOControl(c)){ 
+        if(Character.isLetter(c)||Character.isWhitespace(c) || Character.isISOControl(c)){ 
             PropiNombre.setEditable(true);
             
         }else{
