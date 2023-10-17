@@ -258,7 +258,7 @@ public class InmueblesVista extends javax.swing.JFrame {
     private void jtinmudirecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmudirecKeyTyped
         char c = evt.getKeyChar();
         
-         if(Character.isAlphabetic(c)||Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)){ 
+         if(Character.isAlphabetic(c)||Character.isWhitespace(c)|| Character.isISOControl(c)){ 
             jtinmudirec.setEditable(true);
             
         }else{
