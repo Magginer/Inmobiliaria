@@ -10,6 +10,7 @@ import Entidades.Inquilino;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,10 +23,10 @@ public class InquilinosVista extends javax.swing.JFrame {
      */
     public InquilinosVista() {
         initComponents();
-        setSize(383,463);
+        setSize(383, 463);
         setLocationRelativeTo(null);
-        
-        ImageIcon wallpaper =new ImageIcon("src/imagenes/TERRA_Inquilinos.jpg");
+
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/TERRA_Inquilinos.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlinqui.getWidth(), jlinqui.getHeight(), Image.SCALE_SMOOTH));
         jlinqui.setIcon(icono);
         this.repaint();
@@ -116,12 +117,54 @@ public class InquilinosVista extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        InquiID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiIDKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
+
+        InquiCuit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiCuitKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
+
+        InquiDniG.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiDniGKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiDniG, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, -1));
+
+        InquiNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiNombreKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
+
+        InquiApe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiApeKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
+
+        InquiLugar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiLugarKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 256, 140, -1));
+
+        InquiNombreG.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                InquiNombreGKeyPressed(evt);
+            }
+        });
         getContentPane().add(InquiNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 140, -1));
 
         GuardarInqui.setText("Guardar");
@@ -145,34 +188,135 @@ public class InquilinosVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarInquiActionPerformed
-        
-        int id = Integer.parseInt(InquiID.getText());
-        int cuit = Integer.parseInt(InquiCuit.getText());
-        String nombre= InquiNombre.getText();
-        String apellido= InquiApe.getText();
-        String lugar= InquiLugar.getText();
-        String nombreg= InquiNombreG.getText();
-        int dnig= Integer.parseInt(InquiDniG.getText());
-        
-        
-        Inquilino inqui = new Inquilino();
-        
-        inqui.setIdinquilino(id);
-        inqui.setCuit(cuit);
-        inqui.setNombre(nombre);
-        inqui.setApellido(apellido);
-        inqui.setLtrabajo(lugar); 
-        inqui.setNgarante(nombreg);
-        inqui.setDni(dnig);
-        inqui.setEstado(true);
-        
-        InquilinoData in= new InquilinoData();
-        in.GuardarInquilino(inqui);
-    }//GEN-LAST:event_GuardarInquiActionPerformed
+        if (InquiID.getText().length() <= 0 || InquiCuit.getText().length() <= 0 || InquiNombre.getText().length() <= 0 || InquiApe.getText().length() <= 0 || InquiLugar.getText().length() <= 0 || InquiNombreG.getText().length() <= 0 || InquiDniG.getText().length() <= 0) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar");
+        } else {
+            int id = Integer.parseInt(InquiID.getText());
+            int cuit = Integer.parseInt(InquiCuit.getText());
+            String nombre = InquiNombre.getText();
+            String apellido = InquiApe.getText();
+            String lugar = InquiLugar.getText();
+            String nombreg = InquiNombreG.getText();
+            int dnig = Integer.parseInt(InquiDniG.getText());
 
+            Inquilino inqui = new Inquilino();
+
+            inqui.setIdinquilino(id);
+            inqui.setCuit(cuit);
+            inqui.setNombre(nombre);
+            inqui.setApellido(apellido);
+            inqui.setLtrabajo(lugar);
+            inqui.setNgarante(nombreg);
+            inqui.setDni(dnig);
+            inqui.setEstado(true);
+
+            InquilinoData in = new InquilinoData();
+            in.GuardarInquilino(inqui);
+    }//GEN-LAST:event_GuardarInquiActionPerformed
+    }
     private void CerrarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarInquiActionPerformed
         dispose();
     }//GEN-LAST:event_CerrarInquiActionPerformed
+
+    private void InquiIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiIDKeyPressed
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiID.setEditable(true);
+
+        } else {
+            InquiID.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo ID");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiIDKeyPressed
+
+    private void InquiCuitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiCuitKeyPressed
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiCuit.setEditable(true);
+
+        } else {
+            InquiCuit.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo CUIT");
+            return;
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_InquiCuitKeyPressed
+
+    private void InquiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreKeyPressed
+        char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
+            InquiNombre.setEditable(true);
+
+        } else {
+            InquiNombre.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Nombre");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiNombreKeyPressed
+
+    private void InquiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiApeKeyPressed
+        char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
+            InquiApe.setEditable(true);
+
+        } else {
+            InquiApe.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Apellido");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiApeKeyPressed
+
+    private void InquiLugarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiLugarKeyPressed
+        char c = evt.getKeyChar();
+
+        if (Character.isAlphabetic(c) || Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiLugar.setEditable(true);
+
+        } else {
+            InquiLugar.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS y LETRAS en campo Lugar de trabajo");
+            return;
+            
+      }      
+            
+    }//GEN-LAST:event_InquiLugarKeyPressed
+
+    private void InquiNombreGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreGKeyPressed
+         char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
+            InquiNombreG.setEditable(true);
+
+        } else {
+            InquiNombreG.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Nombre de garante");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiNombreGKeyPressed
+
+    private void InquiDniGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiDniGKeyPressed
+       char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiDniG.setEditable(true);
+
+        } else {
+            InquiDniG.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo DNI del garante");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiDniGKeyPressed
+    
 
     /**
      * @param args the command line arguments
