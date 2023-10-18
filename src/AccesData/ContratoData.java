@@ -55,14 +55,14 @@ public class ContratoData {
         }
     }
     
-    public void deletearContrato(int idinquilino, int idinmueble) {
+    public void deletearContrato(int idcontrato ) {
 
-        String sql = "DELETE FROM contrato WHERE idinquilino=? and idinmueble=?";
+        String sql = "DELETE FROM contrato WHERE idcontrato=?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idinquilino);
-            ps.setInt(2, idinmueble);
+            ps.setInt(1, idcontrato);
+          
 
             int filas = ps.executeUpdate();
             if (filas > 0) {

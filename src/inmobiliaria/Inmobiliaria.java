@@ -27,30 +27,34 @@ public class Inmobiliaria {
     public static void main(String[] args) {
         
 
-     Propietario elsa = new Propietario(158742,"elsa", "balero","Chacras 568", 456788654,9,true);
-     Propietario juan = new Propietario(87951396,"Juan", "Chamorro","calle falsa 123", 7895645,8,true);
+     Propietario jose = new Propietario(654,"Josadsad", "asdas","qwesdasdq 456", 879,45,true);
+     //Propietario juan = new Propietario(87951396,"Juan", "Chamorro","calle falsa 123", 7895645,8,true);
      PropietarioData prop=new PropietarioData();
-     //prop.GuardarPropietario(juan);
+     //prop.GuardarPropietario(jose);
      //prop.GuardarPropietario(elsa);
-     prop.ListarPropietarios();
+     //prop.ListarPropietarios();
+     //prop.DeletearPropietario(549798);
      
      
-     //Inquilino moni = new Inquilino (4, 48984,"Moni","Argento","Las Heras 546","Dardo Fuseneco", 4874984,true);
-     //InquilinoData inq = new InquilinoData();
+     Inquilino pepe = new Inquilino (85,895236,"asdas","Argenasdasto","asdasdasd 458","Dardo Fuseneco", 4874984,true);
+     InquilinoData inq = new InquilinoData();
      //inq.GuardarInquilino(pepe);
      //inq.ModificarInquilino(pepe);
-     //inq.EliminarLogico(3);
-     //inq.DeletearInquilino(48984);
+     //inq.EliminarLogico(87);
+     //inq.DeletearInquilino(895236);
      
-     //Inmuebles inm = new Inmuebles (5,"Honorio Pueyrredon", 456, "departamento", 80, 120000, "Caballito", true, juan);
-     //InmueblesData inms=new InmueblesData();
+     Inmuebles inm = new Inmuebles (15,"asqqwq", 456, "depa", 50, 96000, "qweqwe", true, jose);
+     InmueblesData inms=new InmueblesData();
      //inms.GuardarInmueble(inm);
-   
+     //inms.ModifacacionInmueble(inm);
+     //inms.EliminadoLogico(19);
+     //inms.DeletearInmueble(19);
      
-     //Contrato con = new Contrato(LocalDate.of(2023, 4, 25), LocalDate.of(2024, 4, 25), 100000, true, moni, inm);
-     //ContratoData cont = new ContratoData();
+     Contrato con = new Contrato(LocalDate.of(2015, 4, 25), LocalDate.of(2026, 4, 25), 120000, true, pepe, inm);
+     ContratoData cont = new ContratoData();
      //cont.guardarContrato(con);
-     //cont.actualizarContrato(LocalDate.of(2024, 4, 25), LocalDate.of(2025, 4, 25), 151515, true, 8);
+     //cont.actualizarContrato(LocalDate.of(2016, 4, 25), LocalDate.of(2030, 4, 25), 151515, true, 12);
+     cont.deletearContrato(12);
  
           
     
