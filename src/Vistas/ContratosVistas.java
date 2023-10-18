@@ -102,6 +102,7 @@ public class ContratosVistas extends javax.swing.JFrame {
         AlquilerTexto1 = new javax.swing.JTextField();
         combocontra1 = new javax.swing.JComboBox<>();
         combocontra2 = new javax.swing.JComboBox<>();
+        Limpiarcont = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jlcontra = new javax.swing.JLabel();
 
@@ -193,6 +194,14 @@ public class ContratosVistas extends javax.swing.JFrame {
         });
         getContentPane().add(combocontra2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 250, -1));
 
+        Limpiarcont.setText("Limpiar");
+        Limpiarcont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarcontActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Limpiarcont, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 90, -1));
+
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -266,6 +275,15 @@ public class ContratosVistas extends javax.swing.JFrame {
         llenarcombo2();
     }//GEN-LAST:event_combocontra2MouseClicked
 
+    private void LimpiarcontActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarcontActionPerformed
+    fechafin.setDate(null);
+    fechainicio.setDate(null);
+    AlquilerTexto1.setText("");
+    
+    
+    
+    }//GEN-LAST:event_LimpiarcontActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +323,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     private javax.swing.JTextField AlquilerTexto1;
     private javax.swing.JButton CerrarCont;
     private javax.swing.JButton GuardarCont;
+    private javax.swing.JButton Limpiarcont;
     private javax.swing.JComboBox<Inmuebles> combocontra1;
     private javax.swing.JComboBox<Inquilino> combocontra2;
     private com.toedter.calendar.JDateChooser fechafin;

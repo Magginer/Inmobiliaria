@@ -144,6 +144,11 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 100, 30));
 
         CerrarInqui.setText("Cerrar");
+        CerrarInqui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarInquiActionPerformed(evt);
+            }
+        });
         getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
         getContentPane().add(jlinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 463));
 
@@ -154,6 +159,10 @@ public class InquilinosBuscar extends javax.swing.JFrame {
      
         
     }//GEN-LAST:event_buscarinquiActionPerformed
+
+    private void CerrarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarInquiActionPerformed
+      dispose();
+    }//GEN-LAST:event_CerrarInquiActionPerformed
 
     /**
      * @param args the command line arguments
