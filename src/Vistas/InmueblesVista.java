@@ -75,6 +75,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         jtinmudirec = new javax.swing.JTextField();
         jbinmuguardar = new javax.swing.JButton();
         jbinmucerrar = new javax.swing.JButton();
+        jbinmulimpiar = new javax.swing.JButton();
         combopropi = new javax.swing.JComboBox<>();
         comboinmu = new javax.swing.JLabel();
 
@@ -182,7 +183,15 @@ public class InmueblesVista extends javax.swing.JFrame {
                 jbinmucerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+        getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
+
+        jbinmulimpiar.setText("Limpiar");
+        jbinmulimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbinmulimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbinmulimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
 
         combopropi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -343,6 +352,18 @@ public class InmueblesVista extends javax.swing.JFrame {
         llenarcombo();
     }//GEN-LAST:event_combopropiMouseClicked
 
+    private void jbinmulimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmulimpiarActionPerformed
+       
+        
+     jtinmualtu.setText("");
+     jtinmudirec.setText("");
+     jtinmuprec.setText("");
+     jtinmusuper.setText("");
+     jtinmutipo.setText("");
+     jtinmuzona.setText("");
+        
+    }//GEN-LAST:event_jbinmulimpiarActionPerformed
+
     
     
     
@@ -398,6 +419,7 @@ public class InmueblesVista extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbinmucerrar;
     private javax.swing.JButton jbinmuguardar;
+    private javax.swing.JButton jbinmulimpiar;
     private javax.swing.JTextField jtinmualtu;
     private javax.swing.JTextField jtinmudirec;
     private javax.swing.JTextField jtinmuprec;
