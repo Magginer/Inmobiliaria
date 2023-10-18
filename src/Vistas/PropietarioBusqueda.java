@@ -136,6 +136,11 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
 
         CerrarPropi.setText("Cerrar");
+        CerrarPropi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarPropiActionPerformed(evt);
+            }
+        });
         getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
         getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
 
@@ -172,6 +177,10 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Propietario");
         }
     }//GEN-LAST:event_buscarpropiActionPerformed
+
+    private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
+        dispose();
+    }//GEN-LAST:event_CerrarPropiActionPerformed
 
     /**
      * @param args the command line arguments

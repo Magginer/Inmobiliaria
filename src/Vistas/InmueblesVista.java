@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,7 +36,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         initComponents();
         con = Conexion.getConexion();
         Plista = new ArrayList();
-        llenarcombo();
+        
         
         
         
@@ -74,6 +75,7 @@ public class InmueblesVista extends javax.swing.JFrame {
         jtinmudirec = new javax.swing.JTextField();
         jbinmuguardar = new javax.swing.JButton();
         jbinmucerrar = new javax.swing.JButton();
+        jbinmulimpiar = new javax.swing.JButton();
         combopropi = new javax.swing.JComboBox<>();
         comboinmu = new javax.swing.JLabel();
 
@@ -122,11 +124,47 @@ public class InmueblesVista extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Altura");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 70, 30));
+
+        jtinmualtu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmualtuKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmualtu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 90, -1));
+
+        jtinmutipo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmutipoKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmutipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 130, -1));
+
+        jtinmusuper.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmusuperKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmusuper, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 180, -1));
+
+        jtinmuprec.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmuprecKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmuprec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 120, -1));
+
+        jtinmuzona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmuzonaKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmuzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 120, -1));
+
+        jtinmudirec.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtinmudirecKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtinmudirec, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 180, -1));
 
         jbinmuguardar.setForeground(new java.awt.Color(0, 0, 0));
@@ -145,8 +183,21 @@ public class InmueblesVista extends javax.swing.JFrame {
                 jbinmucerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+        getContentPane().add(jbinmucerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, -1, -1));
 
+        jbinmulimpiar.setText("Limpiar");
+        jbinmulimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbinmulimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbinmulimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
+
+        combopropi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combopropiMouseClicked(evt);
+            }
+        });
         combopropi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combopropiActionPerformed(evt);
@@ -161,6 +212,9 @@ public class InmueblesVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbinmuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmuguardarActionPerformed
+       if(jtinmudirec.getText().length()<=0 || jtinmualtu.getText().length()<=0 || jtinmutipo.getText().length()<=0 || jtinmusuper.getText().length()<=0 || jtinmuprec.getText().length()<=0 || jtinmuzona.getText().length()<=0 || combopropi.getSelectedItem()==null){ 
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
+        }else{
        String direccion = jtinmudirec.getText();
        int altura = Integer.parseInt(jtinmualtu.getText());
        String tipo = jtinmutipo.getText();
@@ -183,6 +237,9 @@ public class InmueblesVista extends javax.swing.JFrame {
        inmu.setEstado(true);
        
        inmueble.GuardarInmueble(inmu);
+       }
+        
+    
 
        
     }//GEN-LAST:event_jbinmuguardarActionPerformed
@@ -206,6 +263,106 @@ public class InmueblesVista extends javax.swing.JFrame {
     private void jbinmucerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmucerrarActionPerformed
         dispose();
     }//GEN-LAST:event_jbinmucerrarActionPerformed
+
+    private void jtinmudirecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmudirecKeyTyped
+        char c = evt.getKeyChar();
+        
+         if(Character.isAlphabetic(c)||Character.isWhitespace(c)|| Character.isISOControl(c)){ 
+            jtinmudirec.setEditable(true);
+            
+        }else{
+            jtinmudirec.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo Letras en campo Direccion");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmudirecKeyTyped
+
+    private void jtinmualtuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmualtuKeyTyped
+        char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
+            jtinmualtu.setEditable(true);
+            
+        }else{
+            jtinmualtu.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Altura");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmualtuKeyTyped
+
+    private void jtinmutipoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmutipoKeyTyped
+       char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c) || Character.isISOControl(c)){ 
+            jtinmutipo.setEditable(true);
+            
+        }else{
+            jtinmutipo.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo Letras en campo Tipo");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmutipoKeyTyped
+
+    private void jtinmusuperKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmusuperKeyTyped
+       char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
+            jtinmusuper.setEditable(true);
+            
+        }else{
+            jtinmusuper.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Superficie");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmusuperKeyTyped
+
+    private void jtinmuprecKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmuprecKeyTyped
+         char c = evt.getKeyChar();
+        
+        if(Character.isDigit(c)|| Character.isISOControl(c)){ 
+            jtinmuprec.setEditable(true);
+            
+        }else{
+            jtinmuprec.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Precio");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmuprecKeyTyped
+
+    private void jtinmuzonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtinmuzonaKeyTyped
+       char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c) || Character.isISOControl(c)){ 
+            jtinmuzona.setEditable(true);
+            
+        }else{
+            jtinmuzona.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo Letras en campo Zona");
+            return;
+            
+        }
+    }//GEN-LAST:event_jtinmuzonaKeyTyped
+
+    private void combopropiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combopropiMouseClicked
+        llenarcombo();
+    }//GEN-LAST:event_combopropiMouseClicked
+
+    private void jbinmulimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbinmulimpiarActionPerformed
+       
+        
+     jtinmualtu.setText("");
+     jtinmudirec.setText("");
+     jtinmuprec.setText("");
+     jtinmusuper.setText("");
+     jtinmutipo.setText("");
+     jtinmuzona.setText("");
+        
+    }//GEN-LAST:event_jbinmulimpiarActionPerformed
 
     
     
@@ -262,6 +419,7 @@ public class InmueblesVista extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbinmucerrar;
     private javax.swing.JButton jbinmuguardar;
+    private javax.swing.JButton jbinmulimpiar;
     private javax.swing.JTextField jtinmualtu;
     private javax.swing.JTextField jtinmudirec;
     private javax.swing.JTextField jtinmuprec;

@@ -58,6 +58,7 @@ public class InquilinosVista extends javax.swing.JFrame {
         InquiNombreG = new javax.swing.JTextField();
         GuardarInqui = new javax.swing.JButton();
         CerrarInqui = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jlinqui = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -122,12 +123,18 @@ public class InquilinosVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiIDKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiIDKeyTyped(evt);
+            }
         });
         getContentPane().add(InquiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
 
         InquiCuit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiCuitKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiCuitKeyTyped(evt);
             }
         });
         getContentPane().add(InquiCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
@@ -136,12 +143,18 @@ public class InquilinosVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiDniGKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiDniGKeyTyped(evt);
+            }
         });
         getContentPane().add(InquiDniG, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, -1));
 
         InquiNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiNombreKeyTyped(evt);
             }
         });
         getContentPane().add(InquiNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 150, -1));
@@ -150,6 +163,9 @@ public class InquilinosVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiApeKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiApeKeyTyped(evt);
+            }
         });
         getContentPane().add(InquiApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 140, -1));
 
@@ -157,12 +173,18 @@ public class InquilinosVista extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiLugarKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiLugarKeyTyped(evt);
+            }
         });
         getContentPane().add(InquiLugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 256, 140, -1));
 
         InquiNombreG.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 InquiNombreGKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiNombreGKeyTyped(evt);
             }
         });
         getContentPane().add(InquiNombreG, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 140, -1));
@@ -173,7 +195,7 @@ public class InquilinosVista extends javax.swing.JFrame {
                 GuardarInquiActionPerformed(evt);
             }
         });
-        getContentPane().add(GuardarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 100, 30));
+        getContentPane().add(GuardarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 100, 30));
 
         CerrarInqui.setText("Cerrar");
         CerrarInqui.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +203,15 @@ public class InquilinosVista extends javax.swing.JFrame {
                 CerrarInquiActionPerformed(evt);
             }
         });
-        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
+        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 100, -1));
+
+        jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
         getContentPane().add(jlinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 463));
 
         pack();
@@ -219,7 +249,36 @@ public class InquilinosVista extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarInquiActionPerformed
 
     private void InquiIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiIDKeyPressed
-        char c = evt.getKeyChar();
+        
+    }//GEN-LAST:event_InquiIDKeyPressed
+
+    private void InquiCuitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiCuitKeyPressed
+       // TODO add your handling code here:
+    }//GEN-LAST:event_InquiCuitKeyPressed
+
+    private void InquiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreKeyPressed
+        
+    }//GEN-LAST:event_InquiNombreKeyPressed
+
+    private void InquiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiApeKeyPressed
+       
+    }//GEN-LAST:event_InquiApeKeyPressed
+
+    private void InquiLugarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiLugarKeyPressed
+       
+            
+    }//GEN-LAST:event_InquiLugarKeyPressed
+
+    private void InquiNombreGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreGKeyPressed
+         
+    }//GEN-LAST:event_InquiNombreGKeyPressed
+
+    private void InquiDniGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiDniGKeyPressed
+      
+    }//GEN-LAST:event_InquiDniGKeyPressed
+
+    private void InquiIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiIDKeyTyped
+       char c = evt.getKeyChar();
 
         if (Character.isDigit(c) || Character.isISOControl(c)) {
             InquiID.setEditable(true);
@@ -230,10 +289,25 @@ public class InquilinosVista extends javax.swing.JFrame {
             return;
 
         }
-    }//GEN-LAST:event_InquiIDKeyPressed
+    }//GEN-LAST:event_InquiIDKeyTyped
 
-    private void InquiCuitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiCuitKeyPressed
-        char c = evt.getKeyChar();
+    private void InquiNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreKeyTyped
+       char c = evt.getKeyChar();
+
+        if (Character.isLetter(c)| Character.isWhitespace(c) || Character.isISOControl(c)) {
+            InquiNombre.setEditable(true);
+            
+
+        } else {
+            InquiNombre.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Nombre");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiNombreKeyTyped
+
+    private void InquiCuitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiCuitKeyTyped
+         char c = evt.getKeyChar();
 
         if (Character.isDigit(c) || Character.isISOControl(c)) {
             InquiCuit.setEditable(true);
@@ -243,27 +317,13 @@ public class InquilinosVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo CUIT");
             return;
 
-        }// TODO add your handling code here:
-    }//GEN-LAST:event_InquiCuitKeyPressed
-
-    private void InquiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreKeyPressed
-        char c = evt.getKeyChar();
-
-        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
-            InquiNombre.setEditable(true);
-
-        } else {
-            InquiNombre.setEditable(false);
-            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Nombre");
-            return;
-
         }
-    }//GEN-LAST:event_InquiNombreKeyPressed
+    }//GEN-LAST:event_InquiCuitKeyTyped
 
-    private void InquiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiApeKeyPressed
-        char c = evt.getKeyChar();
+    private void InquiApeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiApeKeyTyped
+         char c = evt.getKeyChar();
 
-        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
+        if (Character.isAlphabetic(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
             InquiApe.setEditable(true);
 
         } else {
@@ -272,10 +332,10 @@ public class InquilinosVista extends javax.swing.JFrame {
             return;
 
         }
-    }//GEN-LAST:event_InquiApeKeyPressed
+    }//GEN-LAST:event_InquiApeKeyTyped
 
-    private void InquiLugarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiLugarKeyPressed
-        char c = evt.getKeyChar();
+    private void InquiLugarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiLugarKeyTyped
+       char c = evt.getKeyChar();
 
         if (Character.isAlphabetic(c) || Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)) {
             InquiLugar.setEditable(true);
@@ -286,13 +346,12 @@ public class InquilinosVista extends javax.swing.JFrame {
             return;
             
       }      
-            
-    }//GEN-LAST:event_InquiLugarKeyPressed
+    }//GEN-LAST:event_InquiLugarKeyTyped
 
-    private void InquiNombreGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreGKeyPressed
-         char c = evt.getKeyChar();
+    private void InquiNombreGKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiNombreGKeyTyped
+      char c = evt.getKeyChar();
 
-        if (Character.isLetter(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
+        if (Character.isAlphabetic(c) | Character.isWhitespace(c) || Character.isISOControl(c)) {
             InquiNombreG.setEditable(true);
 
         } else {
@@ -301,10 +360,10 @@ public class InquilinosVista extends javax.swing.JFrame {
             return;
 
         }
-    }//GEN-LAST:event_InquiNombreGKeyPressed
+    }//GEN-LAST:event_InquiNombreGKeyTyped
 
-    private void InquiDniGKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiDniGKeyPressed
-       char c = evt.getKeyChar();
+    private void InquiDniGKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiDniGKeyTyped
+    char c = evt.getKeyChar();
 
         if (Character.isDigit(c) || Character.isISOControl(c)) {
             InquiDniG.setEditable(true);
@@ -315,7 +374,17 @@ public class InquilinosVista extends javax.swing.JFrame {
             return;
 
         }
-    }//GEN-LAST:event_InquiDniGKeyPressed
+    }//GEN-LAST:event_InquiDniGKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   InquiApe.setText("");
+   InquiCuit.setText("");
+   InquiDniG.setText("");
+   InquiID.setText("");
+   InquiLugar.setText("");
+   InquiNombre.setText("");
+   InquiNombreG.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
     
 
     /**
@@ -363,6 +432,7 @@ public class InquilinosVista extends javax.swing.JFrame {
     private javax.swing.JTextField InquiLugar;
     private javax.swing.JTextField InquiNombre;
     private javax.swing.JTextField InquiNombreG;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
