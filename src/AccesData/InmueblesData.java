@@ -59,9 +59,9 @@ public class InmueblesData {
         }
     }
     public void ModifacacionInmueble(Inmuebles inm){
-        String sql="UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?";
+        String sql="UPDATE inmuebles SET direccion=? ,altura=? ,tipo=? ,superficie=? ,precio=? ,zona=? WHERE idinmueble=?";
         try {
-            //UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?
+            //UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=? WHERE idinmueble=?
             PreparedStatement ps= con.prepareStatement(sql);
             ps.setString(1, inm.getDireccion());
             ps.setInt(2, inm.getAltura());
@@ -69,7 +69,7 @@ public class InmueblesData {
             ps.setInt(4, inm.getSuperficie());
             ps.setInt(5, inm.getPrecio());
             ps.setString(6, inm.getZona());
-            ps.setBoolean(7, inm.isEstado());
+            ps.setInt(7, inm.getIdinmueble());
             
             int exito=ps.executeUpdate();
              System.out.println("Inmueble Modificado.");
