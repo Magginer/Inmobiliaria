@@ -30,6 +30,7 @@ public class InquilinoData {
     }   
  
     
+   
     public void GuardarInquilino (Inquilino inquilino){
         
         String sql= "INSERT INTO inquilino( idinquilino , cuit, nombre, apellido, ltrabajo, ngarante, gdni, estado) VALUES (?,?,?,?,?,?,?,?)";
@@ -49,10 +50,10 @@ public class InquilinoData {
              ResultSet rs= ps.getGeneratedKeys();
              if (rs.next()) {
                  inquilino.setIdinquilino(rs.getInt(1));
-                 JOptionPane.showMessageDialog(null, "Inquilino Guardado Exitosamente.");
+                 JOptionPane.showMessageDialog(null, "Inquilino Guardado Exitosamente.");         
              }
          } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la Tabla de Inquilino.");
+            JOptionPane.showMessageDialog(null, "Entrada duplicada en ID o Cuit.");
          }
     }
     public void ModificarInquilino(Inquilino inquilino){
