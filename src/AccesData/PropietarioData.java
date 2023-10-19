@@ -53,7 +53,7 @@ public class PropietarioData {
                  JOptionPane.showMessageDialog(null, "Propietario Guardado Exitosamente.");
              }
          } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la Tabla de Propietarios.");
+            JOptionPane.showMessageDialog(null, "Entrada duplicada en ID o DNI.");
          }
     }
     public void ModificarPropietario(Propietario propietario){

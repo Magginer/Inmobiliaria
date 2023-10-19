@@ -8,6 +8,9 @@ package Vistas;
 import AccesData.InquilinoData;
 import Entidades.Inquilino;
 import java.awt.Image;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -241,6 +244,8 @@ public class InquilinosVista extends javax.swing.JFrame {
             inqui.setEstado(true);
 
             InquilinoData in = new InquilinoData();
+           
+            
             in.GuardarInquilino(inqui);
     }//GEN-LAST:event_GuardarInquiActionPerformed
     }

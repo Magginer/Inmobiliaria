@@ -234,7 +234,7 @@ public class InmueblesVista extends javax.swing.JFrame {
        inmu.setPrecio(precio);
        inmu.setZona(zona);
        inmu.setPropietario(pro);
-       inmu.setEstado(true);
+       inmu.setEstado(false);
        
        inmueble.GuardarInmueble(inmu);
        }
