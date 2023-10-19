@@ -46,7 +46,7 @@ public class ContratosVistas extends javax.swing.JFrame {
         con = Conexion.getConexion();
         Ilista = new ArrayList();
         INlista = new ArrayList();
-        
+
         
         
         
@@ -251,7 +251,7 @@ public class ContratosVistas extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarContActionPerformed
 
     private void fechainicioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fechainicioKeyTyped
-   
+        
     }//GEN-LAST:event_fechainicioKeyTyped
 
     private void AlquilerTexto1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlquilerTexto1KeyTyped
@@ -280,9 +280,8 @@ public class ContratosVistas extends javax.swing.JFrame {
     fechafin.setDate(null);
     fechainicio.setDate(null);
     AlquilerTexto1.setText("");
-    
-    
-    
+    combocontra1.removeAllItems();
+    combocontra2.removeAllItems();
     }//GEN-LAST:event_LimpiarcontActionPerformed
 
     /**
