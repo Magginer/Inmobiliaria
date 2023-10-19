@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -57,9 +59,9 @@ public class InmueblesData {
         }
     }
     public void ModifacacionInmueble(Inmuebles inm){
-        String sql="UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?";
+        String sql="UPDATE inmuebles SET direccion=? ,altura=? ,tipo=? ,superficie=? ,precio=? ,zona=? WHERE idinmueble=?";
         try {
-            //UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=?,estado=? WHERE idinmueble=?
+            //UPDATE inmuebles SET direccion=?,altura=?,tipo=?,superficie=?,precio=?,zona=? WHERE idinmueble=?
             PreparedStatement ps= con.prepareStatement(sql);
             ps.setString(1, inm.getDireccion());
             ps.setInt(2, inm.getAltura());
@@ -67,7 +69,7 @@ public class InmueblesData {
             ps.setInt(4, inm.getSuperficie());
             ps.setInt(5, inm.getPrecio());
             ps.setString(6, inm.getZona());
-            ps.setBoolean(7, inm.isEstado());
+            ps.setInt(7, inm.getIdinmueble());
             
             int exito=ps.executeUpdate();
              System.out.println("Inmueble Modificado.");
@@ -113,5 +115,33 @@ public class InmueblesData {
                     
          }
     }
-    
+    public ArrayList<Inmuebles> ListarInmueble() {
+
+        String sql = "SELECT  idinmueble ,direccion, altura, tipo, superficie, precio, zona FROM inmuebles WHERE estado=1 ";
+        ArrayList<Inmuebles> inmueble = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+
+                Inmuebles inmu = new Inmuebles();
+                inmu.setIdinmueble(rs.getInt("idinmueble"));
+                inmu.setDireccion(rs.getString("direccion"));
+                inmu.setAltura(rs.getInt("Altura"));
+                inmu.setTipo(rs.getString("tipo"));
+                inmu.setSuperficie(rs.getInt("superficie"));
+                inmu.setPrecio(rs.getInt("precio"));
+                inmu.setZona(rs.getString("zona"));
+                inmu.setEstado(true);
+                
+                inmueble.add(inmu);
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+        return inmueble;
+    }
 }

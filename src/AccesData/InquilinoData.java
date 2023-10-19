@@ -5,6 +5,7 @@
  */
 package AccesData;
 
+import Entidades.Inmuebles;
 import Entidades.Inquilino;
 import Entidades.Propietario;
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -114,5 +116,56 @@ public class InquilinoData {
          }
         
     }
-    
+    public ArrayList<Inquilino> ListarInquilino() {
+
+        String sql = "SELECT  idinquilino ,cuit, nombre, apellido, ltrabajo, ngarante, gdni FROM inquilino WHERE estado=1 ";
+        ArrayList<Inquilino> inquilinos = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+
+                Inquilino inqui = new Inquilino();
+                inqui.setIdinquilino(rs.getInt("idinquilino"));
+                inqui.setCuit(rs.getInt("cuit"));
+                inqui.setNombre(rs.getString("Nombre"));
+                inqui.setApellido(rs.getString("Apellido"));
+                inqui.setLtrabajo(rs.getString("ltrabajo"));
+                inqui.setNgarante(rs.getString("ngarante"));
+                inqui.setDni(rs.getInt("gdni"));
+                inqui.setEstado(true);
+                
+                inquilinos.add(inqui);
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+        return inquilinos;
+    }
+//    public Inquilino BuscarInqui (int idinquilino){
+//        String sql= "SELECT cuit, nombre, apellido, ltrabajo, ngarante, gdni FROM inquilino WHERE idinquilino = ?";
+//        // SELECT `idinquilino`, `cuit`, `nombre`, `apellido`, `ltrabajo`, `ngarante`, `gdni`, `estado` FROM `inquilino` WHERE 1
+//        
+//        try {
+//             PreparedStatement ps = con.prepareStatement(sql);
+//             ps.setInt(1, idinquilino);
+//             ResultSet rs = ps.executeQuery();
+//             
+//             if(rs.next()){
+//             
+//                
+//             }else{
+//                 JOptionPane.showMessageDialog(null, "No existe Inquilino con ese ID.");
+//             }
+//             ps.close();
+//         } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al ingresar a la tabla de Inquilinos.");
+//         }
+//        
+//    }
+            
+
 }

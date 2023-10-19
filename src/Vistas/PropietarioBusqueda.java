@@ -5,19 +5,24 @@
  */
 package Vistas;
 
+import AccesData.Conexion;
+import AccesData.PropietarioData;
+import Entidades.Propietario;
 import java.awt.Image;
+import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author javie
  */
 public class PropietarioBusqueda extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PropietarioVista
-     */
+    
+    Connection con = Conexion.getConexion();
+    
+   
     public PropietarioBusqueda() {
         initComponents();
         setSize(388, 455);
@@ -131,15 +136,51 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
 
         CerrarPropi.setText("Cerrar");
+        CerrarPropi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CerrarPropiActionPerformed(evt);
+            }
+        });
         getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
         getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private boolean esNumero(String texto){
+        try {
+            Integer.parseInt((texto));
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+    
     private void buscarpropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarpropiActionPerformed
-        // TODO add your handling code here:
+        String idtext=PorpiID.getText();
+        if(!esNumero(idtext)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
+        
+        int id = Integer.parseInt(PorpiID.getText());
+        PropietarioData pd = new PropietarioData();
+        Propietario propi= pd.BuscarPropietario(id);
+        
+        if(propi != null){
+            PropiDNI.setText(String.valueOf(propi.getDni()));
+            PropiNombre.setText(String.valueOf(propi.getNombre()));
+            PropiApe.setText(String.valueOf(propi.getApellido()));
+            PropiDom.setText(String.valueOf(propi.getDomicilio()));
+            PropiTel.setText(String.valueOf(propi.getTelefono()));
+        }else{
+            JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Propietario");
+        }
     }//GEN-LAST:event_buscarpropiActionPerformed
+
+    private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
+        dispose();
+    }//GEN-LAST:event_CerrarPropiActionPerformed
 
     /**
      * @param args the command line arguments
