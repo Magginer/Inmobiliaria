@@ -287,6 +287,8 @@ public class ContratosVistas extends javax.swing.JFrame {
     fechafin.setDate(null);
     fechainicio.setDate(null);
     AlquilerTexto1.setText("");
+    combocontra1.removeAllItems();
+    combocontra2.removeAllItems();
     
     
     
