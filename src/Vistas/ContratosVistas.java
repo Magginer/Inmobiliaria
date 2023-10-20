@@ -46,7 +46,7 @@ public class ContratosVistas extends javax.swing.JFrame {
         con = Conexion.getConexion();
         Ilista = new ArrayList();
         INlista = new ArrayList();
-        
+       
         
         
         
@@ -217,8 +217,8 @@ public class ContratosVistas extends javax.swing.JFrame {
     private void GuardarContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarContActionPerformed
         if(fechainicio.getDate() == null || fechafin.getDate() == null|| AlquilerTexto1.getText().length()<=0 ||combocontra1.getSelectedItem()==null || combocontra2.getSelectedItem()==null ){ 
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
-        }else{
-        
+        }else{         
+           
         LocalDate fechaincio= fechainicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Date fechai = Date.valueOf(fechaincio);
         LocalDate fechafina= fechafin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -226,6 +226,12 @@ public class ContratosVistas extends javax.swing.JFrame {
         Inmuebles inm = (Inmuebles) combocontra1.getSelectedItem();
         Inquilino inq = (Inquilino) combocontra2.getSelectedItem();
         int alquiler = Integer.parseInt(AlquilerTexto1.getText());
+        
+        if(fechafin.getDate().before(fechainicio.getDate())){ 
+            JOptionPane.showMessageDialog(null, "La fecha de finalizacion no puede ser anterior a la de inicio");
+            
+        }else{
+        
         
         Contrato contrato = new Contrato();
         
@@ -238,7 +244,8 @@ public class ContratosVistas extends javax.swing.JFrame {
         
         ContratoData con = new ContratoData ();
         con.guardarContrato(contrato);
-       
+      
+      }
      }       
     }//GEN-LAST:event_GuardarContActionPerformed
 
