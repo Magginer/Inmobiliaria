@@ -58,6 +58,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         PropiTel = new javax.swing.JTextField();
         buscarpropi = new javax.swing.JButton();
         CerrarPropi = new javax.swing.JButton();
+        buscarpropi2 = new javax.swing.JButton();
         jlprovista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -111,8 +112,6 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
         getContentPane().add(PorpiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
-
-        PropiDNI.setEditable(false);
         getContentPane().add(PropiDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
 
         PropiNombre.setEditable(false);
@@ -133,7 +132,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
                 buscarpropiActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
+        getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 80, 40));
 
         CerrarPropi.setText("Cerrar");
         CerrarPropi.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +140,15 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
                 CerrarPropiActionPerformed(evt);
             }
         });
-        getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
+        getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 100, -1));
+
+        buscarpropi2.setText("Buscar");
+        buscarpropi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarpropi2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buscarpropi2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 80, 40));
         getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
 
         pack();
@@ -158,6 +165,8 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     
     private void buscarpropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarpropiActionPerformed
         String idtext=PorpiID.getText();
+        
+        
         if(!esNumero(idtext)){
             JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
             return;
@@ -181,6 +190,31 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
         dispose();
     }//GEN-LAST:event_CerrarPropiActionPerformed
+
+    private void buscarpropi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarpropi2ActionPerformed
+        String idtext=PropiDNI.getText();
+         
+        
+        if(!esNumero(idtext)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
+        
+        
+        int dni = Integer.parseInt(PropiDNI.getText());
+        PropietarioData pd = new PropietarioData();
+        Propietario propi= pd.BuscarPropietariodni(dni);
+        
+        if(propi != null){
+            PorpiID.setText(String.valueOf(propi.getIdpropietario()));
+            PropiNombre.setText(String.valueOf(propi.getNombre()));
+            PropiApe.setText(String.valueOf(propi.getApellido()));
+            PropiDom.setText(String.valueOf(propi.getDomicilio()));
+            PropiTel.setText(String.valueOf(propi.getTelefono()));
+        }else{
+            JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Propietario");
+        }
+    }//GEN-LAST:event_buscarpropi2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +261,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     private javax.swing.JTextField PropiNombre;
     private javax.swing.JTextField PropiTel;
     private javax.swing.JButton buscarpropi;
+    private javax.swing.JButton buscarpropi2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
