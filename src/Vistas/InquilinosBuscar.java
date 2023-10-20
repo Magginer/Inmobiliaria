@@ -6,10 +6,15 @@
 package Vistas;
 
 import AccesData.Conexion;
+import AccesData.InquilinoData;
+import AccesData.PropietarioData;
+import Entidades.Inquilino;
+import Entidades.Propietario;
 import java.awt.Image;
 import java.sql.Connection;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,6 +61,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         InquiNombreG = new javax.swing.JTextField();
         buscarinqui = new javax.swing.JButton();
         CerrarInqui = new javax.swing.JButton();
+        buscarinqui2 = new javax.swing.JButton();
         jlinqui = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -116,8 +122,6 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
         getContentPane().add(InquiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
-
-        InquiCuit.setEditable(false);
         getContentPane().add(InquiCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
 
         InquiDniG.setEditable(false);
@@ -141,7 +145,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
                 buscarinquiActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 100, 30));
+        getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 80, 40));
 
         CerrarInqui.setText("Cerrar");
         CerrarInqui.addActionListener(new java.awt.event.ActionListener() {
@@ -150,19 +154,73 @@ public class InquilinosBuscar extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
+
+        buscarinqui2.setText("Buscar");
+        buscarinqui2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarinqui2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buscarinqui2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 80, 40));
         getContentPane().add(jlinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 463));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
-     
+      String idtext=InquiID.getText();
         
+        if (InquiID.getText().length() <= 0 ) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de buscar");
+        }else {
+       
+        int id = Integer.parseInt(InquiID.getText());
+        InquilinoData ind = new InquilinoData();
+        Inquilino inqui= ind.BuscarInquilino(id);
+        
+        if(inqui != null){
+            InquiCuit.setText(String.valueOf(inqui.getCuit()));
+            InquiNombre.setText(String.valueOf(inqui.getNombre()));
+            InquiApe.setText(String.valueOf(inqui.getApellido()));
+            InquiLugar.setText(String.valueOf(inqui.getLtrabajo()));
+            InquiNombreG.setText(String.valueOf(inqui.getNgarante()));
+            InquiDniG.setText(String.valueOf(inqui.getDni()));
+            
+        }else{
+            
+        }     
+       }  
     }//GEN-LAST:event_buscarinquiActionPerformed
 
     private void CerrarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarInquiActionPerformed
       dispose();
     }//GEN-LAST:event_CerrarInquiActionPerformed
+
+    private void buscarinqui2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinqui2ActionPerformed
+         String idtext=InquiCuit.getText();
+        
+         if (InquiCuit.getText().length() <= 0 ) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de buscar");
+        }else {
+        
+        
+        int cuit = Integer.parseInt(InquiCuit.getText());
+        InquilinoData ind = new InquilinoData();
+        Inquilino inqui= ind.BuscarInquilinocuit(cuit);
+        
+        if(inqui != null){
+            InquiID.setText(String.valueOf(inqui.getIdinquilino()));
+            InquiNombre.setText(String.valueOf(inqui.getNombre()));
+            InquiApe.setText(String.valueOf(inqui.getApellido()));
+            InquiLugar.setText(String.valueOf(inqui.getLtrabajo()));
+            InquiNombreG.setText(String.valueOf(inqui.getNgarante()));
+            InquiDniG.setText(String.valueOf(inqui.getDni()));
+            
+        }else{
+            
+        }     
+        } 
+    }//GEN-LAST:event_buscarinqui2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,6 +268,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private javax.swing.JTextField InquiNombre;
     private javax.swing.JTextField InquiNombreG;
     private javax.swing.JButton buscarinqui;
+    private javax.swing.JButton buscarinqui2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -220,4 +279,8 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jlinqui;
     // End of variables declaration//GEN-END:variables
+
+    private boolean esNumero(String idtext) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
