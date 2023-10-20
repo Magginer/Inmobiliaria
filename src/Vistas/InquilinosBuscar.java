@@ -153,7 +153,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
                 CerrarInquiActionPerformed(evt);
             }
         });
-        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
+        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 100, -1));
 
         buscarinqui2.setText("Buscar");
         buscarinqui2.addActionListener(new java.awt.event.ActionListener() {
