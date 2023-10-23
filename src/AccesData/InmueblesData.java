@@ -117,7 +117,7 @@ public class InmueblesData {
     }
     public ArrayList<Inmuebles> ListarInmueble() {
 
-        String sql = "SELECT  idinmueble ,direccion, altura, tipo, superficie, precio, zona FROM inmuebles WHERE estado=1 ";
+        String sql = "SELECT  idinmueble ,direccion, altura, tipo, superficie, precio, zona FROM inmuebles WHERE estado=0 ";
         ArrayList<Inmuebles> inmueble = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -133,7 +133,7 @@ public class InmueblesData {
                 inmu.setSuperficie(rs.getInt("superficie"));
                 inmu.setPrecio(rs.getInt("precio"));
                 inmu.setZona(rs.getString("zona"));
-                inmu.setEstado(true);
+                inmu.setEstado(false);
                 
                 inmueble.add(inmu);
 
