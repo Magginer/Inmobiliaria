@@ -198,7 +198,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
             public void run() {
                 new BusquedaInmuebles().setVisible(true);
             }
-        });//qweqwe
+        });//qweqweasd
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
