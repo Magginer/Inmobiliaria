@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author javie
+ * @author javie/asdsa
  */
 public class InquilinosBuscar extends javax.swing.JFrame {
 
