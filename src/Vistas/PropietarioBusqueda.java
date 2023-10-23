@@ -253,7 +253,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
             public void run() {
                 new PropietarioBusqueda().setVisible(true);
             }
-        });//qweqweasd
+        });//qweqw
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
