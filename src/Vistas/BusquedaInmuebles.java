@@ -13,6 +13,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import AccesData.InmueblesData;
+import AccesData.PropietarioData;
+import Entidades.Inmuebles;
+import Entidades.Propietario;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,11 +36,28 @@ import javax.swing.ImageIcon;
  */
 public class BusquedaInmuebles extends javax.swing.JFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo2 = new DefaultTableModel();
+
+    Connection con = null;
+    ArrayList Plista;
+    PropietarioData propietario = new PropietarioData();
+    InmueblesData inmueble = new InmueblesData();
+    Propietario propi = new Propietario();
+    ArrayList<Inmuebles> inmuebles;
+
     /**
      * Creates new form BusquedaInmuebles
      */
     public BusquedaInmuebles() {
         initComponents();
+        
+        initComponents();
+        Plista = new ArrayList();
+        llenarCombo();
+        armarTabla();
+        armarTabla2();
+        llenarTabla();
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
