@@ -46,9 +46,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     Propietario propi = new Propietario();
     ArrayList<Inmuebles> inmuebles;
 
-    /**
-     * Creates new form BusquedaInmuebles
-     */
+    
     public BusquedaInmuebles() {
         initComponents();
         
