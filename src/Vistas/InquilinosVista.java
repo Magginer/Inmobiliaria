@@ -432,6 +432,7 @@ public class InquilinosVista extends javax.swing.JFrame {
                 new InquilinosVista().setVisible(true);
             }
         });
+        //jhksajk
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
