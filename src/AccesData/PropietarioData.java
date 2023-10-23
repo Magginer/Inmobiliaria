@@ -173,7 +173,7 @@ public class PropietarioData {
     
     }
     
-    public Propietario BuscarPropietariodni (int dni){
+      public Propietario BuscarPropietariodni (int dni){
         String sql = "SELECT idpropietario, nombre, apellido, domicilio, telefono  FROM propietarios WHERE dni= ?";
         //SELECT dni, nombre, apellido, domicilio, telefono  FROM propietarios WHERE idpropietario= ? 
         
