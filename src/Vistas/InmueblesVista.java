@@ -365,8 +365,7 @@ public class InmueblesVista extends javax.swing.JFrame {
      jtinmusuper.setText("");
      jtinmutipo.setText("");
      jtinmuzona.setText("");
-     combopropi.removeAllItems();
-     
+        
     }//GEN-LAST:event_jbinmulimpiarActionPerformed
 
     
