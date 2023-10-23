@@ -59,6 +59,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         InquiNombreG = new javax.swing.JTextField();
         buscarinqui = new javax.swing.JButton();
         CerrarInqui = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jlinqui = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -144,7 +145,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
                 buscarinquiActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 100, 30));
+        getContentPane().add(buscarinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 100, 30));
 
         CerrarInqui.setText("Cerrar");
         CerrarInqui.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +153,15 @@ public class InquilinosBuscar extends javax.swing.JFrame {
                 CerrarInquiActionPerformed(evt);
             }
         });
-        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 100, -1));
+        getContentPane().add(CerrarInqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 100, -1));
+
+        jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
         getContentPane().add(jlinqui, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 463));
 
         pack();
@@ -193,6 +202,19 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private void CerrarInquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarInquiActionPerformed
       dispose();
     }//GEN-LAST:event_CerrarInquiActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Limpiar
+        
+        InquiApe.setText("");
+        InquiCuit.setText("");
+        InquiDniG.setText("");
+        InquiID.setText("");
+        InquiLugar.setText("");
+        InquiNombre.setText("");
+        InquiNombreG.setText("");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,6 +262,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private javax.swing.JTextField InquiNombre;
     private javax.swing.JTextField InquiNombreG;
     private javax.swing.JButton buscarinqui;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

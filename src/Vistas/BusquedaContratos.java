@@ -20,6 +20,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
      */
     public BusquedaContratos() {
         initComponents();
+        setSize(940, 608);
+        setLocationRelativeTo(null);
         
         ImageIcon wallpaper =new ImageIcon("src/imagenes/busquedacontra.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbuscon.getWidth(), jlbuscon.getHeight(), Image.SCALE_SMOOTH));
@@ -45,8 +47,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
@@ -54,6 +54,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jlbuscon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -95,21 +97,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jRadioButton1.setText("Vigencia");
         jRadioButton1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 120, 60));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 630, 100));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 299, -1, 30));
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, -1));
 
@@ -133,6 +120,21 @@ public class BusquedaContratos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 510, 90, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 540, 110));
         getContentPane().add(jlbuscon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
 
         pack();
@@ -190,8 +192,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

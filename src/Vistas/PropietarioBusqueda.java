@@ -58,6 +58,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         PropiTel = new javax.swing.JTextField();
         buscarpropi = new javax.swing.JButton();
         CerrarPropi = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jlprovista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -133,7 +134,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
                 buscarpropiActionPerformed(evt);
             }
         });
-        getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 100, 30));
+        getContentPane().add(buscarpropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 100, 30));
 
         CerrarPropi.setText("Cerrar");
         CerrarPropi.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +142,15 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
                 CerrarPropiActionPerformed(evt);
             }
         });
-        getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 100, -1));
+        getContentPane().add(CerrarPropi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 100, -1));
+
+        jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
         getContentPane().add(jlprovista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 460));
 
         pack();
@@ -181,6 +190,18 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
         dispose();
     }//GEN-LAST:event_CerrarPropiActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //limpiar
+        
+        PorpiID.setText("");
+        PropiDNI.setText("");
+        PropiNombre.setText("");
+        PropiApe.setText("");
+        PropiDom.setText("");
+        PropiTel.setText("");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +248,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     private javax.swing.JTextField PropiNombre;
     private javax.swing.JTextField PropiTel;
     private javax.swing.JButton buscarpropi;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -236,4 +258,5 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jlprovista;
     // End of variables declaration//GEN-END:variables
+
 }
