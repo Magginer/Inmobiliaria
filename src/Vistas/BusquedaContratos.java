@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  */
 public class BusquedaContratos extends javax.swing.JFrame {
 
-    /**
+    /**234
      * Creates new form BusquedaContratos
      */
     public BusquedaContratos() {
