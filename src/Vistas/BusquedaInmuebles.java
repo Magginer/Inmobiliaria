@@ -5,21 +5,45 @@
  */
 package Vistas;
 
+import AccesData.InmueblesData;
+import AccesData.PropietarioData;
+import Entidades.Inmuebles;
+import Entidades.Propietario;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author javie
  */
 public class BusquedaInmuebles extends javax.swing.JFrame {
+private DefaultTableModel modelo = new DefaultTableModel();
+private DefaultTableModel modelo2 = new DefaultTableModel();
 
-    /**
-     * Creates new form BusquedaInmuebles
-     */
+Connection con = null;
+    ArrayList Plista;
+    PropietarioData propietario = new PropietarioData();
+    InmueblesData inmueble = new InmueblesData();
+    Propietario propi = new Propietario();
+    ArrayList<Inmuebles> inmuebles;
+    
     public BusquedaInmuebles() {
         initComponents();
+        Plista = new ArrayList();
+        llenarCombo();
+        armarTabla();
+        armarTabla2();
+        llenarTabla();
         
         ImageIcon wallpaper =new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
@@ -58,7 +82,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jcpropiinmu = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -148,15 +171,16 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jButton2.setText("Eliminar");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 90, -1));
 
-        jButton3.setText("Buscar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 280, -1, -1));
-
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Propietario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 30));
 
-        jcpropiinmu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcpropiinmu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcpropiinmuMouseClicked(evt);
+            }
+        });
         jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 180, -1));
 
         jtinmupropietario.setModel(new javax.swing.table.DefaultTableModel(
@@ -182,10 +206,132 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
+    
+    private void llenarCombo(){
+    jcpropiinmu.removeAllItems(); // borramos todo lo del combo para la carga limpia
+    Plista = (ArrayList) propietario.ListarPropietarios();
+       Iterator iterador = Plista.iterator();
+       while(iterador.hasNext()){
+           Propietario pro = (Propietario) iterador.next();
+           jcpropiinmu.addItem(pro);   
+       }
+    }
+    
+    private void armarTabla(){
+       
+        modelo.addColumn("ID Inmueble");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Altura");
+        modelo.addColumn("Estado");
+        modelo.addColumn("ID Propietario");
+        
+   
+        jtinmuactivos.setModel(modelo); 
+    }
+    private void llenarTabla(){
+         Borrarfila();
+       InmueblesData inmu = new InmueblesData();
+      // Propietario pd= new Propietario();     funciona pero me sigue trayendo 0 como id
+       inmuebles =(ArrayList) inmu.inmueblesxestado();
+       
+       
+       for(Inmuebles inmueble: inmuebles){
+           modelo.addRow(new Object[] {inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "Activo" : "Inactivo", inmueble.getPropietario().getIdpropietario()});
+       }
+    }
+    //pepapig la mejor puntera 
+     private void armarTabla2() {
+       //ArrayList<Object> columnas = new ArrayList<Object>();
+        modelo2.addColumn("ID Inmueble");
+        modelo2.addColumn("Direccion");
+        modelo2.addColumn("Altura");
+        modelo2.addColumn("Tipo");
+        modelo2.addColumn("Superficie");
+        modelo2.addColumn("Precio");
+        modelo2.addColumn("Zona");
+
+       /* for (Object it : columnas) {
+            modelo.addColumn(it);
+        }*/
+        jtinmupropietario.setModel(modelo2);
+    }
+    
+    private void Borrarfila() {
+        int fila = modelo2.getRowCount() - 1;
+        for (; fila >= 0; fila--) {
+            modelo2.removeRow(fila);
+        }
+    }
+    
+    //Pepapig la mejor puntera .
+    
+    public void llenartabla2() {
+    Borrarfila(); // Limpia la tabla
+    InmueblesData inmu = new InmueblesData();
+    
+    
+    // Obtén el propietario seleccionado en el JComboBox
+    Propietario propiselecto = (Propietario) jcpropiinmu.getSelectedItem();
+
+    if (propiselecto != null) {
+        // Obtiene el ID del propietario seleccionado
+        int idpropietario = propiselecto.getIdpropietario(); // Asegúrate de tener un método getIdPropietario en la clase Propietario
+
+        // Llama al método ListarInmueblesPorPropietario para obtener la lista de inmuebles
+       // ArrayList<Inmuebles> 
+       inmuebles = (ArrayList )inmu.InmueblesPorPropietarios(idpropietario); // Asume que ListarInmueblesPorPropietario existe y devuelve la lista de inmuebles
+
+        // Llena la JTable con los datos de los inmuebles
+        for (Inmuebles inmueble : inmuebles) {
+            modelo2.addRow(new Object[] {inmueble.getIdinmueble(),inmueble.getDireccion(),inmueble.getAltura(),inmueble.getTipo(),inmueble.getSuperficie(),inmueble.getPrecio(),inmueble.getZona()});
+        }
+    }
+}
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+   
+    private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
+
+    llenartabla2();
+      
+
+//      // evento del jcombo para llenar tabla al seleccionar item 
+//      
+//      Propietario propiselecto = (Propietario) jcpropiinmu.getSelectedItem();
+//      
+//      if(propiselecto != null){ // si el propietario seleccionado es distinto a null
+//          // entonces traeme el id de dicho propietario
+//      int idpropietario = propiselecto.getIdpropietario();
+//      
+//       inmueble.InmueblesPorPropietarios(idpropietario); // llamamos al metodo para obtener la lista 
+//        DefaultTableModel modelo2 =(DefaultTableModel) jtinmupropietario.getModel();
+//         modelo2.setRowCount(0); // limpiamos la tabla 
+//       
+//       for(Inmuebles inmu: inmuebles){       // recorremos la lista de inmuebles 
+//       modelo2.addRow(new Object[]{   // mientras abregamos las nuevas filas en la tabla
+//        inmu.getIdinmueble(),
+//        inmu.getDireccion(),
+//        inmu.getAltura(),
+//        inmu.getTipo(),
+//        inmu.getSuperficie(),
+//        inmu.getPrecio(),
+//        inmu.getZona()
+//       });
+//       }
+//      }
+    }//GEN-LAST:event_jcpropiinmuMouseClicked
+
+    
+   
+
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -224,7 +370,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -238,7 +383,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> jcpropiinmu;
+    private javax.swing.JComboBox<Propietario> jcpropiinmu;
     private javax.swing.JLabel jlbusinmu;
     private javax.swing.JRadioButton jrbdisponible;
     private javax.swing.JTextField jtaltura;

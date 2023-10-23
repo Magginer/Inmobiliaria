@@ -217,6 +217,11 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private void buscarinqui2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinqui2ActionPerformed
          String idtext=InquiCuit.getText();
         
+         if(!esNumero(idtext)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
+         
          if (InquiCuit.getText().length() <= 0 ) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de buscar");
         }else {
