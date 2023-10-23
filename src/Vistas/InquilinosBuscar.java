@@ -171,8 +171,22 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     private boolean esNumero(String texto){
+        try {
+            Integer.parseInt((texto));
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+    
     private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
-      String idtext=InquiID.getText();
+      String idtexto=InquiID.getText();
+      
+       if(!esNumero(idtexto)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
         
         if (InquiID.getText().length() <= 0 ) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de buscar");
@@ -285,7 +299,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jlinqui;
     // End of variables declaration//GEN-END:variables
 
-    private boolean esNumero(String idtext) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private boolean esNumero(String idtext) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
