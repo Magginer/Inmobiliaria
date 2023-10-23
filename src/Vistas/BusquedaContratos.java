@@ -180,7 +180,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
             public void run() {
                 new BusquedaContratos().setVisible(true);
             }
-        });
+        });//qweqweasd
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
