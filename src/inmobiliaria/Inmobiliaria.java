@@ -57,7 +57,7 @@ public class Inmobiliaria {
      //cont.deletearContrato(12);
  
           
-    
+    //coño la madre
         
      
     }
