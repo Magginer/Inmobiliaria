@@ -11,11 +11,11 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author javie
+ * @author javieer234
  */
 public class BusquedaContratos extends javax.swing.JFrame {
 
-    /**
+    /**234
      * Creates new form BusquedaContratos
      */
     public BusquedaContratos() {
