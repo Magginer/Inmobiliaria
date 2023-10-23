@@ -5,7 +5,12 @@
  */
 package Vistas;
 
+import AccesData.InmueblesData;
+import Entidades.Inmuebles;
+import Entidades.Propietario;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -20,12 +25,91 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
      */
     public BusquedaInmuebles() {
         initComponents();
-        
-        ImageIcon wallpaper =new ImageIcon("src/imagenes/manoca.jpg");
+
+        ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
         jlbusinmu.setIcon(icono);
         this.repaint();
-        
+
+    }
+
+    private void llenarCombo() {
+        jcpropiinmu.removeAllItems(); // borramos todo lo del combo para la carga limpia
+        Plista = (ArrayList) propietario.ListarPropietarios();
+        Iterator iterador = Plista.iterator();
+        while (iterador.hasNext()) {
+            Propietario pro = (Propietario) iterador.next();
+            jcpropiinmu.addItem(pro);
+        }
+    }
+
+    private void armarTabla() {
+
+        modelo.addColumn("ID Inmueble");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Altura");
+        modelo.addColumn("Estado");
+        modelo.addColumn("ID Propietario");
+
+        jtinmuactivos.setModel(modelo);
+    }
+
+    private void llenarTabla() {
+        Borrarfila();
+        InmueblesData inmu = new InmueblesData();
+        // Propietario pd= new Propietario();     funciona pero me sigue trayendo 0 como id
+        inmuebles = (ArrayList) inmu.inmueblesxestado();
+
+        for (Inmuebles inmueble : inmuebles) {
+            modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "Activo" : "Inactivo", inmueble.getPropietario().getIdpropietario()});
+        }
+    }
+
+    //pepapig la mejor puntera 
+    private void armarTabla2() {
+        //ArrayList<Object> columnas = new ArrayList<Object>();
+        modelo2.addColumn("ID Inmueble");
+        modelo2.addColumn("Direccion");
+        modelo2.addColumn("Altura");
+        modelo2.addColumn("Tipo");
+        modelo2.addColumn("Superficie");
+        modelo2.addColumn("Precio");
+        modelo2.addColumn("Zona");
+
+        /* for (Object it : columnas) {
+            modelo.addColumn(it);
+        }*/
+        jtinmupropietario.setModel(modelo2);
+    }
+
+    private void Borrarfila() {
+        int fila = modelo2.getRowCount() - 1;
+        for (; fila >= 0; fila--) {
+            modelo2.removeRow(fila);
+        }
+    }
+
+    //Pepapig la mejor puntera .
+    public void llenartabla2() {
+        Borrarfila(); // Limpia la tabla
+        InmueblesData inmu = new InmueblesData();
+
+        // Obtén el propietario seleccionado en el JComboBox
+        Propietario propiselecto = (Propietario) jcpropiinmu.getSelectedItem();
+
+        if (propiselecto != null) {
+            // Obtiene el ID del propietario seleccionado
+            int idpropietario = propiselecto.getIdpropietario(); // Asegúrate de tener un método getIdPropietario en la clase Propietario
+
+            // Llama al método ListarInmueblesPorPropietario para obtener la lista de inmuebles
+            // ArrayList<Inmuebles> 
+            inmuebles = (ArrayList) inmu.InmueblesPorPropietarios(idpropietario); // Asume que ListarInmueblesPorPropietario existe y devuelve la lista de inmuebles
+
+            // Llena la JTable con los datos de los inmuebles
+            for (Inmuebles inmueble : inmuebles) {
+                modelo2.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.getTipo(), inmueble.getSuperficie(), inmueble.getPrecio(), inmueble.getZona()});
+            }
+        }
     }
 
     /**
@@ -183,7 +267,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -218,7 +302,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
             public void run() {
                 new BusquedaInmuebles().setVisible(true);
             }
-        });//qweqweasd
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
