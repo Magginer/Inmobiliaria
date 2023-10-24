@@ -19,7 +19,10 @@ import AccesData.PropietarioData;
 import Entidades.Inmuebles;
 import Entidades.Propietario;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -53,7 +56,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
        con = Conexion.getConexion();
 
-       
+       //pepapig la mejor sin duda alguna , el terror de los punteros
+
         Plista = new ArrayList();
        
         armarTabla();
@@ -70,6 +74,25 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
         jlbusinmu.setIcon(icono);
         this.repaint();
+        
+        jtinmupropietario.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent Mouse_evt){
+                JTable table = (JTable) Mouse_evt.getSource();
+                Point point = Mouse_evt.getPoint();
+                int row = table.rowAtPoint(point);
+                if(Mouse_evt.getClickCount()== 1){
+                    
+                }
+                   jtdireccion.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 1).toString());
+                   jtaltura.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 2).toString());
+                   jttipoinmu.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 3).toString());
+                   jtsuperficie.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 4).toString());
+                   jtprecio.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 5).toString());
+                   jtzona.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 6).toString());
+                   
+            }
+        });
+        
 
     }
 
@@ -101,7 +124,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         inmuebles = (ArrayList) inmu.inmueblesxestado();
 
         for (Inmuebles inmueble : inmuebles) {
-            modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "Activo" : "Inactivo", inmueble.getPropietario().getIdpropietario()});
+            modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "En Uso" : "Disponible", inmueble.getPropietario().getIdpropietario()});
         }
     }
 
@@ -115,7 +138,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         modelo2.addColumn("Superficie");
         modelo2.addColumn("Precio");
         modelo2.addColumn("Zona");
-
+        modelo2.addColumn("Estado");
         /* for (Object it : columnas) {
             modelo.addColumn(it);
         }*/
@@ -147,7 +170,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
             // Llena la JTable con los datos de los inmuebles
             for (Inmuebles inmueble : inmuebles) {
-                modelo2.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.getTipo(), inmueble.getSuperficie(), inmueble.getPrecio(), inmueble.getZona()});
+                modelo2.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.getTipo(), inmueble.getSuperficie(), inmueble.getPrecio(), inmueble.getZona(), inmueble.isEstado() ? "En Uso" : "Disponible"});
             }
         }
     }
@@ -163,8 +186,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtinmuactivos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -177,8 +198,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jttipoinmu = new javax.swing.JTextField();
         jtsuperficie = new javax.swing.JTextField();
         jtzona = new javax.swing.JTextField();
-        jrbdisponible = new javax.swing.JRadioButton();
-        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -186,6 +205,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jcpropiinmu = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtinmupropietario = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtinmuactivos = new javax.swing.JTable();
+        jrbdisponible = new javax.swing.JRadioButton();
         jlbusinmu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -199,6 +222,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+
+
         jLabel3.setText("Disponible");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 80, 30));
 
@@ -221,6 +246,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtinmuactivos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 430, 90));
+
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -257,36 +283,27 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         getContentPane().add(jttipoinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 110, -1));
         getContentPane().add(jtsuperficie, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 110, -1));
         getContentPane().add(jtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, -1));
-        getContentPane().add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, -1, -1));
-
-        jButton4.setText("Cerrar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 130, 100, 50));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Modificar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, 90, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 90, -1));
 
         jButton2.setText("Eliminar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 90, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Propietario");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 80, 30));
 
         jcpropiinmu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jcpropiinmuMouseClicked(evt);
             }
         });
-        jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 180, -1));
+        jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 180, -1));
 
         jtinmupropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -301,7 +318,31 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtinmupropietario);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, 90));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 660, 90));
+
+        jButton4.setText("Cerrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 480, 100, 50));
+
+        jtinmuactivos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtinmuactivos);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
+        jPanel1.add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
 

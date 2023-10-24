@@ -177,7 +177,7 @@ public class InmueblesData {
     }
      public ArrayList<Inmuebles> InmueblesPorPropietarios(int idpropietario){
     
-         String sql = "SELECT idinmueble, direccion, altura, tipo, superficie, precio, zona FROM inmuebles WHERE idpropietario = ?";
+         String sql = "SELECT idinmueble, direccion, altura, tipo, superficie, precio, zona, estado FROM inmuebles WHERE idpropietario = ?";
 
     ArrayList<Inmuebles> inmuebles = new ArrayList<>();
     
@@ -195,7 +195,7 @@ public class InmueblesData {
             inmueble.setSuperficie(rs.getInt("superficie"));
             inmueble.setPrecio(rs.getInt("precio"));
             inmueble.setZona(rs.getString("zona"));
-            
+            inmueble.setEstado(rs.getBoolean("estado"));    // agregue estado aquiy en la sql
             inmuebles.add(inmueble);
         }
         
