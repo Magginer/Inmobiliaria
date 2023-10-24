@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import AccesData.Conexion;
 import AccesData.InmueblesData;
 import Entidades.Inmuebles;
 import Entidades.Propietario;
@@ -51,12 +52,13 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
      */
     public BusquedaInmuebles() {
         initComponents();
-        
-        initComponents();
+       con = Conexion.getConexion();
+       
         Plista = new ArrayList();
         llenarCombo();
         armarTabla();
         armarTabla2();
+        //llenartabla2();
         llenarTabla();
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
@@ -175,7 +177,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jcpropiinmu = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -265,14 +266,16 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jButton2.setText("Eliminar");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 90, -1));
 
-        jButton3.setText("Buscar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 280, -1, -1));
-
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Propietario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 30));
 
+        jcpropiinmu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcpropiinmuMouseClicked(evt);
+            }
+        });
         jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 180, -1));
 
         jtinmupropietario.setModel(new javax.swing.table.DefaultTableModel(
@@ -301,6 +304,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
+        llenartabla2();
+        
+    }//GEN-LAST:event_jcpropiinmuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -340,7 +348,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

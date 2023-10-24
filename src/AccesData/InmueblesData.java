@@ -161,8 +161,8 @@ public class InmueblesData {
                 inmu.setEstado(rs.getBoolean("estado"));
                 
                Propietario propietario = new Propietario();
-               inmu.setPropietario(propietario);
-                
+               propietario.setIdpropietario(rs.getInt("idpropietario"));
+                inmu.setPropietario(propietario);
                 inmueble.add(inmu);
 
             }
