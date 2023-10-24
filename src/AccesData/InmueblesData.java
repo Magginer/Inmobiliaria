@@ -155,14 +155,14 @@ public class InmueblesData {
             while(rs.next()){
 
                 Inmuebles inmu = new Inmuebles();
+                Propietario propi = new Propietario();
                 inmu.setIdinmueble(rs.getInt("idinmueble"));
                 inmu.setDireccion(rs.getString("direccion"));
                 inmu.setAltura(rs.getInt("Altura"));
                 inmu.setEstado(rs.getBoolean("estado"));
-                
-               Propietario propietario = new Propietario();
-               inmu.setPropietario(propietario);
-                
+                propi.setIdpropietario(rs.getInt("idpropietario"));
+                inmu.setPropietario(propi);
+              
                 inmueble.add(inmu);
 
             }
