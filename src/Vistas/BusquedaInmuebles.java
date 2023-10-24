@@ -50,19 +50,25 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     Propietario propi = new Propietario();
     ArrayList<Inmuebles> inmuebles;
 
-    /**
-     * Creates new form BusquedaInmuebles
-     */
+    
     public BusquedaInmuebles() {
         initComponents();
+
        con = Conexion.getConexion();
+
        //pepapig la mejor sin duda alguna , el terror de los punteros
+
         Plista = new ArrayList();
-        llenarCombo();
+       
         armarTabla();
         armarTabla2();
         //llenartabla2();
         llenarTabla();
+     
+      
+        
+        
+        
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
@@ -216,8 +222,31 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Estado Disponible / En Uso");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, 30));
+
+
+        jLabel3.setText("Disponible");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 80, 30));
+
+        jtinmuactivos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jtinmuactivos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtinmuactivosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtinmuactivos);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 430, 90));
+
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -328,9 +357,18 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
+        llenarCombo();
         llenartabla2();
         
+
     }//GEN-LAST:event_jcpropiinmuMouseClicked
+
+    private void jtinmuactivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtinmuactivosMouseClicked
+        int row=jtinmuactivos.getSelectedRow();
+        String inm= jtinmuactivos.getModel().getValueAt(row, 0).toString();
+        
+        
+    }//GEN-LAST:event_jtinmuactivosMouseClicked
 
     /**
      * @param args the command line arguments

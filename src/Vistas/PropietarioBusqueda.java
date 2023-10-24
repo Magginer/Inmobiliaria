@@ -112,7 +112,19 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        PorpiID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PorpiIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(PorpiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
+
+        PropiDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PropiDNIKeyTyped(evt);
+            }
+        });
         getContentPane().add(PropiDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
 
         PropiNombre.setEditable(false);
@@ -187,7 +199,7 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
             PropiDom.setText(String.valueOf(propi.getDomicilio()));
             PropiTel.setText(String.valueOf(propi.getTelefono()));
         }else{
-            JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Propietario");
+           
         }
     }//GEN-LAST:event_buscarpropiActionPerformed
 
@@ -216,10 +228,38 @@ public class PropietarioBusqueda extends javax.swing.JFrame {
             PropiDom.setText(String.valueOf(propi.getDomicilio()));
             PropiTel.setText(String.valueOf(propi.getTelefono()));
         }else{
-            JOptionPane.showMessageDialog(null, "ERROR, No existe dicho Propietario");
+           
         }
     }//GEN-LAST:event_buscarpropi2ActionPerformed
 
+    private void PorpiIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PorpiIDKeyTyped
+         char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            PorpiID.setEditable(true);
+
+        } else {
+            PorpiID.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Cuit");
+            return;
+    }                            
+    }//GEN-LAST:event_PorpiIDKeyTyped
+
+    private void PropiDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDNIKeyTyped
+       char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            PropiDNI.setEditable(true);
+
+        } else {
+            PropiDNI.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Cuit");
+            return;
+    }                            
+    }//GEN-LAST:event_PropiDNIKeyTyped
+
+    
+    
     /**
      * @param args the command line arguments
      */
