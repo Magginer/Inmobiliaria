@@ -213,6 +213,11 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jtinmuactivos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtinmuactivosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtinmuactivos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 430, 90));
@@ -316,6 +321,13 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_jcpropiinmuMouseClicked
+
+    private void jtinmuactivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtinmuactivosMouseClicked
+        int row=jtinmuactivos.getSelectedRow();
+        String inm= jtinmuactivos.getModel().getValueAt(row, 0).toString();
+        
+        
+    }//GEN-LAST:event_jtinmuactivosMouseClicked
 
     /**
      * @param args the command line arguments
