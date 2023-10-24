@@ -273,7 +273,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jLabel2.setText("Propietario");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 30));
 
-        jcpropiinmu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, 180, -1));
 
         jtinmupropietario.setModel(new javax.swing.table.DefaultTableModel(
@@ -355,7 +354,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JComboBox<String> jcpropiinmu;
+    private javax.swing.JComboBox<Propietario> jcpropiinmu;
     private javax.swing.JLabel jlbusinmu;
     private javax.swing.JRadioButton jrbdisponible;
     private javax.swing.JTextField jtaltura;
