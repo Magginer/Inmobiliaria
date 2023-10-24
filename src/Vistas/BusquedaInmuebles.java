@@ -47,19 +47,24 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     Propietario propi = new Propietario();
     ArrayList<Inmuebles> inmuebles;
 
-    /**
-     * Creates new form BusquedaInmuebles
-     */
+    
     public BusquedaInmuebles() {
         initComponents();
+
        con = Conexion.getConexion();
+
        
         Plista = new ArrayList();
-        llenarCombo();
+       
         armarTabla();
         armarTabla2();
         //llenartabla2();
         llenarTabla();
+     
+      
+        
+        
+        
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
@@ -306,8 +311,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
+
         llenartabla2();
         
+
     }//GEN-LAST:event_jcpropiinmuMouseClicked
 
     /**
