@@ -90,6 +90,14 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                    jtsuperficie.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 4).toString());
                    jtprecio.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 5).toString());
                    jtzona.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 6).toString());
+                   String est = jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 7).toString();
+                   if (est =="Disponible"){
+                       jrbdisponible.setSelected(false);
+                       
+                   }if (est =="En Uso"){
+                       jrbdisponible.setSelected(true);
+                       
+                   }
                    
             }
         });
