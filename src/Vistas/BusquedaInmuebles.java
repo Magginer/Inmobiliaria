@@ -53,7 +53,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     
     public BusquedaInmuebles() {
         initComponents();
-
+        llenarCombo();
+        
        con = Conexion.getConexion();
 
        //pepapig la mejor sin duda alguna , el terror de los punteros
@@ -89,6 +90,14 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                    jtsuperficie.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 4).toString());
                    jtprecio.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 5).toString());
                    jtzona.setText(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 6).toString());
+                   String est = jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 7).toString();
+                   if (est =="Disponible"){
+                       jrbdisponible.setSelected(false);
+                       
+                   }if (est =="En Uso"){
+                       jrbdisponible.setSelected(true);
+                       
+                   }
                    
             }
         });
@@ -206,7 +215,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtinmupropietario = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jtinmuactivos = new javax.swing.JTable();
         jrbdisponible = new javax.swing.JRadioButton();
         jlbusinmu = new javax.swing.JLabel();
@@ -222,31 +231,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-
-
-        jLabel3.setText("Disponible");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 80, 30));
-
-        jtinmuactivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jtinmuactivos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtinmuactivosMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jtinmuactivos);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 430, 90));
-
+        jLabel3.setText("Estado Disponible / En Uso");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 190, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,6 +288,14 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jcpropiinmuMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jcpropiinmuMousePressed(evt);
+            }
+        });
+        jcpropiinmu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcpropiinmuActionPerformed(evt);
+            }
         });
         jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 180, -1));
 
@@ -339,9 +333,9 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtinmuactivos);
+        jScrollPane3.setViewportView(jtinmuactivos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
         jPanel1.add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
@@ -357,18 +351,16 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
-        llenarCombo();
-        llenartabla2();
-        
-
+   
     }//GEN-LAST:event_jcpropiinmuMouseClicked
 
-    private void jtinmuactivosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtinmuactivosMouseClicked
-        int row=jtinmuactivos.getSelectedRow();
-        String inm= jtinmuactivos.getModel().getValueAt(row, 0).toString();
-        
-        
-    }//GEN-LAST:event_jtinmuactivosMouseClicked
+    private void jcpropiinmuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMousePressed
+         
+    }//GEN-LAST:event_jcpropiinmuMousePressed
+
+    private void jcpropiinmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcpropiinmuActionPerformed
+       llenartabla2();
+    }//GEN-LAST:event_jcpropiinmuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,8 +411,8 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JComboBox<Propietario> jcpropiinmu;
     private javax.swing.JLabel jlbusinmu;
     private javax.swing.JRadioButton jrbdisponible;
