@@ -160,9 +160,12 @@ public class InmueblesData {
                 inmu.setDireccion(rs.getString("direccion"));
                 inmu.setAltura(rs.getInt("Altura"));
                 inmu.setEstado(rs.getBoolean("estado"));
-                propi.setIdpropietario(rs.getInt("idpropietario"));
-                inmu.setPropietario(propi);
-              
+
+                
+               Propietario propietario = new Propietario();
+               propietario.setIdpropietario(rs.getInt("idpropietario"));
+                inmu.setPropietario(propietario);
+
                 inmueble.add(inmu);
 
             }

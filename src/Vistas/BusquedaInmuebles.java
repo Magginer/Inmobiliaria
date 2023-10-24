@@ -50,12 +50,15 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     
     public BusquedaInmuebles() {
         initComponents();
-        con=Conexion.getConexion();
+
+       con = Conexion.getConexion();
+
        
         Plista = new ArrayList();
        
         armarTabla();
         armarTabla2();
+        //llenartabla2();
         llenarTabla();
      
       
@@ -308,7 +311,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
-        llenarCombo();
+
+        llenartabla2();
+        
+
     }//GEN-LAST:event_jcpropiinmuMouseClicked
 
     /**
