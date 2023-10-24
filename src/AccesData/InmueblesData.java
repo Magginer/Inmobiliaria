@@ -144,4 +144,66 @@ public class InmueblesData {
         }
         return inmueble;
     }
+    public ArrayList<Inmuebles> inmueblesxestado() {
+
+        String sql = "SELECT  idinmueble ,direccion, altura, estado, idpropietario FROM inmuebles WHERE estado=0 ";
+        ArrayList<Inmuebles> inmueble = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+
+                Inmuebles inmu = new Inmuebles();
+                Propietario propi = new Propietario();
+                inmu.setIdinmueble(rs.getInt("idinmueble"));
+                inmu.setDireccion(rs.getString("direccion"));
+                inmu.setAltura(rs.getInt("Altura"));
+                inmu.setEstado(rs.getBoolean("estado"));
+
+                
+               Propietario propietario = new Propietario();
+               propietario.setIdpropietario(rs.getInt("idpropietario"));
+                inmu.setPropietario(propietario);
+
+                inmueble.add(inmu);
+
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+        }
+        return inmueble;
+    }
+     public ArrayList<Inmuebles> InmueblesPorPropietarios(int idpropietario){
+    
+         String sql = "SELECT idinmueble, direccion, altura, tipo, superficie, precio, zona, estado FROM inmuebles WHERE idpropietario = ?";
+
+    ArrayList<Inmuebles> inmuebles = new ArrayList<>();
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, idpropietario); // Establece el valor de idpropietario en el SQL
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            Inmuebles inmueble = new Inmuebles();
+            inmueble.setIdinmueble(rs.getInt("idinmueble"));
+            inmueble.setDireccion(rs.getString("direccion"));
+            inmueble.setAltura(rs.getInt("Altura"));
+            inmueble.setTipo(rs.getString("tipo"));
+            inmueble.setSuperficie(rs.getInt("superficie"));
+            inmueble.setPrecio(rs.getInt("precio"));
+            inmueble.setZona(rs.getString("zona"));
+            inmueble.setEstado(rs.getBoolean("estado"));    // agregue estado aquiy en la sql
+            inmuebles.add(inmueble);
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inmuebles");
+    }
+        
+        return inmuebles;
+    }
 }
