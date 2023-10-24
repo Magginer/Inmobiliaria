@@ -53,7 +53,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     public BusquedaInmuebles() {
         initComponents();
        con = Conexion.getConexion();
-       
+       //pepapig la mejor sin duda alguna , el terror de los punteros
         Plista = new ArrayList();
         llenarCombo();
         armarTabla();
