@@ -267,11 +267,47 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Direccion");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 70, 40));
+
+        jtprecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtprecioKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtprecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 110, -1));
+
+        jtdireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtdireccionKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtdireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 110, -1));
+
+        jtaltura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtalturaKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtaltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 110, -1));
+
+        jttipoinmu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jttipoinmuKeyTyped(evt);
+            }
+        });
         getContentPane().add(jttipoinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 110, -1));
+
+        jtsuperficie.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtsuperficieKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtsuperficie, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 110, -1));
+
+        jtzona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtzonaKeyTyped(evt);
+            }
+        });
         getContentPane().add(jtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,80));
@@ -414,6 +450,90 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         llenartabla2();
      
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jtdireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtdireccionKeyTyped
+       char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+            jtdireccion.setEditable(true);
+
+        } else {
+            jtdireccion.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Direccion");
+            return;
+
+        }
+    }//GEN-LAST:event_jtdireccionKeyTyped
+
+    private void jtalturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtalturaKeyTyped
+       char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            jtaltura.setEditable(true);
+
+        } else {
+            jtaltura.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, iingrese solo NUMEROS en campo Altura");
+            return;
+
+        }
+    }//GEN-LAST:event_jtalturaKeyTyped
+
+    private void jttipoinmuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jttipoinmuKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+            jttipoinmu.setEditable(true);
+
+        } else {
+            jttipoinmu.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Tipo de inmueble");
+            return;
+
+        }
+    }//GEN-LAST:event_jttipoinmuKeyTyped
+
+    private void jtsuperficieKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtsuperficieKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            jtsuperficie.setEditable(true);
+
+        } else {
+            jtsuperficie.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, iingrese solo NUMEROS en campo Superficie");
+            return;
+
+        }
+    }//GEN-LAST:event_jtsuperficieKeyTyped
+
+    private void jtzonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtzonaKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+            jtzona.setEditable(true);
+
+        } else {
+            jtzona.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Zona");
+            return;
+
+        }
+    }//GEN-LAST:event_jtzonaKeyTyped
+
+    private void jtprecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtprecioKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            jtprecio.setEditable(true);
+
+        } else {
+            jtprecio.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, iingrese solo NUMEROS en campo Precio");
+            return;
+
+        }
+    }//GEN-LAST:event_jtprecioKeyTyped
 
     /**
      * @param args the command line arguments
