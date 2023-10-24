@@ -311,7 +311,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jcpropiinmuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcpropiinmuMouseClicked
-
+        llenarCombo();
         llenartabla2();
         
 
