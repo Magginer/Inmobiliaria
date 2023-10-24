@@ -105,7 +105,7 @@ public class ContratoData {
 
     public ArrayList<Contrato> ListarContrato() {
 
-        String sql = "SELECT  idcontrato ,fechadeinicio, fechadefinalizacion, alquiler, idinquilino, idinmueble FROM contrato WHERE vigente=1 ";
+        String sql = "SELECT  * FROM contrato";
         ArrayList<Contrato> contratos = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -118,6 +118,7 @@ public class ContratoData {
                 con.setFechadeinicio(rs.getDate("fechainicio").toLocalDate());
                 con.setFechadefinalizacion(rs.getDate("fechadefinalizacion").toLocalDate());
                 con.setAlquiler(rs.getInt("alquiler"));
+                con.setVigente(rs.getBoolean("vigente"));
                 Inquilino inqui = new Inquilino();
                 inqui.setIdinquilino(rs.getInt("idinquilino"));
                 con.setInquilino(inqui);
@@ -130,7 +131,7 @@ public class ContratoData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla alumno");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla contrato");
         }
         return contratos;
     }

@@ -55,6 +55,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         modelo.addColumn("Fecha Inicio");
         modelo.addColumn("Fecha Finalizacion");
         modelo.addColumn("Alquiler");
+        modelo.addColumn("Vigente");
         modelo.addColumn("Inquilino");
         
 
@@ -68,7 +69,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         contratos = (ArrayList) cont.ListarContrato();
 
         for (Contrato contrato : contratos) {
-            modelo.addRow(new Object[]{contrato.getIdcontrato(), contrato.getFechadeinicio(), contrato.getFechadefinalizacion(),contrato.getAlquiler(), contrato.getInquilino().getIdinquilino()});
+            modelo.addRow(new Object[]{contrato.getIdcontrato(), contrato.getFechadeinicio(), contrato.getFechadefinalizacion(),contrato.getAlquiler(), contrato.isVigente()? "Vigente" : "No vigente", contrato.getInquilino().getIdinquilino()});
     
     } 
     
