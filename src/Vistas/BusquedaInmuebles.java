@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -65,11 +66,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         armarTabla2();
         //llenartabla2();
         llenarTabla();
-     
-      
-        
-        
-        
 
         ImageIcon wallpaper = new ImageIcon("src/imagenes/manoca.jpg");
         Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(jlbusinmu.getWidth(), jlbusinmu.getHeight(), Image.SCALE_SMOOTH));
@@ -135,6 +131,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         for (Inmuebles inmueble : inmuebles) {
             modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "En Uso" : "Disponible", inmueble.getPropietario().getIdpropietario()});
         }
+        
     }
 
     //pepapig la mejor puntera 
@@ -154,6 +151,13 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jtinmupropietario.setModel(modelo2);
     }
 
+    private void Borrarfilatabla1() {
+        int fila = modelo.getRowCount() - 1;
+        for (; fila >= 0; fila--) {
+            modelo.removeRow(fila);
+        }
+    }
+    
     private void Borrarfila() {
         int fila = modelo2.getRowCount() - 1;
         for (; fila >= 0; fila--) {
@@ -274,9 +278,19 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 90, -1));
 
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -361,6 +375,45 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
     private void jcpropiinmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcpropiinmuActionPerformed
        llenartabla2();
     }//GEN-LAST:event_jcpropiinmuActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       //modificar cambios
+       
+       int idinmueble = Integer.parseInt(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 0).toString());
+       String direccion = jtdireccion.getText();
+       int altura = Integer.parseInt(jtaltura.getText());
+       String tipo = jttipoinmu.getText();
+       int superficie = Integer.parseInt(jtsuperficie.getText());
+       int precio = Integer.parseInt(jtprecio.getText());
+       String zona = jtzona.getText();
+       boolean estado = jrbdisponible.isSelected(); //? "En Uso" : "Disponible"
+       
+       InmueblesData ind = new InmueblesData();
+       boolean exito = ind.actualizarInmueble(idinmueble, direccion, altura, tipo, superficie, precio, zona, estado);
+       
+       if(exito){
+           JOptionPane.showMessageDialog(null, "Los cambios se han guardado correctamente.");
+       }else {
+           JOptionPane.showMessageDialog(null, "error al guardar los cambios.");
+       }
+       
+       Borrarfilatabla1();
+       llenarTabla();
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+     // deletear inmueble
+     
+        int idinmueble = Integer.parseInt(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 0).toString());
+        InmueblesData inmue= new InmueblesData();
+        inmue.DeletearInmueble(idinmueble);
+        
+        JOptionPane.showMessageDialog(null, "Inmueble Eliminado Correctamente");
+        
+        llenartabla2();
+     
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

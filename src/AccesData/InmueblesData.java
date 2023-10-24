@@ -175,7 +175,7 @@ public class InmueblesData {
         }
         return inmueble;
     }
-     public ArrayList<Inmuebles> InmueblesPorPropietarios(int idpropietario){
+    public ArrayList<Inmuebles> InmueblesPorPropietarios(int idpropietario){
     
          String sql = "SELECT idinmueble, direccion, altura, tipo, superficie, precio, zona, estado FROM inmuebles WHERE idpropietario = ?";
 
@@ -206,4 +206,34 @@ public class InmueblesData {
         
         return inmuebles;
     }
+    public boolean actualizarInmueble(int idinmueble, String nuevaDireccion, int nuevaAltura, String nuevoTipo, int nuevaSuperficie, int nuevoPrecio, String nuevaZona, boolean nuevoEstado) {
+    String sql = "UPDATE inmuebles SET direccion = ?, altura = ?, tipo = ?, superficie = ?, precio = ?, zona = ?, estado = ? WHERE idinmueble = ?";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, nuevaDireccion);
+        ps.setInt(2, nuevaAltura);
+        ps.setString(3, nuevoTipo);
+        ps.setInt(4, nuevaSuperficie);
+        ps.setInt(5, nuevoPrecio);
+        ps.setString(6, nuevaZona);
+        ps.setBoolean(7, nuevoEstado);
+        ps.setInt(8, idinmueble);
+
+        int filasActualizadas = ps.executeUpdate();
+
+        ps.close();
+
+        // Comprobar si la actualización tuvo éxito
+        if (filasActualizadas > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace(); // Manejo de excepciones (puedes personalizarlo)
+        return false; // Si ocurre un error, devuelve false
+    }
+}
+     
 }
