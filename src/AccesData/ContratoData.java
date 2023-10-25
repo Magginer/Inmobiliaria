@@ -78,7 +78,7 @@ public class ContratoData {
         }
     }
 
-    public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
+    public boolean actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
 
         String sql = "UPDATE contrato SET fechadeinicio=?, fechadefinalizacion=?, alquiler=?, vigente=? WHERE idcontrato=?";
 
@@ -91,17 +91,23 @@ public class ContratoData {
             ps.setBoolean(4, vigente);
             ps.setInt(5, idcontrato);
 
-            int filas = ps.executeUpdate();
-            if (filas > 0) {
+             int filasActualizadas = ps.executeUpdate();
 
-                JOptionPane.showMessageDialog(null, "se ha Renovado el Contrato");
-            }
-            ps.close();
+        ps.close();
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contrato");
+        // Comprobar si la actualización tuvo éxito
+        if (filasActualizadas > 0) {
+            return true;
+        } else {
+            return false;
         }
+    } catch (SQLException ex) {
+        ex.printStackTrace(); // Manejo de excepciones (puedes personalizarlo)
+        return false; // Si ocurre un error, devuelve false
     }
+}
+     
+
 
     public ArrayList<Contrato> ListarContrato() {
 
@@ -161,33 +167,5 @@ public class ContratoData {
 
         return contratos;
     }
-
-    public boolean actualizarContrato(int idcontrato, Date fechadeinicio, Date fechadefinalizacion, int alquiler, boolean vigente, int idinquilino, int idinmueble ) {
-    String sql = "UPDATE inmuebles SET fechadeinicio = ?, fechadefinalizacion = ?, alquiler = ?, vigente = ?, idinquilino = ?, idinmueble = ? WHERE idcontrato = ?";
-
-    try {
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setDate(1, fechadeinicio);
-        ps.setDate(2, fechadefinalizacion);
-        ps.setInt(4, alquiler);
-        ps.setBoolean(5, vigente);
-        ps.setInt(8, idinquilino);
-        ps.setInt(9, idinmueble);
-        ps.setInt(10, idcontrato);
-
-        int filasActualizadas = ps.executeUpdate();
-
-        ps.close();
-
-        // Comprobar si la actualización tuvo éxito
-        if (filasActualizadas > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    } catch (SQLException ex) {
-        ex.printStackTrace(); // Manejo de excepciones (puedes personalizarlo)
-        return false; // Si ocurre un error, devuelve false
-    }
-    }
-}
+ }
+    

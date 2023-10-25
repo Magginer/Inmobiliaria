@@ -275,6 +275,11 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 540, 100));
 
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 90, 40));
 
         jButton1.setText("Modificar");
@@ -304,43 +309,36 @@ public class BusquedaContratos extends javax.swing.JFrame {
        LocalDate fechafina= jfechafin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
        java.sql.Date fechaf = java.sql.Date.valueOf(fechafina);
        int alquiler = Integer.parseInt(jtalquiler.getText());
-       int idinquilino = Integer.parseInt(jtinquilino.getText());
-       int idpropiedad = Integer.parseInt(jtid.getText());
-       boolean vigencia = jrbvigencia.isSelected();                            
+        boolean vigencia = jrbvigencia.isSelected();                            
        
        ContratoData contra= new ContratoData();
-      boolean exito = contra.actualizarContrato(idcontrato, fechai, fechaf, alquiler, vigencia, idinquilino, idinquilino);
+      boolean exito = contra.actualizarContrato(fechaincio, fechafina, alquiler, vigencia, idcontrato);
+       
+       
       if(exito){
-           JOptionPane.showMessageDialog(null, "Los cambios se han guardado correctamente.");
+           JOptionPane.showMessageDialog(null, "Se ha renovado el contrato.");
        }else {
            JOptionPane.showMessageDialog(null, "error al guardar los cambios.");
        }
       Borrarfila();
       llenarTabla();
-        
-        
-        /*int idinmueble = Integer.parseInt(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 0).toString());
-       String direccion = jtdireccion.getText();
-       int altura = Integer.parseInt(jtaltura.getText());
-       String tipo = jttipoinmu.getText();
-       int superficie = Integer.parseInt(jtsuperficie.getText());
-       int precio = Integer.parseInt(jtprecio.getText());
-       String zona = jtzona.getText();
-       boolean estado = jrbdisponible.isSelected(); //? "En Uso" : "Disponible"
        
-       InmueblesData ind = new InmueblesData();
-       boolean exito = ind.actualizarInmueble(idinmueble, direccion, altura, tipo, superficie, precio, zona, estado);
-       
-       if(exito){
-           JOptionPane.showMessageDialog(null, "Los cambios se han guardado correctamente.");
-       }else {
-           JOptionPane.showMessageDialog(null, "error al guardar los cambios.");
-       }*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jrbvigenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbvigenciaActionPerformed
         
     }//GEN-LAST:event_jrbvigenciaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       int idcontrato = Integer.parseInt(jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 0).toString());
+        ContratoData cont= new ContratoData();
+        cont.deletearContrato(idcontrato);
+        
+        
+        Borrarfila();
+        llenarTabla();
+        llenarTabla2();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
