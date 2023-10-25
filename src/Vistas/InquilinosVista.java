@@ -225,22 +225,22 @@ public class InquilinosVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar");
         } else {
             int id = Integer.parseInt(InquiID.getText());
-            int cuit = Integer.parseInt(InquiCuit.getText());
+            long cuit = Long.parseLong(InquiCuit.getText());
             String nombre = InquiNombre.getText();
             String apellido = InquiApe.getText();
             String lugar = InquiLugar.getText();
             String nombreg = InquiNombreG.getText();
-            int dnig = Integer.parseInt(InquiDniG.getText());
+            long dnig = Long.parseLong(InquiDniG.getText());
 
             Inquilino inqui = new Inquilino();
 
             inqui.setIdinquilino(id);
-            inqui.setCuit(cuit);
+            inqui.setCuit((int) cuit);
             inqui.setNombre(nombre);
             inqui.setApellido(apellido);
             inqui.setLtrabajo(lugar);
             inqui.setNgarante(nombreg);
-            inqui.setDni(dnig);
+            inqui.setDni((int) dnig);
             inqui.setEstado(true);
 
             InquilinoData in = new InquilinoData();
