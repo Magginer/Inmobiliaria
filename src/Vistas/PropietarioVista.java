@@ -225,29 +225,17 @@ public class PropietarioVista extends javax.swing.JFrame {
     private void CerrarPropiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarPropiActionPerformed
         dispose();
     }//GEN-LAST:event_CerrarPropiActionPerformed
-
     private void PropiIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiIDKeyPressed
-
     }//GEN-LAST:event_PropiIDKeyPressed
-
     private void PropiDNIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDNIKeyPressed
-
     }//GEN-LAST:event_PropiDNIKeyPressed
-
     private void PropiTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiTelKeyPressed
-
     }//GEN-LAST:event_PropiTelKeyPressed
-
     private void PropiNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiNombreKeyPressed
-
     }//GEN-LAST:event_PropiNombreKeyPressed
-
     private void PropiApeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiApeKeyPressed
-
     }//GEN-LAST:event_PropiApeKeyPressed
-
     private void PropiDomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyPressed
-
     }//GEN-LAST:event_PropiDomKeyPressed
 
     private void PropiIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiIDKeyTyped
@@ -309,12 +297,13 @@ public class PropietarioVista extends javax.swing.JFrame {
     private void PropiDomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyTyped
         char c = evt.getKeyChar();
 
-        if (Character.isAlphabetic(c) || Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)) {
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c))  {
             PropiApe.setEditable(true);
 
         } else {
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Domicilio");
             PropiApe.setEditable(false);
-            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Domicilio");
+            
             return;
 
         }
