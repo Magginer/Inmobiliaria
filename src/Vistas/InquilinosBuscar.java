@@ -122,7 +122,19 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Apellido");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        InquiID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiIDKeyTyped(evt);
+            }
+        });
         getContentPane().add(InquiID, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 60, -1));
+
+        InquiCuit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                InquiCuitKeyTyped(evt);
+            }
+        });
         getContentPane().add(InquiCuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, -1));
 
         InquiDniG.setEditable(false);
@@ -171,8 +183,22 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     private boolean esNumero(String texto){
+        try {
+            Integer.parseInt((texto));
+            return true;
+        }catch(NumberFormatException e){
+            return false;
+        }
+    }
+    
     private void buscarinquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarinquiActionPerformed
-      String idtext=InquiID.getText();
+      String idtexto=InquiID.getText();
+      
+       if(!esNumero(idtexto)){
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese un Numero Valido");
+            return;
+        }
         
         if (InquiID.getText().length() <= 0 ) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de buscar");
@@ -226,6 +252,32 @@ public class InquilinosBuscar extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_buscarinqui2ActionPerformed
 
+    private void InquiIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiIDKeyTyped
+     char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiID.setEditable(true);
+
+        } else {
+            InquiID.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo ID");
+            return;
+
+        }
+    }//GEN-LAST:event_InquiIDKeyTyped
+
+    private void InquiCuitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_InquiCuitKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            InquiCuit.setEditable(true);
+
+        } else {
+            InquiCuit.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Cuit");
+            return;
+    }//GEN-LAST:event_InquiCuitKeyTyped
+ }  
     /**
      * @param args the command line arguments
      */
@@ -285,7 +337,7 @@ public class InquilinosBuscar extends javax.swing.JFrame {
     private javax.swing.JLabel jlinqui;
     // End of variables declaration//GEN-END:variables
 
-    private boolean esNumero(String idtext) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private boolean esNumero(String idtext) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
