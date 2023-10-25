@@ -126,9 +126,9 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         Borrarfila();
         InmueblesData inmu = new InmueblesData();
         // Propietario pd= new Propietario();     funciona pero me sigue trayendo 0 como id
-        inmuebles = (ArrayList) inmu.inmueblesxestado();
+        inmuebles = (ArrayList) inmu.inmueblesxestado();   //contratos
 
-        for (Inmuebles inmueble : inmuebles) {
+        for (Inmuebles inmueble : inmuebles) {   // : contratos
             modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "En Uso" : "Disponible", inmueble.getPropietario().getIdpropietario()});
         }
         
