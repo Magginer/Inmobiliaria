@@ -164,6 +164,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jrbvigencia = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtablacontra = new javax.swing.JTable();
@@ -178,7 +179,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtinquilino = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jrbvigencia = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtvigentes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -190,6 +190,9 @@ public class BusquedaContratos extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jrbvigencia.setText("jRadioButton1");
+        jPanel1.add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
@@ -251,9 +254,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, 90, 40));
-
-        jrbvigencia.setText("jRadioButton1");
-        jPanel1.add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jtvigentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
