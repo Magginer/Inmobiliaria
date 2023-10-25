@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -71,12 +72,12 @@ public class BusquedaContratos extends javax.swing.JFrame {
                 LocalDate fechadeInicio= (LocalDate) jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 1); 
                 Instant instant = fechadeInicio.atStartOfDay(ZoneId.systemDefault()).toInstant();
                 Date fechainicio= Date.from(instant);
-                jDateChooser1.setDate(fechainicio);
+                jfechainicio.setDate(fechainicio);
                 
                 LocalDate fechadeFin= (LocalDate) jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 2);
                 Instant instante = fechadeFin.atStartOfDay(ZoneId.systemDefault()).toInstant();
                 Date fechafinal= Date.from(instante);
-                jDateChooser2.setDate(fechafinal);
+                jfechafin.setDate(fechafinal);
                 
                 jtalquiler.setText(jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 3).toString());
                 jtinquilino.setText(jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 5).toString());
@@ -163,7 +164,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
 
         jrbvigencia = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
-        jrbvigencia = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtablacontra = new javax.swing.JTable();
@@ -171,7 +171,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jfechafin = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
         jtid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -181,7 +181,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtvigentes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jfechainicio = new com.toedter.calendar.JDateChooser();
         jlbuscon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -189,13 +189,15 @@ public class BusquedaContratos extends javax.swing.JFrame {
 
         jrbvigencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jrbvigencia.setText("Vigencia");
+        jrbvigencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbvigenciaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 100, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jrbvigencia.setText("jRadioButton1");
-        jPanel1.add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(java.awt.Color.white);
@@ -235,12 +237,12 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Fin de Contrato");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 120, 20));
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 130, 30));
+        jPanel1.add(jfechafin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 130, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(java.awt.Color.white);
-        jLabel6.setText("ID");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 30, 20));
+        jLabel6.setText("ID inmueble");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 90, 20));
         jPanel1.add(jtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -276,8 +278,13 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 90, 40));
 
         jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 90, 40));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+        jPanel1.add(jfechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
         getContentPane().add(jlbuscon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
@@ -288,6 +295,52 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       int idcontrato = Integer.parseInt(jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 0).toString());
+       LocalDate fechaincio= jfechainicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); 
+       java.sql.Date fechai = java.sql.Date.valueOf(fechaincio);
+       LocalDate fechafina= jfechafin.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       java.sql.Date fechaf = java.sql.Date.valueOf(fechafina);
+       int alquiler = Integer.parseInt(jtalquiler.getText());
+       int idinquilino = Integer.parseInt(jtinquilino.getText());
+       int idpropiedad = Integer.parseInt(jtid.getText());
+       boolean vigencia = jrbvigencia.isSelected();                            
+       
+       ContratoData contra= new ContratoData();
+      boolean exito = contra.actualizarContrato(idcontrato, fechai, fechaf, alquiler, vigencia, idinquilino, idinquilino);
+      if(exito){
+           JOptionPane.showMessageDialog(null, "Los cambios se han guardado correctamente.");
+       }else {
+           JOptionPane.showMessageDialog(null, "error al guardar los cambios.");
+       }
+      Borrarfila();
+      llenarTabla();
+        
+        
+        /*int idinmueble = Integer.parseInt(jtinmupropietario.getValueAt(jtinmupropietario.getSelectedRow(), 0).toString());
+       String direccion = jtdireccion.getText();
+       int altura = Integer.parseInt(jtaltura.getText());
+       String tipo = jttipoinmu.getText();
+       int superficie = Integer.parseInt(jtsuperficie.getText());
+       int precio = Integer.parseInt(jtprecio.getText());
+       String zona = jtzona.getText();
+       boolean estado = jrbdisponible.isSelected(); //? "En Uso" : "Disponible"
+       
+       InmueblesData ind = new InmueblesData();
+       boolean exito = ind.actualizarInmueble(idinmueble, direccion, altura, tipo, superficie, precio, zona, estado);
+       
+       if(exito){
+           JOptionPane.showMessageDialog(null, "Los cambios se han guardado correctamente.");
+       }else {
+           JOptionPane.showMessageDialog(null, "error al guardar los cambios.");
+       }*/
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jrbvigenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbvigenciaActionPerformed
+        
+    }//GEN-LAST:event_jrbvigenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,8 +381,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -339,6 +390,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser jfechafin;
+    private com.toedter.calendar.JDateChooser jfechainicio;
     private javax.swing.JLabel jlbuscon;
     private javax.swing.JRadioButton jrbvigencia;
     private javax.swing.JTable jtablacontra;

@@ -386,6 +386,12 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jtinmuactivos);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
+
+        jrbdisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbdisponibleActionPerformed(evt);
+            }
+        });
         jPanel1.add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
@@ -534,6 +540,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jtprecioKeyTyped
+
+    private void jrbdisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbdisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbdisponibleActionPerformed
 
     /**
      * @param args the command line arguments
