@@ -109,6 +109,13 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtablacontra.setModel(modelo);
     }
     
+        private void Borrarfila() {
+        int fila = modelo.getRowCount() - 1;
+        for (; fila >= 0; fila--) {
+            modelo.removeRow(fila);
+        }
+    }
+        
     private void llenarTabla() {
         Borrarfila();
         ContratoData cont = new ContratoData();
@@ -124,8 +131,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
       
     private void armarTabla2(){
         modelo2.addColumn("ID Contrato");
-        modelo2.addColumn("Inquilino");
         modelo2.addColumn("Vigencia");
+        modelo2.addColumn("Inquilino");
         
         jtvigentes.setModel(modelo2);
     }
@@ -137,32 +144,24 @@ public class BusquedaContratos extends javax.swing.JFrame {
         contratos = (ArrayList) cod.ContratosVigentes();   
 
         for (Contrato con : contratos) {  
-            modelo2.addRow(new Object[]{con.getIdcontrato(), con.getInquilino().getNombre(), con.isVigente() ? "Vingente" : "Sin Contrato"});
+            modelo2.addRow(new Object[]{con.getIdcontrato(),  con.isVigente() ? "Vingente" : "Sin Contrato", con.getInquilino().getNombre()});
         }
         
     }
     
-   private void Borrarfila() {
+   private void Borrarfila2() {
         int fila = modelo2.getRowCount() - 1;
         for (; fila >= 0; fila--) {
             modelo2.removeRow(fila);
         }
     }         
-    private void Borrarfila2() {
-        
-  
-        int fila = modelo2.getRowCount() - 1;
-        for (; fila >= 0; fila--) {
-            modelo2.removeRow(fila);
-            
-       }
-        
-     }       
+    
             
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jrbvigencia = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jrbvigencia = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
@@ -171,7 +170,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtalquiler = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
@@ -183,10 +181,15 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtvigentes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jlbuscon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jrbvigencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jrbvigencia.setText("Vigencia");
+        getContentPane().add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 100, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -213,7 +216,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtablacontra);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 720, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 720, 150));
         jPanel1.add(jtalquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -226,7 +229,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Inicio de Contrato");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 130, 20));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(java.awt.Color.white);
@@ -275,6 +277,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
 
         jButton1.setText("Modificar");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 90, 40));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
         getContentPane().add(jlbuscon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
