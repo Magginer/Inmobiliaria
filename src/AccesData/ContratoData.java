@@ -105,7 +105,7 @@ public class ContratoData {
 
     public ArrayList<Contrato> ListarContrato() {
 
-        String sql = "SELECT  * FROM contrato";
+        String sql = "SELECT * FROM contrato"; 
         ArrayList<Contrato> contratos = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -114,8 +114,8 @@ public class ContratoData {
             while (rs.next()) {
 
                 Contrato con = new Contrato();
-                con.setIdcontrato(rs.getInt("idicontrato"));
-                con.setFechadeinicio(rs.getDate("fechainicio").toLocalDate());
+                con.setIdcontrato(rs.getInt("idcontrato"));
+                con.setFechadeinicio(rs.getDate("fechadeinicio").toLocalDate());
                 con.setFechadefinalizacion(rs.getDate("fechadefinalizacion").toLocalDate());
                 con.setAlquiler(rs.getInt("alquiler"));
                 con.setVigente(rs.getBoolean("vigente"));
@@ -123,16 +123,40 @@ public class ContratoData {
                 inqui.setIdinquilino(rs.getInt("idinquilino"));
                 con.setInquilino(inqui);
                 Inmuebles inm = new Inmuebles();
+                inm.setIdinmueble(rs.getInt("idinmueble"));   
                 con.setInmueble(inm);
-                inm.setIdinmueble(rs.getInt("idinmueble"));
 
                 contratos.add(con);
 
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla contrato");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla contrato"+ ex.getMessage());
         }
+        return contratos;
+    }
+    
+    public ArrayList<Contrato> ContratosVigentes(){
+        String sql= "SELECT idcontrato,inquilino.nombre, vigente FROM contrato,inquilino WHERE vigente =1";
+        ArrayList<Contrato> contratos= new ArrayList<>();
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Contrato con= new Contrato();
+                con.setIdcontrato(rs.getInt("idcontrato"));
+                Inquilino inqui = new Inquilino();
+                inqui.setNombre(rs.getString("nombre"));
+                con.setInquilino(inqui);
+                con.setVigente(rs.getBoolean("vigente"));
+                
+                contratos.add(con);
+            }
+            ps.close();
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Contratos.");
+        }
+        
         return contratos;
     }
 }
