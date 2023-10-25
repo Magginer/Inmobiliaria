@@ -295,15 +295,15 @@ public class PropietarioVista extends javax.swing.JFrame {
     }//GEN-LAST:event_PropiApeKeyTyped
 
     private void PropiDomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PropiDomKeyTyped
-        char c = evt.getKeyChar();
+           char c = evt.getKeyChar();
 
-        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c))  {
-            PropiApe.setEditable(true);
+        if (Character.isLetter(c)| Character.isWhitespace(c) || Character.isDigit(c) || Character.isISOControl(c)) {
+            PropiDom.setEditable(true);
+            
 
         } else {
+            PropiDom.setEditable(false);
             JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Domicilio");
-            PropiApe.setEditable(false);
-            
             return;
 
         }

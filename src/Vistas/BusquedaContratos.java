@@ -131,7 +131,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
     }
     
     private void llenarTabla2() {
-        Borrarfila();
+        Borrarfila2();
         ContratoData cod = new ContratoData();
         
         contratos = (ArrayList) cod.ContratosVigentes();   
@@ -148,7 +148,17 @@ public class BusquedaContratos extends javax.swing.JFrame {
             modelo2.removeRow(fila);
         }
     }         
-    
+    private void Borrarfila2() {
+        
+  
+        int fila = modelo2.getRowCount() - 1;
+        for (; fila >= 0; fila--) {
+            modelo2.removeRow(fila);
+            
+       }
+        
+     }       
+            
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
