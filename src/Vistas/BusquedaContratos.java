@@ -155,21 +155,13 @@ public class BusquedaContratos extends javax.swing.JFrame {
             modelo2.removeRow(fila);
         }
     }         
-    private void Borrarfila2() {
-        
-  
-        int fila = modelo2.getRowCount() - 1;
-        for (; fila >= 0; fila--) {
-            modelo2.removeRow(fila);
-            
-       }
-        
-     }       
+    
             
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jrbvigencia = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -184,7 +176,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jtinquilino = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jrbvigencia = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtvigentes = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
@@ -194,6 +185,10 @@ public class BusquedaContratos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jrbvigencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jrbvigencia.setText("Vigencia");
+        getContentPane().add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 100, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -217,7 +212,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jtablacontra);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 720, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 720, 150));
         jPanel1.add(jtalquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -257,10 +252,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, 90, 40));
-
-        jrbvigencia.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jrbvigencia.setText("Vigencia");
-        jPanel1.add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 100, -1));
 
         jtvigentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
