@@ -219,6 +219,12 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtablacontra);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 720, 150));
+
+        jtalquiler.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtalquilerKeyTyped(evt);
+            }
+        });
         jPanel1.add(jtalquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -243,12 +249,16 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jLabel6.setForeground(java.awt.Color.white);
         jLabel6.setText("ID inmueble");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, 90, 20));
+
+        jtid.setEditable(false);
         jPanel1.add(jtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 360, 80, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("Inquilino");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 80, 20));
+
+        jtinquilino.setEditable(false);
         jPanel1.add(jtinquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 80, 30));
 
         jButton3.setText("Cerrar");
@@ -302,7 +312,13 @@ public class BusquedaContratos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+      if(jfechainicio.getDate() == null || jfechafin.getDate() == null|| jtalquiler.getText().length()<=0 ){ 
+            JOptionPane.showMessageDialog(null, "Por favor ingrese datos en todos los campos antes de guardar" );
+        }else{ 
+          
+              
+        
+        
        int idcontrato = Integer.parseInt(jtablacontra.getValueAt(jtablacontra.getSelectedRow(), 0).toString());
        LocalDate fechaincio= jfechainicio.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(); 
        java.sql.Date fechai = java.sql.Date.valueOf(fechaincio);
@@ -311,6 +327,12 @@ public class BusquedaContratos extends javax.swing.JFrame {
        int alquiler = Integer.parseInt(jtalquiler.getText());
         boolean vigencia = jrbvigencia.isSelected();                            
        
+       if(jfechainicio.getDate().before(jfechafin.getDate())){ 
+            JOptionPane.showMessageDialog(null, "La fecha de finalizacion no puede ser anterior a la de inicio"); 
+        
+        }else{
+           
+      
        ContratoData contra= new ContratoData();
       boolean exito = contra.actualizarContrato(fechaincio, fechafina, alquiler, vigencia, idcontrato);
        
@@ -322,9 +344,9 @@ public class BusquedaContratos extends javax.swing.JFrame {
        }
       Borrarfila();
       llenarTabla();
-       
+      }  
     }//GEN-LAST:event_jButton1ActionPerformed
-
+ } 
     private void jrbvigenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbvigenciaActionPerformed
         
     }//GEN-LAST:event_jrbvigenciaActionPerformed
@@ -339,6 +361,20 @@ public class BusquedaContratos extends javax.swing.JFrame {
         llenarTabla();
         llenarTabla2();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jtalquilerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtalquilerKeyTyped
+        char c = evt.getKeyChar();
+
+        if (Character.isDigit(c) || Character.isISOControl(c)) {
+            jtalquiler.setEditable(true);
+
+        } else {
+            jtalquiler.setEditable(false);
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo NUMEROS en campo Alquiler");
+            return;
+
+        }
+    }//GEN-LAST:event_jtalquilerKeyTyped
 
     /**
      * @param args the command line arguments
