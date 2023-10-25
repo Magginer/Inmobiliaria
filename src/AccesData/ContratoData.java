@@ -137,7 +137,7 @@ public class ContratoData {
     }
     
     public ArrayList<Contrato> ContratosVigentes(){
-        String sql= "SELECT idcontrato,inquilino.nombre, vigente FROM contrato,inquilino WHERE vigente =1";
+        String sql= "SELECT contrato.idcontrato,inquilino.nombre, contrato.vigente FROM contrato,inquilino WHERE vigente =1 AND contrato.idinquilino = inquilino.idinquilino";
         ArrayList<Contrato> contratos= new ArrayList<>();
         try{
             PreparedStatement ps = con.prepareStatement(sql);
@@ -145,9 +145,11 @@ public class ContratoData {
             while(rs.next()){
                 Contrato con= new Contrato();
                 con.setIdcontrato(rs.getInt("idcontrato"));
+                
                 Inquilino inqui = new Inquilino();
                 inqui.setNombre(rs.getString("nombre"));
                 con.setInquilino(inqui);
+                
                 con.setVigente(rs.getBoolean("vigente"));
                 
                 contratos.add(con);
