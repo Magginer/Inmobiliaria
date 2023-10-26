@@ -344,6 +344,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
        }
       Borrarfila();
       llenarTabla();
+      llenarTabla2();
       }  
     }//GEN-LAST:event_jButton1ActionPerformed
  } 
