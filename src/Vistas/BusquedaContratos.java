@@ -163,6 +163,9 @@ public class BusquedaContratos extends javax.swing.JFrame {
     private void initComponents() {
 
         jrbvigencia = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -176,11 +179,8 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jtinquilino = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtvigentes = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jfechainicio = new com.toedter.calendar.JDateChooser();
         jlbuscon = new javax.swing.JLabel();
 
@@ -195,6 +195,30 @@ public class BusquedaContratos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jrbvigencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 100, -1));
+
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 90, 40));
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 90, 40));
+
+        jButton3.setText("Cerrar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, 90, 40));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -261,14 +285,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jtinquilino.setEditable(false);
         jPanel1.add(jtinquilino, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 80, 30));
 
-        jButton3.setText("Cerrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 500, 90, 40));
-
         jtvigentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -283,22 +299,6 @@ public class BusquedaContratos extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jtvigentes);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 540, 100));
-
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 90, 40));
-
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 400, 90, 40));
         jPanel1.add(jfechainicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 940, 610));
