@@ -327,7 +327,7 @@ public class BusquedaContratos extends javax.swing.JFrame {
        int alquiler = Integer.parseInt(jtalquiler.getText());
         boolean vigencia = jrbvigencia.isSelected();                            
        
-       if(jfechainicio.getDate().before(jfechafin.getDate())){ 
+       if(jfechafin.getDate().before(jfechainicio.getDate())){ 
             JOptionPane.showMessageDialog(null, "La fecha de finalizacion no puede ser anterior a la de inicio"); 
         
         }else{
