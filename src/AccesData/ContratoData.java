@@ -54,7 +54,7 @@ public class ContratoData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla de Contrato");
+            JOptionPane.showMessageDialog(null, "Error Usuario o Inmueble duplicado");
         }
     }
 
