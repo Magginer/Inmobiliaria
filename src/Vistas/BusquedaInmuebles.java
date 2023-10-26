@@ -211,6 +211,7 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jttipoinmu = new javax.swing.JTextField();
         jtsuperficie = new javax.swing.JTextField();
         jtzona = new javax.swing.JTextField();
+        jrbdisponible = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -221,7 +222,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtinmuactivos = new javax.swing.JTable();
-        jrbdisponible = new javax.swing.JRadioButton();
         jlbusinmu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -310,6 +310,13 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         });
         getContentPane().add(jtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, -1));
 
+        jrbdisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbdisponibleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
+
         jPanel1.setBackground(new java.awt.Color(0, 0, 0,80));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -386,13 +393,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jtinmuactivos);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
-
-        jrbdisponible.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbdisponibleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
 
