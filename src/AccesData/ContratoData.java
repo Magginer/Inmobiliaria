@@ -54,7 +54,7 @@ public class ContratoData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla de Contrato");
+            JOptionPane.showMessageDialog(null, "Error Usuario o Inmueble duplicado");
         }
     }
 
@@ -77,8 +77,35 @@ public class ContratoData {
             JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contratos");
         }
     }
-
-    public void actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
+    public boolean inmueblerepetido (int idinmueble){
+        String consulta = "SELECT * FROM contrato WHERE idinmueble = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(consulta);
+        ps.setInt(1, idinmueble);
+        ResultSet rs = ps.executeQuery();
+        return rs.next(); 
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+                        
+    }
+    
+    public boolean inquilinorepetido (int idinquilino){
+        String consulta = "SELECT * FROM contrato WHERE idinquilino = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(consulta);
+        ps.setInt(1, idinquilino);
+        ResultSet rs = ps.executeQuery();
+        return rs.next(); 
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+                       
+    }
+    
+    public boolean actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
 
         String sql = "UPDATE contrato SET fechadeinicio=?, fechadefinalizacion=?, alquiler=?, vigente=? WHERE idcontrato=?";
 
@@ -91,21 +118,27 @@ public class ContratoData {
             ps.setBoolean(4, vigente);
             ps.setInt(5, idcontrato);
 
-            int filas = ps.executeUpdate();
-            if (filas > 0) {
+             int filasActualizadas = ps.executeUpdate();
 
-                JOptionPane.showMessageDialog(null, "se ha Renovado el Contrato");
-            }
-            ps.close();
+        ps.close();
 
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contrato");
+        // Comprobar si la actualización tuvo éxito
+        if (filasActualizadas > 0) {
+            return true;
+        } else {
+            return false;
         }
+    } catch (SQLException ex) {
+        ex.printStackTrace(); // Manejo de excepciones (puedes personalizarlo)
+        return false; // Si ocurre un error, devuelve false
     }
+}
+     
+
 
     public ArrayList<Contrato> ListarContrato() {
 
-        String sql = "SELECT  * FROM contrato";
+        String sql = "SELECT * FROM contrato";
         ArrayList<Contrato> contratos = new ArrayList<>();
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -114,8 +147,8 @@ public class ContratoData {
             while (rs.next()) {
 
                 Contrato con = new Contrato();
-                con.setIdcontrato(rs.getInt("idicontrato"));
-                con.setFechadeinicio(rs.getDate("fechainicio").toLocalDate());
+                con.setIdcontrato(rs.getInt("idcontrato"));
+                con.setFechadeinicio(rs.getDate("fechadeinicio").toLocalDate());
                 con.setFechadefinalizacion(rs.getDate("fechadefinalizacion").toLocalDate());
                 con.setAlquiler(rs.getInt("alquiler"));
                 con.setVigente(rs.getBoolean("vigente"));
@@ -123,16 +156,43 @@ public class ContratoData {
                 inqui.setIdinquilino(rs.getInt("idinquilino"));
                 con.setInquilino(inqui);
                 Inmuebles inm = new Inmuebles();
-                con.setInmueble(inm);
                 inm.setIdinmueble(rs.getInt("idinmueble"));
+                con.setInmueble(inm);
 
                 contratos.add(con);
 
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla contrato");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla contrato" + ex.getMessage());
         }
         return contratos;
     }
-}
+
+    public ArrayList<Contrato> ContratosVigentes() {
+        String sql = "SELECT contrato.idcontrato,inquilino.nombre, contrato.vigente FROM contrato,inquilino WHERE vigente =1 AND contrato.idinquilino = inquilino.idinquilino";
+        ArrayList<Contrato> contratos = new ArrayList<>();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Contrato con = new Contrato();
+                con.setIdcontrato(rs.getInt("idcontrato"));
+
+                Inquilino inqui = new Inquilino();
+                inqui.setNombre(rs.getString("nombre"));
+                con.setInquilino(inqui);
+
+                con.setVigente(rs.getBoolean("vigente"));
+
+                contratos.add(con);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Contratos.");
+        }
+
+        return contratos;
+    }
+ }
+    

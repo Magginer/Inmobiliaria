@@ -126,9 +126,9 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         Borrarfila();
         InmueblesData inmu = new InmueblesData();
         // Propietario pd= new Propietario();     funciona pero me sigue trayendo 0 como id
-        inmuebles = (ArrayList) inmu.inmueblesxestado();
+        inmuebles = (ArrayList) inmu.inmueblesxestado();   //contratos
 
-        for (Inmuebles inmueble : inmuebles) {
+        for (Inmuebles inmueble : inmuebles) {   // : contratos
             modelo.addRow(new Object[]{inmueble.getIdinmueble(), inmueble.getDireccion(), inmueble.getAltura(), inmueble.isEstado() ? "En Uso" : "Disponible", inmueble.getPropietario().getIdpropietario()});
         }
         
@@ -211,17 +211,17 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jttipoinmu = new javax.swing.JTextField();
         jtsuperficie = new javax.swing.JTextField();
         jtzona = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        jrbdisponible = new javax.swing.JRadioButton();
+        jcpropiinmu = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jcpropiinmu = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtinmupropietario = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtinmuactivos = new javax.swing.JTable();
-        jrbdisponible = new javax.swing.JRadioButton();
         jlbusinmu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -310,29 +310,12 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         });
         getContentPane().add(jtzona, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, -1));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0,80));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jrbdisponible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jrbdisponibleActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 90, -1));
-
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 90, -1));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Propietario");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 80, 30));
+        getContentPane().add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         jcpropiinmu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -347,7 +330,39 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
                 jcpropiinmuActionPerformed(evt);
             }
         });
-        jPanel1.add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 180, -1));
+        getContentPane().add(jcpropiinmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 180, -1));
+
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 500, 90, -1));
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 500, 90, -1));
+
+        jButton4.setText("Cerrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 480, 100, 50));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0,80));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Propietario");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 80, 30));
 
         jtinmupropietario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -364,14 +379,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 660, 90));
 
-        jButton4.setText("Cerrar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 480, 100, 50));
-
         jtinmuactivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -386,7 +393,6 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jtinmuactivos);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 430, 90));
-        jPanel1.add(jrbdisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 210, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
 
@@ -534,6 +540,10 @@ public class BusquedaInmuebles extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jtprecioKeyTyped
+
+    private void jrbdisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbdisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbdisponibleActionPerformed
 
     /**
      * @param args the command line arguments
