@@ -307,7 +307,7 @@ public class PropietarioVista extends javax.swing.JFrame {
 
         } else {
             PropiDom.setEditable(false);
-            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS en campo Domicilio");
+            JOptionPane.showMessageDialog(null, "ERROR: Por favor, ingrese solo LETRAS y NUMEROS en campo Domicilio");
             return;
 
         }
