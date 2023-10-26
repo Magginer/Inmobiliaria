@@ -245,7 +245,13 @@ public class ContratosVistas extends javax.swing.JFrame {
         contrato.setAlquiler(alquiler);
         contrato.setVigente(true);
         
+        
+        
         ContratoData con = new ContratoData ();
+        
+        
+        
+        
         con.guardarContrato(contrato);
       
       }

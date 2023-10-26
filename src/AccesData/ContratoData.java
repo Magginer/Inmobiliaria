@@ -77,7 +77,34 @@ public class ContratoData {
             JOptionPane.showMessageDialog(null, "Error al entrar a la tabla Contratos");
         }
     }
-
+    public boolean inmueblerepetido (int idinmueble){
+        String consulta = "SELECT * FROM contrato WHERE idinmueble = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(consulta);
+        ps.setInt(1, idinmueble);
+        ResultSet rs = ps.executeQuery();
+        return rs.next(); 
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+                        
+    }
+    
+    public boolean inquilinorepetido (int idinquilino){
+        String consulta = "SELECT * FROM contrato WHERE idinquilino = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(consulta);
+        ps.setInt(1, idinquilino);
+        ResultSet rs = ps.executeQuery();
+        return rs.next(); 
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false;
+                       
+    }
+    
     public boolean actualizarContrato(LocalDate fechadeinicio, LocalDate fechadefinalizacion, int alquiler, boolean vigente, int idcontrato) {
 
         String sql = "UPDATE contrato SET fechadeinicio=?, fechadefinalizacion=?, alquiler=?, vigente=? WHERE idcontrato=?";
